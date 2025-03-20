@@ -7,14 +7,15 @@ function checkResponse(res) {
   }
   return Promise.reject(`Error ${res.status}`);
 }
-export const filterPokemonData = (data) => {
-  const result = {};
-  result.array = data.pokemon_species;
-  return result;
-};
 
-export const flatenPokemonData = (data) => {
-  data.map((pokemon) => {
-    return pokemon.name;
+export const filterPokemonData = (data) => {
+  return data.pokemon_species.map((pokemon) => {
+    return pokemon.name
+      .toLowerCase()
+      .split("")
+      .filter((letter) => {
+        return /[a-z]$/i.test(letter);
+      })
+      .join("");
   });
 };

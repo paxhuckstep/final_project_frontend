@@ -16,19 +16,10 @@ function SideBar({ addCategory, removeCategory }) {
   useEffect(() => {
     getPokemon()
       .then((data) => {
-        const filteredPokemon = filterPokemonData(data);
-        const badNames = filteredPokemon.array.map((pokemon) => {
-          return pokemon.name.toLowerCase();
-        });
-        const goodNames = badNames.map((pokeName) => {
-          return pokeName
-            .split("")
-            .filter((letter) => {
-              return /[a-z]$/i.test(letter);
-            })
-            .join("");
-        });
-        setPokemonArray(goodNames);
+        // console.log(data);
+        const filteredPokemonData = filterPokemonData(data);
+        // console.log(filteredPokemonData)
+        setPokemonArray(filteredPokemonData);
       })
 
       .catch(console.error);
