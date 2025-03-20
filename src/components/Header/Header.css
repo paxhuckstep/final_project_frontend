@@ -1,0 +1,30 @@
+.header {
+    max-width: 100%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin-bottom: 50px;
+  }
+  
+  .header__title {
+    margin: 0 auto;
+    /* position: center; */
+  }
+  
+  .header__right-container {
+    /* margin: 0 100px 15px auto; */
+    position: absolute;
+    right: 50px;
+    width: 170px;
+  }
+  
+  .header__attempts {
+    margin: 0;
+  }
+  
+  .header__reset-button{
+    width: 76px;
+    margin: 10px auto 0
+  }
+  .header__reset-button:hover{
+    cursor: pointer;
+  }
