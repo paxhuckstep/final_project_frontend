@@ -4,6 +4,11 @@ import Grid from "../Grid/Grid";
 import Header from "../Header/Header";
 import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
+// import {
+//   filterPokemonData,
+//   flatenPokemonData,
+//   getPokemon,
+// } from "../../Utils/pokeApi";
 
 function App() {
   const [correctWord, setCorrectWord] = useState("");
@@ -58,7 +63,7 @@ function App() {
       return {
         index: index,
         letter: letter,
-        boxClass:   
+        boxClass:
           letter === correctWord.charAt(index)
             ? "box_green"
             : isYellow
@@ -74,7 +79,7 @@ function App() {
       setIsOpen(true);
       setIsWin(true);
     }
-    setCurrentInputs([]);  
+    setCurrentInputs([]);
   };
 
   const handleNewWord = () => {
@@ -159,9 +164,45 @@ function App() {
     handleNewWord();
   }, []);
 
-  // useEffect(() => {
-  //  console.log(selectedWords)
-  // }, [selectedWords]);
+  //   useEffect(() => {
+  //    console.log(selectedWords)
+  //   }, [selectedWords]);
+
+//   useEffect(() => {
+//     getPokemon()
+//       .then((data) => {
+//         // console.log(data);
+//         const filteredPokemon = filterPokemonData(data);
+//         // console.log(filteredPokemon);
+//         const badNames = filteredPokemon.array.map((pokemon) => {
+//           return pokemon.name;
+//         });
+//         console.log(badNames);
+
+//         // const problemPokes = badNames.filter((pokemon) => {
+//         //     return pokemon.includes("-");
+//         // })
+//         // console.log(problemPokes);
+
+//         const goodNames = badNames.map((pokeName) => {
+//           return pokeName
+//             .split("")
+//             .filter((letter) => {
+//               //   return alphabetArray.includes(letter);
+//               return /[a-z]$/i.test(letter);
+//             })
+//             .join("");
+//         });
+//         console.log(goodNames);
+
+//         const problemPokes = goodNames.filter((pokemon) => {
+//           return pokemon.includes("-");
+//         });
+//         console.log(problemPokes);
+//       })
+
+//       .catch(console.error);
+//   }, []);
 
   return (
     <>
@@ -172,10 +213,7 @@ function App() {
           remainingLetters={remainingLetters}
         />
         <div className="app__body">
-          <SideBar
-            addCategory={addCategory}
-            removeCategory={removeCategory}
-          />
+          <SideBar addCategory={addCategory} removeCategory={removeCategory} />
           <Grid
             isGrid={isGrid}
             correctWord={correctWord}
