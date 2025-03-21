@@ -56,7 +56,7 @@ function Home() {
             : "box_wrong",
       };
     });
-    console.log("new submission: ", newSubmission);
+    // console.log("new submission: ", newSubmission);
 
     setSubmissions((prev) => [...prev, newSubmission]);
     setCurrentAttempt((prev) => prev + 1);
