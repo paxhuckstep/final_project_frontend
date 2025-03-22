@@ -1,6 +1,6 @@
 import "./HeaderProfile.css";
 
-function HeaderProfile() {
+function HeaderProfile({openLoginModal, openRegisterModal}) {
   const isLoggedIn = false;
 
   if (isLoggedIn) {
@@ -9,8 +9,8 @@ function HeaderProfile() {
   return (
     <>
       <div className="header-profile">
-        <button className="header-profile__register">Register</button>
-        <button className="header-profile__login">Login</button>
+        <button onClick={openRegisterModal} className="header-profile__register">Register</button>
+        <button onClick={openLoginModal} className="header-profile__login">Login</button>
       </div>
     </>
   );
