@@ -14,7 +14,7 @@ function Grid({
     return (
       <div className="grid">
         <p className="grid__notice">
-          To get started, select some catagories on the left,  then click "New word" at the top right corner.
+          To get started, select some catagories on the left,  then click "New word" on the right.
         </p>
       </div>
     );
