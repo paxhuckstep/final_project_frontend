@@ -5,7 +5,7 @@ import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
 import "./Home.css";
 
-function Home() {
+function Home({ activeModal }) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
   const [currentAttempt, setCurrentAttempt] = useState(1);
@@ -103,6 +103,9 @@ function Home() {
   useEffect(() => {
     const handleKeyDown = (event) => {
       const isLetter = /[a-z]$/i.test(event.key);
+      if (activeModal) {
+        return;
+      }
 
       if (event.key == "Backspace") {
         setCurrentInputs((prev) => prev.slice(0, -1));
@@ -138,7 +141,7 @@ function Home() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentInputs, correctWord, isOpen]);
+  }, [currentInputs, correctWord, isOpen, activeModal]);
 
   useEffect(() => {
     handleNewWord();

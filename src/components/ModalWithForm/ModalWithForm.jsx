@@ -4,7 +4,7 @@ function ModalWithForm({
   children,
   buttonText,
   title,
-  isOpen,
+  // isOpen,
   onClose,
   onSubmit,
   isSwitchSeen,
@@ -15,9 +15,9 @@ function ModalWithForm({
     isSwitchSeen ? "" : "modal__switch_hidden"
   }`;
 
-  if (!isOpen) {
-    return null;
-  }
+  // if (!isOpen) {
+  //   return null;
+  // }
 
   return (
     <div className="modal">

@@ -28,7 +28,7 @@ function App() {
         />
         <div className="app__body">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home activeModal={activeModal} />} />
             <Route path="/about" element={<About />} />
             <Route path="/leaderboards" element={<Leaderboards />} />
           </Routes>
@@ -36,13 +36,13 @@ function App() {
         <RegisterModal
           onClose={closeActiveModal}
           isOpen={activeModal === "register"}
-        //   onRegisterSubmit={handleRegistration}
+          //   onRegisterSubmit={handleRegistration}
           openLoginModal={openLoginModal}
         />
         <LoginModal
           onClose={closeActiveModal}
           isOpen={activeModal === "log-in"}
-        //   handleLogIn={handleLogIn}
+          //   handleLogIn={handleLogIn}
           openRegisterModal={openRegisterModal}
         />
       </div>

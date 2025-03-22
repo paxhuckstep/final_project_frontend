@@ -2,44 +2,25 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function RegisterModal({
-  isOpen,
-  onClose,
-  onRegisterSubmit,
-  handleSignInClick,
-}) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [avatar, setAvatar] = useState("");
+function RegisterModal({ isOpen, onClose, onRegisterSubmit, openLoginModal }) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const resetValues = () => {
-    setName("");
-    setEmail("");
-    setAvatar("");
+    setUsername("");
+
     setPassword("");
     setConfirmPassword("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegisterSubmit(
-      { name, avatar, email, password, confirmPassword },
-      resetValues
-    );
+    onRegisterSubmit({ username, password, confirmPassword }, resetValues);
   };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleAvatarChange = (e) => {
-    setAvatar(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -59,57 +40,28 @@ function RegisterModal({
       title="Sign Up"
       buttonText="Sign Up"
       onClose={onClose}
-      isOpen={isOpen}
+      //   isOpen={isOpen}
       onSubmit={handleSubmit}
       isSwitchSeen={true}
-      onSwitch={handleSignInClick}
+      onSwitch={openLoginModal}
       switchText={"or Log In"}
     >
-      <label htmlFor="name" className="modal__label">
-        name
+      <label htmlFor="username" className="modal__label">
+        Username
         <input
           type="text"
-          name="name"
+          name="username"
           className="modal__input"
-          id="name"
-          placeholder="name"
+          id="username"
+          placeholder="Username"
           minLength="1"
           maxLength="30"
           required
-          onChange={handleNameChange}
-          value={name}
+          onChange={handleUsernameChange}
+          value={username}
         />
       </label>
 
-      <label htmlFor="avatar" className="modal__label">
-        avatar
-        <input
-          type="url"
-          name="avatar"
-          className="modal__input"
-          id="avatar"
-          placeholder="avatar url"
-          minLength="1"
-          required
-          onChange={handleAvatarChange}
-          value={avatar}
-        />
-      </label>
-
-      <label htmlFor="email" className="modal__label">
-        E-mail
-        <input
-          type="email"
-          name="email"
-          className="modal__input"
-          id="email"
-          placeholder="e-mail"
-          minLength="1"
-          required
-          onChange={handleEmailChange}
-          value={email}
-        />
-      </label>
       <label htmlFor="password" className="modal__label">
         Password
         <input
