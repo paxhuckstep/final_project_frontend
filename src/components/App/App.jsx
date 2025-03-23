@@ -36,33 +36,31 @@ function App() {
   };
 
   return (
-    <>
-      <div className="app">
-        <Header
-          openRegisterModal={openRegisterModal}
-          openLoginModal={openLoginModal}
-        />
-        <div className="app__body">
-          <Routes>
-            <Route path="/" element={<Home activeModal={activeModal} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/leaderboards" element={<Leaderboards />} />
-          </Routes>
-        </div>
-        <RegisterModal
-          onClose={closeActiveModal}
-          isOpen={activeModal === "register"}
-          handleRegistration={handleRegistration}
-          openLoginModal={openLoginModal}
-        />
-        <LoginModal
-          onClose={closeActiveModal}
-          isOpen={activeModal === "log-in"}
-          handleLogIn={handleLogin}
-          openRegisterModal={openRegisterModal}
-        />
+    <div className="app">
+      <Header
+        openRegisterModal={openRegisterModal}
+        openLoginModal={openLoginModal}
+      />
+      <div className="app__body">
+        <Routes>
+          <Route path="/" element={<Home activeModal={activeModal} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/leaderboards" element={<Leaderboards />} />
+        </Routes>
       </div>
-    </>
+      <RegisterModal
+        onClose={closeActiveModal}
+        isOpen={activeModal === "register"}
+        handleRegistration={handleRegistration}
+        openLoginModal={openLoginModal}
+      />
+      <LoginModal
+        onClose={closeActiveModal}
+        isOpen={activeModal === "log-in"}
+        handleLogIn={handleLogin}
+        openRegisterModal={openRegisterModal}
+      />
+    </div>
   );
 }
 

@@ -25,10 +25,17 @@
 } */
 
 @media screen and (max-width: 800px) {
-.home{
+  .home {
     width: 100vw;
+    height: 700px;
     flex-direction: column;
+    gap: 20px;
     /* justify-content: space-between; */
     align-items: center;
-    }
   }
+}
+@media screen and (max-width: 450px) {
+.home{
+  height: 600px
+}
+}

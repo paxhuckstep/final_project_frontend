@@ -10,7 +10,7 @@
   display: inline-block;
   width: 56px;
   height: 28px;
-  border: 2px solid #8FBC8F;
+  border: 2px solid #8fbc8f;
   border-radius: 20px;
   cursor: pointer;
   overflow: visible;
@@ -24,7 +24,7 @@
 }
 
 .toggle-switch__circle {
-  background-color: #8FBC8F;
+  background-color: #8fbc8f;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -66,11 +66,51 @@
   color: #fff;
 } */
 
-.toggle-switch:hover {
-  border: 2px solid black;
+.toggle-switch__switch:hover {
+  border: 2px solid #485f48;
 }
-/* @media screen and (max-width: 800px) {
-  .toggle-switch {
-  
+@media screen and (max-width: 800px) {
+  .toggle-switch__title {
+    margin-top: 10px;
+    max-width: 118px;
   }
-} */
+  .toggle-switch {
+    width: 125px;
+  }
+
+  .toggle-switch__switch {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .toggle-switch__title {
+    margin-top: 10px;
+    max-width: 118px;
+    font-size: 14px;
+  }
+  .toggle-switch__switch {
+    width: 40px;
+    height: 18px;
+  }
+  .toggle-switch__circle {
+    height: 18px;
+    width: 18px;
+  }
+  .toggle-switch__text {
+    /* font-family: "Cabinet Grotesk", sans-serif; */
+    font-size: 10px;
+    line-height: 9px;
+    position: absolute;
+    top: 5px;
+  }
+  .toggle-switch__text_N {
+    left: 5px;
+  }
+  .toggle-switch__text_Y {
+    right: 6px;
+  }
+  .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
+    left: 22px;
+  }
+}

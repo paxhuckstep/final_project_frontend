@@ -1,31 +1,56 @@
 .navbar {
-    display: flex;
-    gap: 5px;
-    padding: 0 20px;  
-    border-bottom: 2px solid #e0e0e0; 
+  display: flex;
+  gap: 5px;
+  padding: 0 20px;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .navbar__button {
-    padding: 10px 20px;
-    border: none;
-    background: #f5f5f5;  
-    border-radius: 8px 8px 0 0;  
-    cursor: pointer;
-    position: relative;
-    transition: all 0.2s ease;
+  padding: 10px 20px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
 }
 
 .navbar__button:hover {
-    background: #e8e8e8;
+  background: #e8e8e8;
+  outline: none;
 }
 
-.navbar__button.active {
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-bottom: 2px solid white; 
-    margin-bottom: -2px; 
+.navbar__button_active {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-bottom: 2px solid white;
+  margin-bottom: -2px;
 }
-
+.navbar__button_active:hover {
+    outline: none;
+}
+/* .navbar a:focus,
+.navbar a:focus-visible,
+.navbar__button:focus,
+.navbar__button:focus-visible {
+  outline: none;
+}
+.navbar a {
+  text-decoration: none;
+  outline: none;
+} */
 .navbar__button:focus {
     outline: none;
+}
+
+@media screen and (max-width: 800px) {
+  .navbar__button_active-home {
+    background-color: #4267b2;
+    border-bottom: 2px solid #4267b2;
+    color: white;
+  }
+  @media screen and (max-width: 450px) {
+ .navbar__button{
+    font-size: 12px;
+ }
 }

@@ -14,21 +14,21 @@ function NavBar() {
       <div className="navbar">
         <Link to="/">
           <button 
-            className={`navbar__button ${isActive('/') ? 'active' : ''}`}
+            className={`navbar__button ${isActive('/') ? 'navbar__button_active navbar__button_active-home' : ''}`}
           >
             Home
           </button>
         </Link>
         <Link to="/about">
           <button 
-            className={`navbar__button ${isActive('/about') ? 'active' : ''}`}
+            className={`navbar__button ${isActive('/about') ? 'navbar__button_active' : ''}`}
           >
             About
           </button>
         </Link>
         <Link to="/leaderboards">
           <button 
-            className={`navbar__button ${isActive('/leaderboards') ? 'active' : ''}`}
+            className={`navbar__button ${isActive('/leaderboards') ? 'navbar__button_active' : ''}`}
           >
             Leaderboards
           </button>
