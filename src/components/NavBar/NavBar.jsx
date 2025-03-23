@@ -1,17 +1,37 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import "./NavBar.css";
+
 function NavBar() {
+  const location = useLocation(); // Hook to get current route
+
+  // Helper function to check if a path is active
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <>
       <div className="navbar">
         <Link to="/">
-          <button className="navbar__home">Home</button>
+          <button 
+            className={`navbar__button ${isActive('/') ? 'active' : ''}`}
+          >
+            Home
+          </button>
         </Link>
         <Link to="/about">
-          <button className="navbar__about">About</button>
+          <button 
+            className={`navbar__button ${isActive('/about') ? 'active' : ''}`}
+          >
+            About
+          </button>
         </Link>
         <Link to="/leaderboards">
-          <button className="navbar__leaderboards">Leaderboards</button>
+          <button 
+            className={`navbar__button ${isActive('/leaderboards') ? 'active' : ''}`}
+          >
+            Leaderboards
+          </button>
         </Link>
       </div>
     </>

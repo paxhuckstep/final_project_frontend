@@ -9,8 +9,8 @@ function HeaderProfile({openLoginModal, openRegisterModal}) {
   return (
     <>
       <div className="header-profile">
-        <button onClick={openRegisterModal} className="header-profile__register">Register</button>
-        <button onClick={openLoginModal} className="header-profile__login">Login</button>
+        <button onClick={openRegisterModal} className="header-profile__button">Register</button>
+        <button onClick={openLoginModal} className="header-profile__button">Login</button>
       </div>
     </>
   );

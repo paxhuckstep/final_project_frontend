@@ -5,28 +5,15 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  font-family: sans-serif;
+  color: black;
+  position: relative;
+  background-color: rgb(225, 225, 245);
 }
   .header__title {
-    margin: 0 auto;
-    /* position: center; */
+    margin: 15px auto 0px;
   }
-  
-  .header__right-container {
-    /* margin: 0 100px 15px auto; */
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    width: 170px;
-  }
-  
-  .header__attempts {
-    margin: 0;
-  }
-  
-  .header__reset-button{
-    width: 76px;
-    margin: 10px auto 0
-  }
-  .header__reset-button:hover{
-    cursor: pointer;
+  .header__sub-title {
+    margin: 0px auto 10px;
+    font-size: 30px;
   }
