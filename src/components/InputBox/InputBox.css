@@ -26,3 +26,17 @@
 .box_wrong {
   background-color: rgb(0, 0, 0, 0.35);
 }
+
+@media screen and (max-width: 1768px) {
+  .box {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .box {
+    height: 30px;
+    width: 30px;
+  }
+}

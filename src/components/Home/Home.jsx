@@ -68,20 +68,21 @@ function Home({ activeModal }) {
   };
 
   const handleNewWord = () => {
-    console.log("handleNewWord ran");
-    setCorrectWord(
-      selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    );
+    // setCorrectWord(
+    //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    // );
+    setCorrectWord("massachusetts")
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
     setCurrentAttempt(1);
     setCurrentInputs([]);
-    if (selectedWords.length > 0) {
-      setIsGrid(true);
-    } else {
-      setIsGrid(false);
-    }
+    // if (selectedWords.length > 0) {
+    //   setIsGrid(true);
+    // } else {
+    //   setIsGrid(false);
+    // }
+    setIsGrid(true);
   };
 
   useEffect(() => {
@@ -168,10 +169,10 @@ function Home({ activeModal }) {
           currentAttempt={currentAttempt}
           submissions={submissions}
         />
-        <div className="delete__later">
+        {/* <div className="delete__later">
           For testing, you can highlight inside the quotes for the answer: "
           <span className="delete__later-span">{correctWord}</span>"
-        </div>
+        </div> */}
         <HomeRight
           currentAttempt={currentAttempt}
           handleNewWord={handleNewWord}

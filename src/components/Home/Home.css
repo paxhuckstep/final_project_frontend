@@ -1,21 +1,25 @@
 .home {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.delete__later {
+/* .delete__later {
     margin: 80px auto;
-    /* color: white; */
     font-size: 20px;
     color: #000;
-    /* position: absolute;
-    right: 50%;
-    top: 300px; */
     margin: 600px auto;
   }
   
   .delete__later-span {
     color: white;
   }
-  
+   */
+
+/* .home {
+  display: flex; 
+  justify-content: center;
+  gap: 2rem; 
+  width: 100%;
+  padding: 0 1rem; 
+} */

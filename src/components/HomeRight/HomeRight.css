@@ -48,3 +48,42 @@
 .home-right__reset-button:focus {
   outline: none;
 }
+
+@media screen and (max-width: 1768px) {
+  .home-right {
+    margin-right: 50px;  /* Reduced from 200px */
+  }
+
+  .home-right__letters-container {
+    width: 160px;  /* Reduced from 205px */
+  }
+
+  .home-right__letters {
+    width: 155px;  /* Reduced from 200px */
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .home-right__attempts {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+  }
+  .home-right__letters-container {
+    width: 140px;  /* Reduced from 205px */
+    margin-left: 35px;
+  }
+  .home-right__letters {
+    width: 125px;  /* Reduced from 200px */
+  }
+  .home-right__reset-button {
+    margin: 20px 0 0 35px;
+  }
+
+
+}
+
+
+
+

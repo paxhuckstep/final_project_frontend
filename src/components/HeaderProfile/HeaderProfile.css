@@ -17,3 +17,9 @@
     color: rgb(175, 118, 177);
     border: rgb(175, 118, 177) solid 2px;
 }
+
+@media screen and (max-width: 1100px) {
+.header-profile{
+    right: 50px;
+}
+  }
