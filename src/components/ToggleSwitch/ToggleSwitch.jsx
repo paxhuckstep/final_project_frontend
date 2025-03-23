@@ -21,6 +21,7 @@ function ToggleSwitch({
   };
   return (
     <>
+    <div className="toggle-switch">
       <p className="toggle-switch__title">{categoryTitle}</p>
       <label className="toggle-switch__switch">
         <input
@@ -33,6 +34,7 @@ function ToggleSwitch({
         <span className="toggle-switch__text toggle-switch__text_N">N</span>
         <span className="toggle-switch__text toggle-switch__text_Y">Y</span>
       </label>
+      </div>
     </>
   );
 }

@@ -51,15 +51,15 @@
 
 @media screen and (max-width: 1768px) {
   .home-right {
-    margin-right: 50px;  /* Reduced from 200px */
+    margin-right: 50px; /* Reduced from 200px */
   }
 
   .home-right__letters-container {
-    width: 160px;  /* Reduced from 205px */
+    width: 160px; /* Reduced from 205px */
   }
 
   .home-right__letters {
-    width: 155px;  /* Reduced from 200px */
+    width: 155px; /* Reduced from 200px */
   }
 }
 
@@ -71,19 +71,31 @@
     font-weight: 600;
   }
   .home-right__letters-container {
-    width: 140px;  /* Reduced from 205px */
+    width: 140px; /* Reduced from 205px */
     margin-left: 35px;
   }
   .home-right__letters {
-    width: 125px;  /* Reduced from 200px */
+    width: 125px; /* Reduced from 200px */
   }
   .home-right__reset-button {
     margin: 20px 0 0 35px;
   }
-
-
+}
+@media screen and (max-width: 800px) {
+  .home-right {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.home-right__letters-container{
+  margin: 10px auto;
 }
 
-
-
-
+  .home-right__reset-button{
+    margin: 20px auto;
+  }
+}

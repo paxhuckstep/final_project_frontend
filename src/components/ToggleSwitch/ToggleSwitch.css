@@ -69,3 +69,8 @@
 .toggle-switch:hover {
   border: 2px solid black;
 }
+/* @media screen and (max-width: 800px) {
+  .toggle-switch {
+  
+  }
+} */

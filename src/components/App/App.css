@@ -17,3 +17,9 @@
     width: 100vw;
     /* margin-top: 50px; */
   }
+  @media screen and (max-width: 800px) {
+    .app__body {
+ padding: 0;
+    }
+  }
+  
