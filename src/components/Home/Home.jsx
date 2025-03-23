@@ -113,6 +113,7 @@ function Home({ activeModal }) {
       }
 
       if (event.key == "Enter") {
+        event.preventDefault();
         if (isOpen) {
           handleNewWord();
         }

@@ -19,6 +19,22 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  const handleRegistration = (
+    { username, password, confirmPassword },
+    resetValues
+  ) => {
+    console.log("Register and stuff", username, password === confirmPassword);
+    setActiveModal("");
+    //resevValues() inside of a .then eventually
+  };
+
+  const handleLogin = ({ username, password }, resetValues) => {
+    console.log("Log in and stuff", username, password);
+    setActiveModal("");
+    //resetValues() inside of a .then eventually
+  };
+
   return (
     <>
       <div className="app">
@@ -36,13 +52,13 @@ function App() {
         <RegisterModal
           onClose={closeActiveModal}
           isOpen={activeModal === "register"}
-          //   onRegisterSubmit={handleRegistration}
+          handleRegistration={handleRegistration}
           openLoginModal={openLoginModal}
         />
         <LoginModal
           onClose={closeActiveModal}
           isOpen={activeModal === "log-in"}
-          //   handleLogIn={handleLogIn}
+          handleLogIn={handleLogin}
           openRegisterModal={openRegisterModal}
         />
       </div>

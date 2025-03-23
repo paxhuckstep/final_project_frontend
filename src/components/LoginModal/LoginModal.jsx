@@ -30,7 +30,6 @@ function LoginModal({ isOpen, onClose, handleLogIn, openRegisterModal }) {
       title="Log In"
       buttonText="Log In"
       onClose={onClose}
-    //   isOpen={isOpen}
       onSubmit={handleSubmit}
       isSwitchSeen={true}
       onSwitch={openRegisterModal}

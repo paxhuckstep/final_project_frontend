@@ -2,21 +2,25 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function RegisterModal({ isOpen, onClose, onRegisterSubmit, openLoginModal }) {
+function RegisterModal({
+  isOpen,
+  onClose,
+  handleRegistration,
+  openLoginModal,
+}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const resetValues = () => {
     setUsername("");
-
     setPassword("");
     setConfirmPassword("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegisterSubmit({ username, password, confirmPassword }, resetValues);
+    handleRegistration({ username, password, confirmPassword }, resetValues);
   };
 
   const handleUsernameChange = (e) => {

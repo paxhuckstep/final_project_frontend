@@ -3,15 +3,17 @@
     flex-direction: column;
     position: relative;
     align-items: center;
+    min-height: 100vh;
   }
   
   .app__body {
     display: flex;
     position: relative;
     /* justify-content: space-between; */
+    justify-content: center;
     padding: 20px;
     flex: 1;
-    width: 100%;
+    width: 100vw;
   }
   
   .delete__later {
