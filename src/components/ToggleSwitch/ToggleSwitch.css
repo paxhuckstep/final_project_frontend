@@ -3,6 +3,7 @@
   color: rgb(0, 0, 0);
   font-size: 18px;
   font-weight: 600;
+  color: white;
 }
 
 .toggle-switch__switch {
@@ -48,21 +49,22 @@
 
 .toggle-switch__text_Y {
   right: 9px;
-  color: rgba(0, 0, 0, 1);
+  /* color: rgba(0, 0, 0, 1); */
   transition: all 1s;
+  color: white;
 }
 
 .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
   left: 28px;
 }
 
-.toggle-switch__checkbox:checked ~ .toggle-switch__text_N {
+/* .toggle-switch__checkbox:checked ~ .toggle-switch__text_N {
   color: rgba(0, 0, 0, 1);
 }
 
 .toggle-switch__checkbox:checked ~ .toggle-switch__text_Y {
   color: #fff;
-}
+} */
 
 .toggle-switch:hover {
   border: 2px solid black;

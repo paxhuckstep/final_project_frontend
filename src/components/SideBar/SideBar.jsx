@@ -28,19 +28,19 @@ function SideBar({ addCategory, removeCategory }) {
     <div className="sidebar">
       <h3 className="sidebar__title">Categories</h3>
       <ToggleSwitch
-        categoryTitle={"5 letter words"}
+        categoryTitle={"5 Letter Words"}
         addCategory={addCategory}
         removeCategory={removeCategory}
         categoryArray={fiveLetters}
       />
       <ToggleSwitch
-        categoryTitle={"6 letter words"}
+        categoryTitle={"6 Letter Words"}
         addCategory={addCategory}
         removeCategory={removeCategory}
         categoryArray={sixLetters}
       />
       <ToggleSwitch
-        categoryTitle={"Original 151 pokemon"}
+        categoryTitle={"Original 151 Pokemon"}
         addCategory={addCategory}
         removeCategory={removeCategory}
         categoryArray={pokemonArray}
