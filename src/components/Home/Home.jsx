@@ -68,6 +68,7 @@ function Home({ activeModal }) {
   };
 
   const handleNewWord = () => {
+    console.log("handleNewWord ran")
     setCorrectWord(
       selectedWords[Math.floor(Math.random() * selectedWords.length)]
     );
@@ -106,38 +107,30 @@ function Home({ activeModal }) {
       if (activeModal) {
         return;
       }
-
       if (event.key == "Backspace") {
         setCurrentInputs((prev) => prev.slice(0, -1));
         return;
       }
-
       if (event.key == "Enter") {
         event.preventDefault();
         if (isOpen) {
           handleNewWord();
         }
-
-        if (currentInputs.length === correctWord.length) {
+        if (currentInputs.length === correctWord.length && !isOpen) {
           testAnswer();
         }
-
         return;
       }
-
       if (currentInputs.length >= correctWord.length) {
         return;
       }
-
       if (event.key.length > 1) {
         return;
       }
-
       if (isLetter) {
         setCurrentInputs((prev) => [...prev, event.key.toLowerCase()]);
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
