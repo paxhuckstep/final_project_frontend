@@ -68,7 +68,7 @@ function Home({ activeModal }) {
   };
 
   const handleNewWord = () => {
-    console.log("handleNewWord ran")
+    console.log("handleNewWord ran");
     setCorrectWord(
       selectedWords[Math.floor(Math.random() * selectedWords.length)]
     );
@@ -85,7 +85,7 @@ function Home({ activeModal }) {
   };
 
   useEffect(() => {
-    if (currentAttempt === 6) {
+    if (currentAttempt === 7) {
       setIsOpen(true);
     }
   }, [currentAttempt]);
@@ -159,23 +159,25 @@ function Home({ activeModal }) {
 
   return (
     <>
-      <SideBar addCategory={addCategory} removeCategory={removeCategory} />
-      <Grid
-        isGrid={isGrid}
-        correctWord={correctWord}
-        currentInputs={currentInputs}
-        currentAttempt={currentAttempt}
-        submissions={submissions}
-      />
-      <div className="delete__later">
-        For testing, you can highlight inside the quotes for the answer: "
-        <span className="delete__later-span">{correctWord}</span>"
+      <div className="home">
+        <SideBar addCategory={addCategory} removeCategory={removeCategory} />
+        <Grid
+          isGrid={isGrid}
+          correctWord={correctWord}
+          currentInputs={currentInputs}
+          currentAttempt={currentAttempt}
+          submissions={submissions}
+        />
+        <div className="delete__later">
+          For testing, you can highlight inside the quotes for the answer: "
+          <span className="delete__later-span">{correctWord}</span>"
+        </div>
+        <HomeRight
+          currentAttempt={currentAttempt}
+          handleNewWord={handleNewWord}
+          remainingLetters={remainingLetters}
+        />
       </div>
-      <HomeRight
-        currentAttempt={currentAttempt}
-        handleNewWord={handleNewWord}
-        remainingLetters={remainingLetters}
-      />
       <Popup
         isOpen={isOpen}
         isWin={isWin}

@@ -1,11 +1,86 @@
 import "./About.css";
 
 function About() {
-
   return (
     <div className="about">
-      <h2 className="about__title">About Section</h2>
-      <p className="about__paragraph">About section content explaining stuff</p>
+      <h2 className="about__title">Rules</h2>
+      <p className="about__paragraph">
+        This game plays very similarly to the classic{" "}
+        <a
+          href="https://www.nytimes.com/games/wordle"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="about__link"
+        >
+          Wordle
+        </a>
+        . The goal is to guess the hidden word through trial and error.
+      </p>
+
+      <p className="about__paragraph">
+        Here's how it works: After each guess, the letters will be color-coded
+        to give you clues:
+      </p>
+      <ul className="about__list">
+        <li>Green means the letter is correct and in the right position</li>
+        <li>
+          Yellow means the letter exists in the word but is in the wrong
+          position
+        </li>
+        <li>Gray means the letter is not in the word at all</li>
+      </ul>
+
+      <p className="about__paragraph">Our version has some unique features:</p>
+      <ul className="about__list">
+        <li>Words can be different lengths (not just 5 letters)</li>
+        <li>Your guesses don't have to be real words</li>
+        <li>Words are selected from categories you've marked "Y"</li>
+        <li>You can play multiple times (not just once per day)</li>
+        <li>Compete for a spot on the leaderboards!</li>
+      </ul>
+      <h3 className="about__subtitle">Unique Cases</h3>
+      <p className="about__paragraph">
+        Sometimes words ( like Hawai'i or Mr. Mime ) have characters that are
+        not letters, like Hawai'i's apostrophe and Mr. Mime's period and space.
+        These characters are not included in the game. The game only accepts the
+        26 english letters as inputs. All answers are spelled using just the 26
+        english letters. Here's a list of unique cases to be aware of:
+      </p>
+      <ul className="about__list">
+        <li>Hawai'i is "hawaii"</li>
+        <li>Mr. Mime is "mrmime"</li>
+        <li>Nidoran &#9794; is "nidoranm"</li>
+        <li>Nidoran &#9792; is "nidoranf"</li>
+        <li>St. Paul is "stpaul"</li>
+        <li>
+          All 2 word states and cities are 1 word! (New York is "newyork")
+        </li>
+      </ul>
+      <h2 className="about__title">Inspiration</h2>
+      <p className="about__paragraph">
+        One night I was surfing youtube and saw a{" "}
+        <a
+          href="https://www.youtube.com/watch?v=5xf4_Kx7azg"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="about__link"
+        >
+          video
+        </a>{" "}
+        of a mock React interview where the challenge was to make a
+        semi-functional wordle interface. I watched the video late at night and
+        even though I knew they were attempting it in a way very differently
+        than how I would, I still thought it would be a really fun challenge and
+        wanted to see if I could do it myself. I slept on the idea and when I
+        woke up I go to work. It was my first time creating something completely
+        independently in React so it definitely took me longer than the guy in
+        the video. From the start I knew I wanted mine to be able to work
+        for any word length, not just 5 letters. It took me a few hours but when
+        I was done I had an interface with all the same functionality as they
+        got in the video, plus some. Once I finished I kept thinking of more
+        functionalities I could add to show off all I had learned from TripleTen,
+        and that's what brought us to where we are today.
+      </p>
     </div>
   );
 }

@@ -1,0 +1,28 @@
+.about {
+  position: absolute;
+  left: 200px;
+}
+
+.about__paragraph {
+  width: 40vw;
+  text-indent: 40px;
+  margin-left: 20px;
+}
+
+.about__link {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.about__link:hover {
+  text-decoration: underline;
+  color: #3498db;
+}
+
+.about__list {
+  margin-left: 80px;
+}
+.about__subtitle {
+    margin-left: 20px;
+    font-size: 15px
+}

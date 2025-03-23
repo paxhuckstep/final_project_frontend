@@ -8,14 +8,17 @@ function Grid({
   currentAttempt,
   submissions,
 }) {
-  const inputAttempts = [1, 2, 3, 4, 5];
+  const inputAttempts = [1, 2, 3, 4, 5, 6];
 
   if (!isGrid) {
     return (
       <div className="grid">
-        <p className="grid__notice">
-          To get started, select some catagories on the left,  then click "New word" on the right.
-        </p>
+         <p className="grid__rules">Rules are in the "About" section.</p>
+        <h2 className="grid__notice">
+          To get started, select some catagories on the left, then click "New
+          Word" on the right. 
+        </h2>
+       
       </div>
     );
   }

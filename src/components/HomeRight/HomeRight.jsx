@@ -1,15 +1,19 @@
 import "./HomeRight.css";
 
 function HomeRight({ currentAttempt, handleNewWord, remainingLetters }) {
-  const attemptsLeft = 6 - currentAttempt;
+  const attemptsLeft = 7 - currentAttempt;
   return (
-    <div className="HomeRight">
-      <p className="HomeRight__attempts">
+    <div className="home-right">
+      <p className="home-right__attempts">
         You have {attemptsLeft} attempts left!
       </p>
-      <button onClick={handleNewWord} className="HomeRight__reset-button">New word</button>
-      <p className="HomeRight__letters-title">Unused letters:</p>
-      <p className="HomeRight__letters">{remainingLetters}</p>
+      <div className="home-right__letters-container">
+        <p className="home-right__letters-title">Unused letters:</p>
+        <p className="home-right__letters">{remainingLetters}</p>
+      </div>
+      <button onClick={handleNewWord} className="home-right__reset-button">
+        New Word
+      </button>
     </div>
   );
 }

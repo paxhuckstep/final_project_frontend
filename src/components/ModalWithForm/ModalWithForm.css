@@ -55,6 +55,19 @@
   flex-direction: column;
   width: 100%;
 }
+
+.modal__input {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(84 84 84 / 0.7);
+}
+
+.modal__input_last {
+  margin-bottom: 80px;
+}
+
 .modal__submit {
   background-color: rgba(47, 113, 229, 1);
   color: #fff;

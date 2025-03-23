@@ -1,0 +1,21 @@
+.home {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.delete__later {
+    margin: 80px auto;
+    /* color: white; */
+    font-size: 20px;
+    color: #000;
+    /* position: absolute;
+    right: 50%;
+    top: 300px; */
+    margin: 600px auto;
+  }
+  
+  .delete__later-span {
+    color: white;
+  }
+  

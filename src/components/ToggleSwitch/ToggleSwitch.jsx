@@ -30,8 +30,8 @@ function ToggleSwitch({
           className="toggle-switch__checkbox"
         />
         <span className="toggle-switch__circle"></span>
-        <span className="toggle-switch__text toggle-switch__text_F">N</span>
-        <span className="toggle-switch__text toggle-switch__text_C">Y</span>
+        <span className="toggle-switch__text toggle-switch__text_N">N</span>
+        <span className="toggle-switch__text toggle-switch__text_Y">Y</span>
       </label>
     </>
   );
