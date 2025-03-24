@@ -72,13 +72,18 @@
   .toggle-switch__title {
     margin-top: 10px;
     max-width: 118px;
+    margin-bottom: auto;
   }
   .toggle-switch {
     width: 125px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
   }
 
   .toggle-switch__switch {
     margin-bottom: 10px;
+    margin-top: auto;
   }
 }
 
@@ -113,6 +118,9 @@
   }
 }
 @media screen and (max-width: 400px) {
+  .toggle-switch{
+    height: 90px;
+  }
   .toggle-switch__title {
     margin-top: 10px;
     max-width: 118px;
