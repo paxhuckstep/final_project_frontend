@@ -23,38 +23,41 @@ function SideBar({ addCategory, removeCategory }) {
 
       .catch(console.error);
   }, []);
+
+  // useEffect(() => {
+  //   const overlap = pokemonArray.filter((pokemon) => {
+  //     return fiveLetters.includes(pokemon);
+  //   });
+  //   console.log(overlap);
+  // }, [pokemonArray]);
+
   return (
     <div className="sidebar">
       <h3 className="sidebar__title">Categories</h3>
       <ToggleSwitch
         categoryTitle={"5 Letter Words"}
-        addCategory={addCategory}
-        removeCategory={removeCategory}
-        categoryArray={fiveLetters}
+        handleChecking={() => addCategory(fiveLetters)}
+        handleUnchecking={() => removeCategory(fiveLetters)}
       />
       <ToggleSwitch
         categoryTitle={"6 Letter Words"}
-        addCategory={addCategory}
-        removeCategory={removeCategory}
-        categoryArray={sixLetters}
+        handleChecking={() => addCategory(sixLetters)}
+        handleUnchecking={() => removeCategory(sixLetters)}
       />
       <ToggleSwitch
         categoryTitle={"Original 151 Pokemon"}
-        addCategory={addCategory}
-        removeCategory={removeCategory}
-        categoryArray={pokemonArray}
+        handleChecking={() => addCategory(pokemonArray)}
+        handleUnchecking={() => removeCategory(pokemonArray)}
       />
       <ToggleSwitch
         categoryTitle={"US States"}
-        addCategory={addCategory}
-        removeCategory={removeCategory}
-        categoryArray={usStates}
+        handleChecking={() => addCategory(usStates)}
+        handleUnchecking={() => removeCategory(usStates)}
       />
       <ToggleSwitch
         categoryTitle={"State Capitals"}
-        addCategory={addCategory}
-        removeCategory={removeCategory}
-        categoryArray={stateCapitals}
+        handleChecking={() => addCategory(stateCapitals)}
+        handleUnchecking={() => removeCategory(stateCapitals)}
       />
     </div>
   );

@@ -1,22 +1,16 @@
 import { useState } from "react";
 import "./ToggleSwitch.css";
 
-function ToggleSwitch({
-  categoryTitle,
-  addCategory,
-  removeCategory,
-  categoryArray,
-}) {
+function ToggleSwitch({ categoryTitle, handleChecking, handleUnchecking }) {
   const [isChecked, setIsChecked] = useState(false);
 
   const onChange = (event) => {
     const checked = event.target.checked;
     setIsChecked(checked);
-
     if (checked) {
-      addCategory(categoryArray);
+      handleChecking();
     } else {
-      removeCategory(categoryArray);
+      handleUnchecking();
     }
   };
   return (

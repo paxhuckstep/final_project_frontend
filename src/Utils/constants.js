@@ -49,7 +49,7 @@
     'youth', 'zesty', 'align', 'bloom', 'clash', 'dwell', 'every', 'frown', 'green', 'hound',
     'imply', 'judge', 'knock', 'lodge', 'mimic', 'nudge', 'paint', 'plume', 'quota', 'rouge',
     'swoop', 'trend', 'unite', 'voice', 'woven', 'storm', 'yield', 'bread', 'adore', 'binge',
-    'charm', 'delve', 'elbow', 'fancy', 'gloom', 'haste', 'index', 'juice', 'knife', 'light',
+    'charm', 'delve', 'elbow', 'fancy', 'paste', 'haste', 'index', 'juice', 'knife', 'light',
     'motto', 'nerdy', 'onset', 'prone', 'quake', 'rumor', 'slope', 'tumor', 'urban', 'vowel'
   ];
   

@@ -157,6 +157,10 @@ function Home({ activeModal }) {
     );
   }, [submissions]);
 
+  // useEffect(() => {
+  //   console.log(selectedWords);
+  // }, [selectedWords]);
+
   return (
     <>
       <div className="home">
