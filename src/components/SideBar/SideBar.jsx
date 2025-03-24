@@ -2,8 +2,9 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import {
   fiveLetters,
   sixLetters,
-  stateCapitals,
+  // stateCapitals,
   usStates,
+  randomWords
 } from "../../Utils/constants";
 import "./SideBar.css";
 import { useEffect, useState } from "react";
@@ -25,8 +26,8 @@ function SideBar({ addCategory, removeCategory }) {
   }, []);
 
   // useEffect(() => {
-  //   const overlap = pokemonArray.filter((pokemon) => {
-  //     return fiveLetters.includes(pokemon);
+  //   const overlap = randomWords.filter((word) => {
+  //     return fiveLetters.includes(word) || sixLetters.includes(word);
   //   });
   //   console.log(overlap);
   // }, [pokemonArray]);
@@ -55,9 +56,9 @@ function SideBar({ addCategory, removeCategory }) {
         handleUnchecking={() => removeCategory(usStates)}
       />
       <ToggleSwitch
-        categoryTitle={"State Capitals"}
-        handleChecking={() => addCategory(stateCapitals)}
-        handleUnchecking={() => removeCategory(stateCapitals)}
+        categoryTitle={"Random Words"}
+        handleChecking={() => addCategory(randomWords)}
+        handleUnchecking={() => removeCategory(randomWords)}
       />
     </div>
   );

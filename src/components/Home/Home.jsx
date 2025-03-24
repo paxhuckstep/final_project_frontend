@@ -161,6 +161,10 @@ function Home({ activeModal }) {
   //   console.log(selectedWords);
   // }, [selectedWords]);
 
+   useEffect(() => {
+    console.log(correctWord);
+  }, [correctWord]);
+
   return (
     <>
       <div className="home">

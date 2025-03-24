@@ -64,18 +64,18 @@
     'coffee', 'divine', 'yearly', 'frugal', 'glitch', 'honest', 'invade', 'jumble', 'kettle', 'laptop',
     'mentor', 'nugget', 'oxygen', 'plunge', 'riddle', 'socket', 'thrive', 'utmost', 'vortex', 'writer'];
   
-    export const stateCapitals = [
-      "montgomery", "juneau", "phoenix", "littlerock", "sacramento",
-      "denver", "hartford", "dover", "tallahassee", "atlanta",
-      "honolulu", "boise", "springfield", "indianapolis", "desmoines",
-      "topeka", "frankfort", "batonrouge", "augusta", "annapolis",
-      "boston", "lansing", "stpaul", "jackson", "jeffersoncity",
-      "helena", "lincoln", "carsoncity", "concord", "trenton",
-      "santafe", "albany", "raleigh", "bismarck", "columbus",
-      "oklahomacity", "salem", "harrisburg", "providence", "columbia",
-      "pierre", "nashville", "austin", "saltlakecity", "montpelier",
-      "richmond", "olympia", "charleston", "madison", "cheyenne"
-    ];
+    // export const stateCapitals = [
+    //   "montgomery", "juneau", "phoenix", "littlerock", "sacramento",
+    //   "denver", "hartford", "dover", "tallahassee", "atlanta",
+    //   "honolulu", "boise", "springfield", "indianapolis", "desmoines",
+    //   "topeka", "frankfort", "batonrouge", "augusta", "annapolis",
+    //   "boston", "lansing", "stpaul", "jackson", "jeffersoncity",
+    //   "helena", "lincoln", "carsoncity", "concord", "trenton",
+    //   "santafe", "albany", "raleigh", "bismarck", "columbus",
+    //   "oklahomacity", "salem", "harrisburg", "providence", "columbia",
+    //   "pierre", "nashville", "austin", "saltlakecity", "montpelier",
+    //   "richmond", "olympia", "charleston", "madison", "cheyenne"
+    // ];
   
     export const usStates = [
       "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
@@ -88,3 +88,53 @@
       "southcarolina", "southdakota", "tennessee", "texas", "utah", "vermont",
       "virginia", "washington", "westvirginia", "wisconsin", "wyoming"
     ];
+
+    export const randomWords = [
+      "banana", "grape", "orange", "peach", "chair", "sofa", "pencil", "paper",
+      "sad", "angry", "excited", "bored", "jump", "run", "walk", "swim", "climb",
+      "dog", "cat", "bird", "fish", "turtle", "house", "school", "park", "store", "library",
+      "river", "lake", "mountain", "sun", "moon", "star", "cloud", "rain",
+      "winter", "spring", "summer", "fall", "cold", "hot", "warm", "cool", "snow", "wind",
+      "car", "bus", "bike", "train", "plane", "door", "window", "floor", "roof", "wall",
+      "big", "small", "tall", "short", "long", "fast", "slow", "hard", "soft", "strong",
+      "dark", "bright", "dull", "thick", "thin", "heavy", "clean", "dirty",
+      "eat", "drink", "cook", "bake", "mix", "read", "write", "draw", "color",
+      "red", "blue", "purple", "pink", "black", "white", "gray", "brown",
+      "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+      "mother", "father", "sister", "brother", "grandma", "grandpa", "aunt", "uncle", "cousin", "friend",
+      "morning", "noon", "evening", "night", "day", "week", "month", "year", "hour", "minute",
+      "fun", "play", "game", "toy", "ball", "doll", "puzzle", "blocks", "cards",
+      "inside", "outside", "up", "down", "left", "right", "front", "back", "near", "far",
+      "open", "close", "start", "stop", "go", "come", "leave", "stay", "sit", "stand",
+      "sing", "dance", "laugh", "cry", "yell", "whisper", "talk", "listen",
+      "over", "between", "beside", "next", "around", "through", "against", "above", "below",
+      "hand", "foot", "leg", "arm", "head", "eye", "ear", "nose", "mouth", "teeth",
+      "cook", "bake", "stir", "boil", "fry", "roast", "grill", "peel", "chop", "slice",
+      "music", "song", "dance", "movie", "story", "book", "poem", "picture", "photo", "painting",
+      "circle", "square", "triangle", "oval", "diamond", "heart", "star", "line", "dot",
+      "sock", "shoe", "shirt", "pants", "hat", "glove", "scarf", "coat", "dress", "shorts",
+      "milk", "water", "soda", "tea", "cereal", "butter",
+      "math", "science", "history", "art", "music", "reading", "writing", "spelling", "counting", "numbers",
+      "lunch", "dinner", "breakfast", "snack", "dessert", "cake", "cookie", "pie", "candy", "icecream",
+      "fire", "earth", "air", "water", "metal", "wood", "stone", "glass", "plastic", "paper",
+      "bunny", "bear", "lion", "tiger", "giraffe", "monkey", "frog", "snake",
+      "bee", "ant", "spider", "butterfly", "ladybug", "worm", "snail", "crab", "lobster",
+      "doctor", "nurse", "teacher", "police", "farmer", "chef", "pilot", "artist", "musician",
+      "sunny", "rainy", "cloudy", "stormy", "windy", "foggy", "snowy", "hot", "cold", "cool",
+      "chair", "bed", "couch", "lamp", "clock", "mirror", "shelf", "desk", "carpet",
+      "north", "south", "east", "west", "left", "right", "middle", "corner", "center", "edge",
+      "park", "beach", "zoo", "museum", "library", "farm", "garden", "city", "village",
+      "love", "kind", "brave", "strong", "smart", "funny", "friendly", "nice", "helpful",
+      "morning", "afternoon", "evening", "midnight", "sunrise", "sunset", "dawn", "dusk", "today", "tomorrow",
+      "puppy", "cloudy", "rainbow", "gold", "silver", "ribbon",
+      "trophy", "medal", "hero", "giant", "tiny", "fast", "slow", "jump", "hop", "skip",
+      "slide", "roller", "skate", "bounce", "clap", "snap", "wiggle", "stretch", "flute", "violin",
+      "drum", "guitar", "trumpet", "robot", "rocket", "planet", "comet",
+      "cave", "forest", "desert", "island", "volcano", "tornado",
+      "shark", "dolphin", "octopus", "penguin", "kangaroo", "camel", "parrot", "owl",
+      "wagon", "castle", "barn", "statue", "pyramid", "tent",
+      "pencil", "eraser", "marker", "crayon", "notebook", "backpack", "scissors", "glue", "ruler", "sticker",
+      "kite", "swing", "slide", "sandbox", "seesaw", "marbles", "jumprope", "hulahoop"
+    ];
+    
+    console.log(randomWords.length); // Check if it contains 500 words
