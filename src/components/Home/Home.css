@@ -16,26 +16,17 @@
   }
    */
 
-/* .home {
-  display: flex; 
-  justify-content: center;
-  gap: 2rem; 
-  width: 100%;
-  padding: 0 1rem; 
-} */
-
 @media screen and (max-width: 800px) {
   .home {
     width: 100vw;
     height: 700px;
     flex-direction: column;
     gap: 20px;
-    /* justify-content: space-between; */
     align-items: center;
   }
 }
 @media screen and (max-width: 450px) {
-.home{
-  height: 600px
-}
+  .home {
+    height: 600px;
+  }
 }

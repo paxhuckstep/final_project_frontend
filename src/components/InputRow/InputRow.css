@@ -1,5 +1,9 @@
 .input-row {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
+}
+@media screen and (max-width: 450px) {
+  .input-row {
+    gap: 5px;
   }
-  
+}

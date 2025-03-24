@@ -68,21 +68,19 @@ function Home({ activeModal }) {
   };
 
   const handleNewWord = () => {
-    // setCorrectWord(
-    //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    // );
-    setCorrectWord("massachusetts")
+    setCorrectWord(
+      selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    );
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
     setCurrentAttempt(1);
     setCurrentInputs([]);
-    // if (selectedWords.length > 0) {
-    //   setIsGrid(true);
-    // } else {
-    //   setIsGrid(false);
-    // }
-    setIsGrid(true);
+    if (selectedWords.length > 0) {
+      setIsGrid(true);
+    } else {
+      setIsGrid(false);
+    }
   };
 
   useEffect(() => {
@@ -104,6 +102,7 @@ function Home({ activeModal }) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
+      // console.log(event.key);
       const isLetter = /[a-z]$/i.test(event.key);
       if (activeModal) {
         return;

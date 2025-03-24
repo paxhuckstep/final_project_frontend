@@ -81,7 +81,7 @@
 }
 
 .modal__submit:hover {
-  background-color:rgb(175, 118, 177);
+  background-color: rgb(175, 118, 177);
   cursor: pointer;
 }
 
@@ -103,4 +103,10 @@
   cursor: pointer;
   color: rgb(175, 118, 177);
   border: solid 2px rgb(175, 118, 177);
+}
+
+@media screen and (max-width: 450px) {
+  .modal {
+    margin: 0 20px;
+  }
 }

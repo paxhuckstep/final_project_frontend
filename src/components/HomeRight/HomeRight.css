@@ -1,5 +1,5 @@
 .home-right {
-  margin-right: 200px;
+  margin-right: 100px;
   color: black;
 }
 
@@ -12,7 +12,7 @@
 
 .home-right__letters-container {
   border: solid black 2px;
-  width: 205px;
+  width: 160px;
   margin: 10px 0 0;
   padding: 0;
   border-radius: 10px;
@@ -27,7 +27,7 @@
 }
 
 .home-right__letters {
-  width: 200px;
+  width: 160px;
   margin: 0;
   padding: 0 7px 7px 7px;
 }
@@ -48,21 +48,6 @@
 .home-right__reset-button:focus {
   outline: none;
 }
-
-@media screen and (max-width: 1768px) {
-  .home-right {
-    margin-right: 50px; /* Reduced from 200px */
-  }
-
-  .home-right__letters-container {
-    width: 160px; /* Reduced from 205px */
-  }
-
-  .home-right__letters {
-    width: 155px; /* Reduced from 200px */
-  }
-}
-
 @media screen and (max-width: 1100px) {
   .home-right__attempts {
     font-size: 18px;
@@ -71,11 +56,11 @@
     font-weight: 600;
   }
   .home-right__letters-container {
-    width: 140px; /* Reduced from 205px */
+    width: 140px;
     margin-left: 35px;
   }
   .home-right__letters {
-    width: 125px; /* Reduced from 200px */
+    width: 125px;
   }
   .home-right__reset-button {
     margin: 20px 0 0 35px;
@@ -91,17 +76,11 @@
     flex-direction: column;
     align-items: center;
   }
-.home-right__letters-container{
-  margin: 10px auto;
-}
+  .home-right__letters-container {
+    margin: 10px auto;
+  }
 
-  .home-right__reset-button{
+  .home-right__reset-button {
     margin: 20px auto;
   }
-  /* @media screen and (max-width: 450px) {
-  .home-right {
-    margin: -20px 0 0;
-  }
-  }
-   */
 }

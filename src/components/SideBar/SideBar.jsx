@@ -1,7 +1,6 @@
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import {
   fiveLetters,
-  //   originalPokemon,
   sixLetters,
   stateCapitals,
   usStates,
@@ -26,7 +25,6 @@ function SideBar({ addCategory, removeCategory }) {
   }, []);
   return (
     <div className="sidebar">
-
       <h3 className="sidebar__title">Categories</h3>
       <ToggleSwitch
         categoryTitle={"5 Letter Words"}

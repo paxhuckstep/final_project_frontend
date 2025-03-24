@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router";
 import Home from "../Home/Home";
 import About from "../About/About";
 import Leaderboards from "../Leaderboards/Leaderboards";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 
@@ -34,6 +34,17 @@ function App() {
     setActiveModal("");
     //resetValues() inside of a .then eventually
   };
+  useEffect(() => {
+    const handleEscClose = (event) => {
+      if (event.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    window.addEventListener("keydown", handleEscClose);
+    return () => {
+      window.removeEventListener("keydown", handleEscClose);
+    };
+  }, []);
 
   return (
     <div className="app">

@@ -27,20 +27,11 @@
   margin-bottom: -2px;
 }
 .navbar__button_active:hover {
-    outline: none;
-}
-/* .navbar a:focus,
-.navbar a:focus-visible,
-.navbar__button:focus,
-.navbar__button:focus-visible {
   outline: none;
 }
-.navbar a {
-  text-decoration: none;
-  outline: none;
-} */
+
 .navbar__button:focus {
-    outline: none;
+  outline: none;
 }
 
 @media screen and (max-width: 800px) {
@@ -49,8 +40,10 @@
     border-bottom: 2px solid #4267b2;
     color: white;
   }
-  @media screen and (max-width: 450px) {
- .navbar__button{
+}
+
+@media screen and (max-width: 450px) {
+  .navbar__button {
     font-size: 12px;
- }
+  }
 }

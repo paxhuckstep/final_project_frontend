@@ -27,22 +27,23 @@
   background-color: rgb(0, 0, 0, 0.35);
 }
 
-@media screen and (max-width: 1768px) {
-  .box {
-    height: 40px;
-    width: 40px;
-  }
-}
-
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1100px) {
   .box {
     height: 30px;
     width: 30px;
   }
-  @media screen and (max-width: 450px) {
-    .box {
-      height: 15px;
-      width: 15px;
-    }
+  .box__input {
+    font-size: 27px;
+    margin: -8px 0 0 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .box {
+    height: 15px;
+    width: 15px;
+  }
+  .box__input {
+    font-size: 15px;
+    margin: -5px 0 0 0;
   }
 }

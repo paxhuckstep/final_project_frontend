@@ -1,12 +1,10 @@
 .sidebar {
-  width: 250px;
-  /* margin-right: 20px; */
-  /* background-color:#8FBC8F; */
+  width: 200px;
   background-color: #4267b2;
   flex-shrink: 0;
   color: black;
   font-family: sans-serif;
-  padding: 0 0 0 100px;
+  padding: 0 0 0 50px;
   margin: 0px;
 }
 
@@ -27,7 +25,6 @@
 
 @media screen and (max-width: 800px) {
   .sidebar {
-    /* margin: -20px -20px px -20px; */
     margin: 0 0 -10px 0;
     width: 100vw;
     display: flex;
@@ -41,6 +38,12 @@
 @media screen and (max-width: 450px) {
   .sidebar__title {
     font-size: 20px;
+    margin: 20px 10px 0 -10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .sidebar__title {
+    font-size: 12px;
     margin: 20px 10px 0 -10px;
   }
 }
