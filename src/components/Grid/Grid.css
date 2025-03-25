@@ -14,9 +14,10 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  font-size: 24px;
 }
 .grid__rules {
-  margin: -40px 0 0;
+  margin: -25px 0 0;
   padding: 0;
   width: 350px;
   text-align: center;

@@ -118,13 +118,13 @@
   }
 }
 @media screen and (max-width: 400px) {
-  .toggle-switch{
+  .toggle-switch {
     height: 90px;
   }
   .toggle-switch__title {
     margin-top: 10px;
     max-width: 118px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .toggle-switch__switch {
     width: 40px;

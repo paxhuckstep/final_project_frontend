@@ -35,6 +35,7 @@ function SideBar({ addCategory, removeCategory }) {
   return (
     <div className="sidebar">
       <h3 className="sidebar__title">Categories</h3>
+      <div className="sidebar__container">
       <ToggleSwitch
         categoryTitle={"5 Letter Words"}
         handleChecking={() => addCategory(fiveLetters)}
@@ -60,6 +61,7 @@ function SideBar({ addCategory, removeCategory }) {
         handleChecking={() => addCategory(randomWords)}
         handleUnchecking={() => removeCategory(randomWords)}
       />
+      </div>
     </div>
   );
 }

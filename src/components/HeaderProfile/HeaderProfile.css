@@ -11,6 +11,7 @@
   background-color: white;
   border: solid 2px;
   border-radius: 100px;
+  padding: 0.6em 1.2em;
 }
 
 .header-profile__button:hover {
@@ -39,22 +40,24 @@
 
 @media screen and (max-width: 450px) {
   .header-profile__button {
-    font-size: 8px;
+    /* font-size: 8px; */
   }
   .header-profile {
+    flex-direction: row;
     gap: 5px;
-    top: 70px;
-    right: 12px;
+    top: 95px;
+    right: 33%
   }
 }
 
 @media screen and (max-width: 400px) {
-  .header-profile__button {
+  /* .header-profile__button {
     font-size: 4px;
-  }
+  } */
   .header-profile {
-    gap: 5px;
-    top: 50px;
-    right: 5px;
+    /* gap: 5px; */
+    top: 64px;
+    /* right: 5px; */
+    right: 30%;
   }
 }

@@ -14,9 +14,9 @@ function Grid({
     return (
       <div className="grid">
         <p className="grid__rules">Rules are in the "About" section.</p>
-        <h2 className="grid__notice">
+        <h3 className="grid__notice">
           To get started, select some catagories, then click "New Word".
-        </h2>
+        </h3>
       </div>
     );
   }

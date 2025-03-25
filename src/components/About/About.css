@@ -38,3 +38,12 @@
   margin-left: 20px;
 }
 }
+
+@media screen and (max-width: 450px) {
+  .about{
+    left: 25px
+  }
+.about__list{
+  margin-left: 20px;
+}
+  }
