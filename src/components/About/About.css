@@ -26,3 +26,15 @@
     margin-left: 20px;
     font-size: 15px
 }
+
+@media screen and (max-width: 800px) {
+.about{
+  left: 50px;
+}
+
+.about__paragraph {
+  width: 70vw;
+  text-indent: 40px;
+  margin-left: 20px;
+}
+}

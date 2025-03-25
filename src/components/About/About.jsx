@@ -53,7 +53,7 @@ function About() {
         <li>Nidoran &#9792; is "nidoranf"</li>
         <li>St. Paul is "stpaul"</li>
         <li>
-          All 2 word states and cities are 1 word! (New York is "newyork")
+          All 2 word states are 1 word (New York is "newyork")
         </li>
       </ul>
       <h2 className="about__title">Inspiration</h2>

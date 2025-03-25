@@ -71,7 +71,26 @@
     padding: 0;
     margin: 30px 0 0;
     background-color: white;
-    width: 100vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-right__letters-container {
+    margin: 10px auto;
+  }
+
+  .home-right__reset-button {
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home-right {
+    padding: 0;
+    margin: 30px 0 0;
+    background-color: white;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

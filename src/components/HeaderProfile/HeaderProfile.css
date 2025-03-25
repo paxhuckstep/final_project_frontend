@@ -50,11 +50,11 @@
 
 @media screen and (max-width: 400px) {
   .header-profile__button {
-    font-size: 8px;
+    font-size: 4px;
   }
   .header-profile {
     gap: 5px;
     top: 50px;
-    right: -35px;
+    right: 5px;
   }
 }

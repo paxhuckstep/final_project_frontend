@@ -26,15 +26,17 @@
 @media screen and (max-width: 800px) {
   .sidebar {
     margin: 0 0 -10px 0;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
   }
 
   .sidebar__title {
     margin: 20px 20px 0 0;
   }
 }
+
 @media screen and (max-width: 450px) {
   .sidebar__title {
     font-size: 20px;
