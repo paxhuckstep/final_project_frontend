@@ -24,28 +24,30 @@
 }
 
 @media screen and (max-width: 800px) {
-  .sidebar{
+  .sidebar {
     width: 100%;
     box-sizing: border-box;
     padding: 0;
   }
   .sidebar__container {
-    margin: 0 0 -10px 0;
-    width: 100%;
+    margin: 0 20px -10px;
+    max-width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     padding-bottom: 10px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    /* padding-left: 20px; */
   }
 
   .sidebar__title {
-    margin: 20px 20px 0 20px;
+    margin: 15px 20px 0 20px;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .sidebar{
+  .sidebar {
     width: 100%;
     box-sizing: border-box;
   }
@@ -57,6 +59,8 @@
 @media screen and (max-width: 400px) {
   .sidebar__title {
     font-size: 12px;
-    margin: 20px 10px 0 20px;
+  }
+  .sidebar__container {
+    margin: 0 10px -10px;
   }
 }
