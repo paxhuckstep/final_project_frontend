@@ -1,11 +1,11 @@
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import {
-  fiveLetters,
-  sixLetters,
-  // stateCapitals,
-  usStates,
-  randomWords,
-} from "../../Utils/constants";
+// import {
+//   // fiveLetters,
+//   // sixLetters,
+//   // // stateCapitals,
+//   // usStates,
+//   // randomWords,
+// } from "../../Utils/constants";
 import "./SideBar.css";
 import { useEffect, useState } from "react";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";

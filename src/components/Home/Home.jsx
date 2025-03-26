@@ -157,12 +157,12 @@ function Home({ activeModal }) {
     );
   }, [submissions]);
 
-  // useEffect(() => {
-  //   console.log(selectedWords);
-  // }, [selectedWords]);
+  useEffect(() => {
+    console.log("Selected Words: ", selectedWords);
+  }, [selectedWords]);
 
-   useEffect(() => {
-    console.log(correctWord);
+  useEffect(() => {
+    console.log("Correct Word: ", correctWord);
   }, [correctWord]);
 
   return (

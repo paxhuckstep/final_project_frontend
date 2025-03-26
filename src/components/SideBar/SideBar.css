@@ -21,6 +21,9 @@
     /* margin-right: 40px;
     padding: 0 0 0 40px; */
   }
+  .sidebar__title{
+    font-size: 23px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -58,7 +61,7 @@
 }
 @media screen and (max-width: 400px) {
   .sidebar__title {
-    font-size: 12px;
+    font-size: 18px;
   }
   .sidebar__container {
     margin: 0 10px -10px;
