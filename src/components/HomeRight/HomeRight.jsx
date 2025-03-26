@@ -13,7 +13,7 @@ function HomeRight({ currentAttempt, handleNewWord, remainingLetters }) {
         <p className="home-right__letters">{remainingLetters}</p>
       </div>
       <button onClick={handleNewWord} className="home-right__reset-button">
-        New Word
+        New Pokemon
       </button>
     </div>
   );

@@ -15,7 +15,7 @@ function Grid({
       <div className="grid">
         <p className="grid__rules">Rules are in the "About" section.</p>
         <h3 className="grid__notice">
-          To get started, select some catagories, then click "New Word".
+          To get started, select what generations you want to play, then click "New Pokemon".
         </h3>
       </div>
     );

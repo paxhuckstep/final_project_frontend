@@ -6,7 +6,7 @@ function Header({ openRegisterModal, openLoginModal, closeActiveModal }) {
   return (
     <div className="header">
       <h1 className="header__title">Pax's Final Project</h1>
-      <p className="header__sub-title">A Worlde Game</p>
+      <p className="header__sub-title">A Pokemon Worlde Game</p>
       <HeaderProfile
         openRegisterModal={openRegisterModal}
         openLoginModal={openLoginModal}

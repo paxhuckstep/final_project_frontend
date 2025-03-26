@@ -40,21 +40,18 @@ function About() {
       </ul>
       <h3 className="about__subtitle">Unique Cases</h3>
       <p className="about__paragraph">
-        Sometimes words ( like Hawai'i or Mr. Mime ) have characters that are
-        not letters, like Hawai'i's apostrophe and Mr. Mime's period and space.
-        These characters are not included in the game. The game only accepts the
-        26 english letters as inputs. All answers are spelled using just the 26
-        english letters. Here's a list of unique cases to be aware of:
+        Some Pokemon names have special characters or unique formatting that
+        aren't used in the game. The game only accepts the 26 English letters as
+        inputs, so all Pokemon names have been simplified. Here's how some
+        special Pokemon names are handled:
       </p>
       <ul className="about__list">
-        <li>Hawai'i is "hawaii"</li>
+        <li>Porygon-2 is "porygontwo"</li>
         <li>Mr. Mime is "mrmime"</li>
-        <li>Nidoran &#9794; is "nidoranm"</li>
-        <li>Nidoran &#9792; is "nidoranf"</li>
-        <li>St. Paul is "stpaul"</li>
-        <li>
-          All 2 word states are 1 word (New York is "newyork")
-        </li>
+        <li>Nidoran♂ is "nidoranm"</li>
+        <li>Nidoran♀ is "nidoranf"</li>
+        <li>Farfetch'd is "farfetchd"</li>
+        <li>Ho-oh is "hooh"</li>
       </ul>
       <h2 className="about__title">Inspiration</h2>
       <p className="about__paragraph">
@@ -74,12 +71,12 @@ function About() {
         wanted to see if I could do it myself. I slept on the idea and when I
         woke up I go to work. It was my first time creating something completely
         independently in React so it definitely took me longer than the guy in
-        the video. From the start I knew I wanted mine to be able to work
-        for any word length, not just 5 letters. It took me a few hours but when
-        I was done I had an interface with all the same functionality as they
-        got in the video, plus some. Once I finished I kept thinking of more
-        functionalities I could add to show off all I had learned from TripleTen,
-        and that's what brought us to where we are today.
+        the video. From the start I knew I wanted mine to be able to work for
+        any word length, not just 5 letters. It took me a few hours but when I
+        was done I had an interface with all the same functionality as they got
+        in the video, plus some. Once I finished I kept thinking of more
+        functionalities I could add to show off all I had learned from
+        TripleTen, and that's what brought us to where we are today.
       </p>
     </div>
   );
