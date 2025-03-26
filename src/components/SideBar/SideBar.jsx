@@ -47,7 +47,7 @@ function SideBar({ addCategory, removeCategory }) {
         handleUnchecking={() => removeCategory(sixLetters)}
       />
       <ToggleSwitch
-        categoryTitle={"Original 151 Pokemon"}
+        categoryTitle={"Pokemon FROM API"}
         handleChecking={() => addCategory(pokemonArray)}
         handleUnchecking={() => removeCategory(pokemonArray)}
       />

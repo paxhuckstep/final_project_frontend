@@ -136,5 +136,3 @@
       "pencil", "eraser", "marker", "crayon", "notebook", "backpack", "scissors", "glue", "ruler", "sticker",
       "kite", "swing", "slide", "sandbox", "seesaw", "marbles", "jumprope", "hulahoop"
     ];
-    
-    console.log(randomWords.length); // Check if it contains 500 words
