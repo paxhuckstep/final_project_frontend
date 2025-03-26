@@ -157,9 +157,9 @@ function Home({ activeModal }) {
     );
   }, [submissions]);
 
-  useEffect(() => {
-    console.log("Selected Words: ", selectedWords);
-  }, [selectedWords]);
+  // useEffect(() => {
+  //   console.log("Selected Words: ", selectedWords);
+  // }, [selectedWords]);
 
   useEffect(() => {
     console.log("Correct Word: ", correctWord);
