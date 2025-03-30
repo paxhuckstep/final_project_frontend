@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Grid from "../Grid/Grid";
-import HomeRight from "../HomeRight/HomeRight";
+import WordleTools from "../WordleTools/WordleTools";
 import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
 import "./Home.css";
@@ -180,7 +180,7 @@ function Home({ activeModal }) {
           For testing, you can highlight inside the quotes for the answer: "
           <span className="delete__later-span">{correctWord}</span>"
         </div> */}
-        <HomeRight
+        <WordleTools
           currentAttempt={currentAttempt}
           handleNewWord={handleNewWord}
           remainingLetters={remainingLetters}
