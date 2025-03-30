@@ -25,7 +25,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 985px) {
   .header-profile {
     right: 60px;
     flex-direction: column;
@@ -39,15 +39,14 @@
   }
 }
 
-@media screen and (max-width: 450px) {
-  .header-profile__button {
-    /* font-size: 8px; */
-  }
+@media screen and (max-width: 630px) {
   .header-profile {
     flex-direction: row;
     gap: 5px;
     top: 95px;
     right: 33%
+    /* left: 50%;
+    transform: translateX(-50%); */
   }
 }
 

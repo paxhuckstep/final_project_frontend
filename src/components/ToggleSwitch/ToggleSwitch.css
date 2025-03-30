@@ -68,7 +68,7 @@
 .toggle-switch__switch:hover {
   border: 2px solid #485f48;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 985px) {
   .toggle-switch__title {
     margin-top: 10px;
     max-width: 100px;

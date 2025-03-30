@@ -31,17 +31,14 @@
   right: 28px;
   background-color: transparent;
   border: none;
-}
-
-.modal__close:hover {
-  cursor: pointer;
-}
-
-.modal__close_form {
   background-image: url("../../assets/closeFormButton.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.modal__close:hover {
+  cursor: pointer;
 }
 
 .modal__title {
@@ -68,14 +65,22 @@
   margin-bottom: 80px;
 }
 
+.modal__buttons-container {
+  position: absolute;
+  bottom: 36px;
+  left: 28px;
+  display: flex;
+  gap: 20px;
+}
+
 .modal__submit {
   background-color: rgba(47, 113, 229, 1);
   color: #fff;
-  position: absolute;
   width: 134px;
   height: 36px;
+  /* position: absolute;
   bottom: 36px;
-  left: 28px;
+  left: 28px; */
   border: none;
   border-radius: 4px;
 }
@@ -92,9 +97,9 @@
   width: auto;
   padding: 0 20px;
   height: 36px;
-  position: absolute;
+  /* position: absolute;
   bottom: 36px;
-  left: 174px;
+  left: 174px; */
   border: solid 2px rgba(47, 113, 229, 1);
   border-radius: 100px;
 }

@@ -72,9 +72,10 @@ function Home({ activeModal }) {
   };
 
   const handleNewWord = () => {
-    setCorrectWord(
-      selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    );
+    // setCorrectWord(
+    //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    // );
+    setCorrectWord("abcdefghijklm")
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);

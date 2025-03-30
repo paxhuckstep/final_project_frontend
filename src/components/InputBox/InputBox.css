@@ -27,7 +27,7 @@
   background-color: rgb(0, 0, 0, 0.35);
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
   .box {
     height: 30px;
     width: 30px;
