@@ -19,7 +19,7 @@
   border: rgb(175, 118, 177) solid 2px;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .header-profile {
     right: 70px;
   }
@@ -30,7 +30,7 @@
     right: 60px;
     flex-direction: column;
     gap: 10px;
-    top: 30px
+    top: 30px;
   }
   .header-profile__button {
     /* width: 20px;
@@ -44,9 +44,10 @@
     flex-direction: row;
     gap: 5px;
     top: 95px;
-    right: 33%
-    /* left: 50%;
-    transform: translateX(-50%); */
+    /* right: 33% */
+    left: 50%;
+    transform: translateX(-50%);
+    right: unset;
   }
 }
 
@@ -58,6 +59,6 @@
     /* gap: 5px; */
     top: 64px;
     /* right: 5px; */
-    right: 30%;
+    /* right: 30%; */
   }
 }
