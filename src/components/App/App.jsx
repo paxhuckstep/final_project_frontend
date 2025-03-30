@@ -52,13 +52,13 @@ function App() {
         openRegisterModal={openRegisterModal}
         openLoginModal={openLoginModal}
       />
-      <div className="app__body">
+      <main className="app__body">
         <Routes>
           <Route path="/" element={<Home activeModal={activeModal} />} />
           <Route path="/about" element={<About />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
         </Routes>
-      </div>
+      </main>
       <RegisterModal
         onClose={closeActiveModal}
         isOpen={activeModal === "register"}

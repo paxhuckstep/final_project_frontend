@@ -10,9 +10,9 @@ function InputBox({
 }) {
   if (isActive) {
     return (
-      <div className="box">
+      <td className="box">
         <p className="box__input">{currentInput}</p>
-      </div>
+      </td>
     );
   }
   if (currentAttempt > attemptRow) {
@@ -22,13 +22,13 @@ function InputBox({
     } `;
 
     return (
-      <div className={boxClassName}>
+      <td className={boxClassName}>
         <p className="box__input">{letter}</p>
-      </div>
+      </td>
     );
   }
 
-  return <div className="box"></div>;
+  return <td className="box"></td>;
 }
 
 export default InputBox;

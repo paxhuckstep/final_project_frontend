@@ -11,7 +11,7 @@ function InputRow({
   const correctWordSplit = correctWord.split("");
   const isActive = currentAttempt === attemptRow;
   return (
-    <div className="input-row">
+    <tr className="input-row">
       {correctWordSplit.map((correctLetter, index) => {
         return (
           <InputBox
@@ -25,7 +25,7 @@ function InputRow({
           />
         );
       })}
-    </div>
+    </tr>
   );
 }
 

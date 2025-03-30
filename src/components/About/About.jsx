@@ -2,7 +2,7 @@ import "./About.css";
 
 function About() {
   return (
-    <div className="about">
+    <article className="about">
       <h2 className="about__title">Rules</h2>
       <p className="about__paragraph">
         This game plays very similarly to the classic{" "}
@@ -78,7 +78,7 @@ function About() {
         functionalities I could add to show off all I had learned from
         TripleTen, and that's what brought us to where we are today.
       </p>
-    </div>
+    </article>
   );
 }
 

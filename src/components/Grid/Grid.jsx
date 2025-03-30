@@ -22,7 +22,7 @@ function Grid({
   }
 
   return (
-    <div className="grid">
+    <table className="grid">
       {inputAttempts.map((attempt) => {
         return (
           <InputRow
@@ -35,7 +35,7 @@ function Grid({
           />
         );
       })}
-    </div>
+    </table>
   );
 }
 

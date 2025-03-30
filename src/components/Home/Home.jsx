@@ -175,7 +175,7 @@ function Home({ activeModal }) {
 
   return (
     <>
-      <div className="home">
+      <section className="home">
         <SideBar addCategory={addCategory} removeCategory={removeCategory} />
         <Grid
           isGrid={isGrid}
@@ -193,7 +193,7 @@ function Home({ activeModal }) {
           handleNewWord={handleNewWord}
           remainingLetters={remainingLetters}
         />
-      </div>
+      </section>
       <Popup
         isOpen={isOpen}
         isWin={isWin}
