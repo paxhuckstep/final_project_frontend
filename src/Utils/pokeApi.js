@@ -1,4 +1,4 @@
-import { numberStrings } from "./constants";
+import { NUMBER_STRINGS } from "./constants";
 
 export const getPokemon = (generation) => {
   return fetch(`https://pokeapi.co/api/v2/generation/${generation}/`).then(
@@ -19,7 +19,7 @@ export const filterPokemonData = (data) => {
       .split("")
       .map((character) => {
         if (!isNaN(character)) {
-          return numberStrings[Number(character)];
+          return NUMBER_STRINGS[Number(character)];
         }
         return character;
       })

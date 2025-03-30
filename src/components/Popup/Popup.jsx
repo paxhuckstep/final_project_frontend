@@ -1,6 +1,6 @@
 import "./Popup.css";
 
-function Popup({ isOpen, isWin, correctWord, onClick }) {
+function Popup({ isOpen, isWin, correctWord, onClick, onClose }) {
   const titleText = isWin ? "Congratulations!" : "Oh no! Out of tries :/";
   const bodyText = isWin
     ? `You succeeded! The answer was "${correctWord}".`
@@ -16,6 +16,11 @@ function Popup({ isOpen, isWin, correctWord, onClick }) {
   return (
     <div className="popup">
       <h2 className="popup__title">{titleText}</h2>
+      <button
+        onClick={onClose}
+        type="button"
+        className="popup__close"
+      />
       <p className="popup__body">{bodyText}</p>
       <button onClick={onClick} className="popup__button">
         {buttonText}

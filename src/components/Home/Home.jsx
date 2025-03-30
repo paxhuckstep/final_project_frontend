@@ -4,6 +4,7 @@ import WordleTools from "../WordleTools/WordleTools";
 import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
 import "./Home.css";
+import { ALPHABET_ARRAY } from "../../Utils/constants";
 
 function Home({ activeModal }) {
   const [correctWord, setCorrectWord] = useState("");
@@ -15,9 +16,11 @@ function Home({ activeModal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isGrid, setIsGrid] = useState(false);
   const [remainingLetters, setRemainingLetters] = useState("");
+  const [isLocked, setIsLocked] = useState(false);
 
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const alphabetArray = alphabet.split("");
+  const closePopup = () => {
+    setIsOpen(false);
+  };
 
   const testAnswer = () => {
     const correctWordGreenless = correctWord
@@ -30,7 +33,7 @@ function Home({ activeModal }) {
     let possibleYellowCount = Array(26).fill(0);
 
     correctWordGreenless.forEach((letter) => {
-      possibleYellowCount[alphabetArray.indexOf(letter)]++;
+      possibleYellowCount[ALPHABET_ARRAY.indexOf(letter)]++;
     });
     // console.log("possible yellow count: ", possibleYellowCount);
 
@@ -39,10 +42,10 @@ function Home({ activeModal }) {
       if (
         letter !== correctWord.charAt(index) &&
         correctWordGreenless.join("").includes(letter) &&
-        possibleYellowCount[alphabetArray.indexOf(letter)] > 0
+        possibleYellowCount[ALPHABET_ARRAY.indexOf(letter)] > 0
       ) {
         isYellow = true;
-        possibleYellowCount[alphabetArray.indexOf(letter)]--;
+        possibleYellowCount[ALPHABET_ARRAY.indexOf(letter)]--;
       }
 
       return {
@@ -63,6 +66,7 @@ function Home({ activeModal }) {
     if (currentInputs.join("") === correctWord) {
       setIsOpen(true);
       setIsWin(true);
+      setIsLocked(true);
     }
     setCurrentInputs([]);
   };
@@ -76,6 +80,7 @@ function Home({ activeModal }) {
     setIsWin(false);
     setCurrentAttempt(1);
     setCurrentInputs([]);
+    setIsLocked(false);
     if (selectedWords.length > 0) {
       setIsGrid(true);
     } else {
@@ -111,6 +116,9 @@ function Home({ activeModal }) {
         setCurrentInputs((prev) => prev.slice(0, -1));
         return;
       }
+      if (event.key == "Escape") {
+        setIsOpen(false);
+      }
       if (event.key == "Enter") {
         event.preventDefault();
         if (isOpen) {
@@ -124,7 +132,7 @@ function Home({ activeModal }) {
       if (currentInputs.length >= correctWord.length) {
         return;
       }
-      if (event.key.length > 1) {
+      if (event.key.length > 1 || isLocked) {
         return;
       }
       if (isLetter) {
@@ -149,7 +157,7 @@ function Home({ activeModal }) {
     });
 
     setRemainingLetters(
-      alphabetArray
+      ALPHABET_ARRAY
         .filter((letter) => {
           return !usedLetters.includes(letter);
         })
@@ -191,6 +199,7 @@ function Home({ activeModal }) {
         isWin={isWin}
         correctWord={correctWord}
         onClick={handleNewWord}
+        onClose={closePopup}
       />
     </>
   );

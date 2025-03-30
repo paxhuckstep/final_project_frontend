@@ -12,8 +12,27 @@
   flex-direction: column;
   align-items: center;
   border-radius: 25px;
+  padding: 20px;
 }
 
 .popup__button:hover {
+  cursor: pointer;
+}
+
+.popup__close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  right: 28px;
+  background-color: transparent;
+  border: none;
+  background-image: url("../../assets/closeFormButton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.popup__close:hover {
   cursor: pointer;
 }
