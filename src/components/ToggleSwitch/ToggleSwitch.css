@@ -48,7 +48,6 @@
 
 .toggle-switch__text_Y {
   right: 9px;
-  /* color: rgba(0, 0, 0, 1); */
   transition: all 1s;
   color: white;
 }
@@ -57,14 +56,6 @@
   left: 28px;
 }
 
-/* .toggle-switch__checkbox:checked ~ .toggle-switch__text_N {
-  color: rgba(0, 0, 0, 1);
-}
-
-.toggle-switch__checkbox:checked ~ .toggle-switch__text_Y {
-  color: #fff;
-} */
-
 .toggle-switch__switch:hover {
   border: 2px solid #485f48;
 }
@@ -72,7 +63,6 @@
   .toggle-switch__title {
     margin: 3px 0 0 0;
     max-width: 100px;
-    /* width: 90px; */
     margin-bottom: auto;
   }
   .toggle-switch {
@@ -121,8 +111,6 @@
 @media screen and (max-width: 400px) {
   .toggle-switch {
     height: 90px;
-    /* width: 90px; */
-    /* width: 120px; */
     max-width: 50px;
   }
   .toggle-switch__title {

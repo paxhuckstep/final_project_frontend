@@ -1,3 +1,4 @@
+import { INPUT_ATTEMPTS } from "../../Utils/constants";
 import InputRow from "../InputRow/InputRow";
 import "./Grid.css";
 
@@ -8,22 +9,22 @@ function Grid({
   currentAttempt,
   submissions,
 }) {
-  const inputAttempts = [1, 2, 3, 4, 5, 6];
-
   if (!isGrid) {
     return (
       <div className="grid">
         <p className="grid__rules">Rules are in the "About" section.</p>
         <h3 className="grid__notice">
-          To get started, select what generations you want to play, then click "New Pokemon".
+          To get started, select what generations you want to play, then click
+          "New Pokemon".
         </h3>
       </div>
     );
   }
 
   return (
-    <table className="grid">
-      {inputAttempts.map((attempt) => {
+    <table>
+    <tbody className="grid">
+      {INPUT_ATTEMPTS.map((attempt) => {
         return (
           <InputRow
             key={attempt}
@@ -35,6 +36,7 @@ function Grid({
           />
         );
       })}
+    </tbody>
     </table>
   );
 }

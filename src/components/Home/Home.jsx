@@ -6,7 +6,7 @@ import SideBar from "../SideBar/SideBar";
 import "./Home.css";
 import { ALPHABET_ARRAY } from "../../Utils/constants";
 
-function Home({ activeModal }) {
+function Home({ activeModal, genOne, genTwo, genThree, genFour, genFive }) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
   const [currentAttempt, setCurrentAttempt] = useState(1);
@@ -72,10 +72,10 @@ function Home({ activeModal }) {
   };
 
   const handleNewWord = () => {
-    // setCorrectWord(
-    //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    // );
-    setCorrectWord("abcdefghijklm")
+    setCorrectWord(
+      selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    );
+    // setCorrectWord("abcdefghijklm");
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
@@ -158,11 +158,9 @@ function Home({ activeModal }) {
     });
 
     setRemainingLetters(
-      ALPHABET_ARRAY
-        .filter((letter) => {
-          return !usedLetters.includes(letter);
-        })
-        .join(" ")
+      ALPHABET_ARRAY.filter((letter) => {
+        return !usedLetters.includes(letter);
+      }).join(" ")
     );
   }, [submissions]);
 
@@ -177,7 +175,13 @@ function Home({ activeModal }) {
   return (
     <>
       <section className="home">
-        <SideBar addCategory={addCategory} removeCategory={removeCategory} />
+        <SideBar addCategory={addCategory} removeCategory={removeCategory} 
+        genOne={genOne}
+        genTwo={genTwo}
+        genThree={genThree}
+        genFour={genFour}
+        genFive={genFive}
+        />
         <Grid
           isGrid={isGrid}
           correctWord={correctWord}

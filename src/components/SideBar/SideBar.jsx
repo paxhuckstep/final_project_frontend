@@ -1,61 +1,15 @@
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-// import {
-//   // fiveLetters,
-//   // sixLetters,
-//   // // stateCapitals,
-//   // usStates,
-//   // randomWords,
-// } from "../../Utils/constants";
 import "./SideBar.css";
-import { useEffect, useState } from "react";
-import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 
-function SideBar({ addCategory, removeCategory }) {
-  const [genOne, setGenOne] = useState([]);
-  const [genTwo, setGenTwo] = useState([]);
-  const [genThree, setGenThree] = useState([]);
-  const [genFour, setGenFour] = useState([]);
-  const [genFive, setGenFive] = useState([]);
-
-  useEffect(() => {
-    for (let i = 1; i < 6; i++) {
-      getPokemon(i.toString())
-        .then((data) => {
-          const filteredPokemonData = filterPokemonData(data);
-          switch (i) {
-            case 1: {
-              setGenOne(filteredPokemonData);
-              break;
-            }
-            case 2: {
-              setGenTwo(filteredPokemonData);
-              break;
-            }
-            case 3: {
-              setGenThree(filteredPokemonData);
-              break;
-            }
-            case 4: {
-              setGenFour(filteredPokemonData);
-              break;
-            }
-            case 5: {
-              setGenFive(filteredPokemonData);
-              break;
-            }
-          }
-        })
-        .catch(console.error);
-    }
-  }, []);
-
-  // useEffect(() => {
-  //   const overlap = randomWords.filter((word) => {
-  //     return fiveLetters.includes(word) || sixLetters.includes(word);
-  //   });
-  //   console.log(overlap);
-  // }, [genOne]);
-
+function SideBar({
+  addCategory,
+  removeCategory,
+  genOne,
+  genTwo,
+  genThree,
+  genFour,
+  genFive,
+}) {
   return (
     <div className="sidebar">
       <h3 className="sidebar__title">Generations</h3>
@@ -70,17 +24,17 @@ function SideBar({ addCategory, removeCategory }) {
           handleChecking={() => addCategory(genTwo)}
           handleUnchecking={() => removeCategory(genTwo)}
         />
-             <ToggleSwitch
+        <ToggleSwitch
           categoryTitle={"Gen Three"}
           handleChecking={() => addCategory(genThree)}
           handleUnchecking={() => removeCategory(genThree)}
         />
-             <ToggleSwitch
+        <ToggleSwitch
           categoryTitle={"Gen Four"}
           handleChecking={() => addCategory(genFour)}
           handleUnchecking={() => removeCategory(genFour)}
         />
-             <ToggleSwitch
+        <ToggleSwitch
           categoryTitle={"Gen Five"}
           handleChecking={() => addCategory(genFive)}
           handleUnchecking={() => removeCategory(genFive)}

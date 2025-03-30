@@ -1,5 +1,4 @@
 .about {
-  /* position: absolute; */
   left: 200px;
   margin: 0 20px;
 }
@@ -24,27 +23,27 @@
   margin-left: 80px;
 }
 .about__subtitle {
-    margin-left: 20px;
-    font-size: 15px
+  margin-left: 20px;
+  font-size: 15px;
 }
 
 @media screen and (max-width: 800px) {
-.about{
-  left: 50px;
-}
+  .about {
+    left: 50px;
+  }
 
-.about__paragraph {
-  width: 70vw;
-  text-indent: 40px;
-  margin-left: 20px;
-}
+  .about__paragraph {
+    width: 70vw;
+    text-indent: 40px;
+    margin-left: 20px;
+  }
 }
 
 @media screen and (max-width: 450px) {
-  .about{
-    left: 25px
+  .about {
+    left: 25px;
   }
-.about__list{
-  margin-left: 20px;
+  .about__list {
+    margin-left: 20px;
+  }
 }
-  }

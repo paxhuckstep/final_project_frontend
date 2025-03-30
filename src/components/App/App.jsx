@@ -7,9 +7,16 @@ import Leaderboards from "../Leaderboards/Leaderboards";
 import { useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
+import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [genOne, setGenOne] = useState([]);
+  const [genTwo, setGenTwo] = useState([]);
+  const [genThree, setGenThree] = useState([]);
+  const [genFour, setGenFour] = useState([]);
+  const [genFive, setGenFive] = useState([]);
+
   const openRegisterModal = () => {
     setActiveModal("register");
   };
@@ -46,6 +53,44 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    for (let i = 1; i < 6; i++) {
+      getPokemon(i.toString())
+        .then((data) => {
+          const filteredPokemonData = filterPokemonData(data);
+          switch (i) {
+            case 1: {
+              setGenOne(filteredPokemonData);
+              break;
+            }
+            case 2: {
+              setGenTwo(filteredPokemonData);
+              break;
+            }
+            case 3: {
+              setGenThree(filteredPokemonData);
+              break;
+            }
+            case 4: {
+              setGenFour(filteredPokemonData);
+              break;
+            }
+            case 5: {
+              setGenFive(filteredPokemonData);
+              break;
+            }
+          }
+        })
+        .catch(console.error);
+    }
+  }, []);
+    // useEffect(() => {
+  //   const overlap = randomWords.filter((word) => {
+  //     return fiveLetters.includes(word) || sixLetters.includes(word);
+  //   });
+  //   console.log(overlap);
+  // }, [genOne]);
+
   return (
     <div className="app">
       <Header
@@ -54,7 +99,13 @@ function App() {
       />
       <main className="app__body">
         <Routes>
-          <Route path="/" element={<Home activeModal={activeModal} />} />
+          <Route path="/" element={<Home activeModal={activeModal}
+          genOne={genOne}
+          genTwo={genTwo}
+          genThree={genThree}
+          genFour={genFour}
+          genFive={genFive}
+          />} />
           <Route path="/about" element={<About />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
         </Routes>

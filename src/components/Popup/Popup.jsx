@@ -16,11 +16,7 @@ function Popup({ isOpen, isWin, correctWord, onClick, onClose }) {
   return (
     <div className="popup">
       <h2 className="popup__title">{titleText}</h2>
-      <button
-        onClick={onClose}
-        type="button"
-        className="popup__close"
-      />
+      <button onClick={onClose} type="button" className="popup__close" />
       <p className="popup__body">{bodyText}</p>
       <button onClick={onClick} className="popup__button">
         {buttonText}

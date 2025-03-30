@@ -14,6 +14,7 @@ export const NUMBER_STRINGS = [
 
 export const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 export const ALPHABET_ARRAY = ALPHABET.split("");
+export const INPUT_ATTEMPTS = [1, 2, 3, 4, 5, 6];
 
 // export const randomWords = [
 //     "spine",
