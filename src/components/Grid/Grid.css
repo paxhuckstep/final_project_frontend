@@ -22,9 +22,10 @@
 }
 
 @media screen and (max-width: 800px) {
-  .grid__rules {
-    margin-top: 50px;
+  .grid {
+    margin: 0;
   }
+
   .grid__notice {
     width: 300px;
   }
