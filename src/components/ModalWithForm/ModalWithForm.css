@@ -61,14 +61,14 @@
   border-bottom: 1px solid rgb(84 84 84 / 0.7);
 }
 
-.modal__input_last {
+/* .modal__input_last {
   margin-bottom: 80px;
-}
+} */
 
 .modal__buttons-container {
-  position: absolute;
+  /* position: absolute;
   bottom: 36px;
-  left: 28px;
+  left: 28px; */
   display: flex;
   gap: 20px;
 }
@@ -76,7 +76,7 @@
 .modal__submit {
   background-color: rgba(47, 113, 229, 1);
   color: #fff;
-  width: 134px;
+  width: 120px;
   height: 36px;
   border: none;
   border-radius: 4px;
@@ -104,8 +104,10 @@
   border: solid 2px rgb(175, 118, 177);
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 520px) {
   .modal {
-    margin: 0 20px;
+    padding: 0 8px;
   }
+  .modal__switch {
+    padding: 0 12px;}
 }

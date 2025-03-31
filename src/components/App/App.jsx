@@ -81,7 +81,8 @@ function App() {
             }
           }
         })
-        .catch(console.error);
+        .catch(console.error("Sorry, unable to connect to PokeApi, please refresh and try again.")
+        );
     }
   }, []);
     // useEffect(() => {
