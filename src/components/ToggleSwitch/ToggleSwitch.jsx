@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ToggleSwitch.css";
 
-function ToggleSwitch({ categoryTitle, handleChecking, handleUnchecking }) {
+function ToggleSwitch({ toggleTitle, handleChecking, handleUnchecking }) {
   const [isChecked, setIsChecked] = useState(false);
 
   const onChange = (event) => {
@@ -16,7 +16,7 @@ function ToggleSwitch({ categoryTitle, handleChecking, handleUnchecking }) {
   return (
     <>
       <div className="toggle-switch">
-        <p className="toggle-switch__title">{categoryTitle}</p>
+        <p className="toggle-switch__title">{toggleTitle}</p>
         <label className="toggle-switch__switch">
           <input
             onChange={onChange}

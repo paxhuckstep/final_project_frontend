@@ -69,14 +69,35 @@ function About() {
         even though I knew they were attempting it in a way very differently
         than how I would, I still thought it would be a really fun challenge and
         wanted to see if I could do it myself. I slept on the idea and when I
-        woke up I go to work. It was my first time creating something completely
-        independently in React so it definitely took me longer than the guy in
-        the video. From the start I knew I wanted mine to be able to work for
-        any word length, not just 5 letters. It took me a few hours but when I
-        was done I had an interface with all the same functionality as they got
-        in the video, plus some. Once I finished I kept thinking of more
-        functionalities I could add to show off all I had learned from
+        woke up I got to work. It was my first time creating something
+        completely independently in React so it definitely took me longer than
+        the guy in the video. From the start I knew I wanted mine to be able to
+        work for any word length, not just 5 letters. It took me a few hours but
+        when I was done I had an interface with all the same functionality as
+        they got in the video, plus some. Once I finished I kept thinking of
+        more functionalities I could add to show off all I had learned from
         TripleTen, and that's what brought us to where we are today.
+      </p>
+      <h2 className="about__title">Future Plans and Ideas</h2>
+      <p className="about__paragraph">
+        This project is still a work in progress, I have a lot of ideas planned
+        that I am currently working on. First I am going to add the ability to
+        register and log in, making the current buttons be for more than just
+        show. Once logged in, PokeWordle will keep track of every pokemon you
+        guess correctly and you will be able to see how much you have completed
+        compared to other players. Additionally, there will be a new 'Hardcore
+        Mode' where you will keep guessing pokemon until you get one wrong; this
+        will be the premier category for competition in the leaderboard. I might
+        also add other wordle games for non-Pokemon categories for players to
+        compete in.
+      </p>
+      <h2 className="about__title">Contact the Creator</h2>
+      <p className="about__paragraph">Pax Huckstep</p>
+      <p className="about__paragraph">paxhuckstep@gmail.com</p>
+      <p className="about__paragraph">
+        <a href="linkedin.com/in/paxhuckstep" className="about__link">
+          linkedin.com/in/paxhuckstep
+        </a>
       </p>
     </article>
   );

@@ -2,16 +2,15 @@
   left: 200px;
   margin: 0 20px;
 }
+.about__link {
+  color: #2980b9;
+  text-decoration: none;
+}
 
 .about__paragraph {
   width: 40vw;
   text-indent: 40px;
   margin-left: 20px;
-}
-
-.about__link {
-  color: #2980b9;
-  text-decoration: none;
 }
 
 .about__link:hover {
