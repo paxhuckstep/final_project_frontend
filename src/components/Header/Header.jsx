@@ -5,8 +5,8 @@ import "./Header.css";
 function Header({ openRegisterModal, openLoginModal, closeActiveModal }) {
   return (
     <div className="header">
-      <h1 className="header__title">Poke Wordle</h1>
-      <p className="header__sub-title">A Pokemon Wordle Game</p>
+      <h1 className="header__title">Nerdle</h1>
+      <p className="header__sub-title">Test your nerd</p>
       <HeaderProfile
         openRegisterModal={openRegisterModal}
         openLoginModal={openLoginModal}
