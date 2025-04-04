@@ -13,4 +13,4 @@ If you are developing a production application, we recommend using TypeScript an
 
 
 deployed at: 
-https://fastidious-daifuku-0b1905.netlify.app/
+https://paxwordle.netlify.app/
