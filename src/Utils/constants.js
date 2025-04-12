@@ -16,6 +16,12 @@ export const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 export const ALPHABET_ARRAY = ALPHABET.split("");
 export const INPUT_ATTEMPTS = [1, 2, 3, 4, 5, 6];
 
+export const Base_Url =
+  // process.env.NODE_ENV === "production"
+  //   ? "https://api.wtwrpax.minecraftnoob.com"
+  //   :
+     "http://localhost:3002";
+
 // export const randomWords = [
 //     "spine",
 //     "hardship",
