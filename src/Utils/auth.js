@@ -1,14 +1,14 @@
 import { checkResponse } from "./pokeApi";
 import { Base_Url } from "./constants";
 
-export const register = (name, avatar, email, password) => {
+export const register = (username, password) => {
   return fetch(`${Base_Url}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, avatar, email, password }),
+    body: JSON.stringify({ username, password }),
   }).then(checkResponse);
 };
 

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
+import * as auth from "../../utils/auth";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -31,16 +32,50 @@ function App() {
     { username, password, confirmPassword },
     resetValues
   ) => {
-    console.log("Register and stuff", username, password === confirmPassword);
-    setActiveModal("");
-    //resevValues() inside of a .then eventually
+    console.log("Register and stuff", username, password, confirmPassword);
+    if (password === confirmPassword) {
+      auth
+        .register(username, password)
+        .then((signupInfo) => {
+          setCurrentUser(signupInfo.username);
+          setToken(signupInfo.token);
+          setIsLoggedIn(true);
+          resetValues();
+          setActiveModal("");
+        })
+        .catch(console.error);
+    }
   };
 
   const handleLogin = ({ username, password }, resetValues) => {
-    console.log("Log in and stuff", username, password);
-    setActiveModal("");
-    //resetValues() inside of a .then eventually
+    if (!username || !password) {
+      return;
+    }
+    auth
+      .authorize(username, password)
+      .then((data) => {
+        if (data.token) {
+          setToken(data.token);
+          setIsLoggedIn(true);
+          auth
+            .getCurrentUser(data.token)
+            .then((userData) => {
+              setCurrentUser(userData);
+              resetValues();
+              setActiveModal("");
+            })
+            .catch(console.error);
+        }
+      })
+      .catch(console.error);
   };
+
+  const handleLogOut = () => {
+    removeToken();
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
   useEffect(() => {
     const handleEscClose = (event) => {
       if (event.key === "Escape") {
@@ -81,11 +116,14 @@ function App() {
             }
           }
         })
-        .catch(console.error("Sorry, unable to connect to PokeApi, please refresh and try again.")
+        .catch(
+          console.error(
+            "Sorry, unable to connect to PokeApi, please refresh and try again."
+          )
         );
     }
   }, []);
-    // useEffect(() => {
+  // useEffect(() => {
   //   const overlap = randomWords.filter((word) => {
   //     return fiveLetters.includes(word) || sixLetters.includes(word);
   //   });
@@ -100,13 +138,19 @@ function App() {
       />
       <main className="app__body">
         <Routes>
-          <Route path="/" element={<Home activeModal={activeModal}
-          genOne={genOne}
-          genTwo={genTwo}
-          genThree={genThree}
-          genFour={genFour}
-          genFive={genFive}
-          />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                activeModal={activeModal}
+                genOne={genOne}
+                genTwo={genTwo}
+                genThree={genThree}
+                genFour={genFour}
+                genFive={genFive}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
         </Routes>
