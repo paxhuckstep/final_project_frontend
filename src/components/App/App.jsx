@@ -9,9 +9,11 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
+import { removeToken } from "../../Utils/token";
+import { addSolvedWord } from "../../Utils/api";
 
 function App() {
-  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [currentUser, setCurrentUser] = useState({
   //   username: "",
   //   corectWords: [],
@@ -44,7 +46,7 @@ function App() {
       auth
         .register(username, password)
         .then((signupInfo) => {
-          console.log("register .then ran: ", signupInfo)
+          console.log("register .then ran: ", signupInfo);
           setCurrentUser(signupInfo.username);
           setToken(signupInfo.token);
           setIsLoggedIn(true);
@@ -56,16 +58,16 @@ function App() {
   };
 
   const handleLogin = ({ username, password }, resetValues) => {
-    console.log("handleLogin ran: ", username, password)
+    console.log("handleLogin ran: ", username, password);
     if (!username || !password) {
       return;
     }
     auth
       .authorize(username, password)
       .then((data) => {
-        console.log("authorize .then ran: ", data)
+        console.log("authorize .then ran: ", data);
         if (data.token) {
-          // setToken(data.token);  
+          // setToken(data.token);
           setIsLoggedIn(true);
           auth
             .getCurrentUser(data.token)
@@ -80,11 +82,23 @@ function App() {
       .catch(console.error);
   };
 
-  // const handleLogOut = () => {
-  //   removeToken();
-  //   setIsLoggedIn(false);
-  //   navigate("/");
+  // const handleNewSolvedWord = (newSolvedWord) => {
+  //   if (!currentUser.solvedWords.includes(newSolvedWord)) {
+  //     console.log("this is the first time solving this word!");
+  //     addSolvedWord(currentUser._id, newSolvedWord)
+  //       .then((newUserData) => {
+  //         setCurrentUser(newUserData)
+  //       }
+  //       )
+  //       .catch(console.error(error));
+  //   }
   // };
+
+  const handleLogOut = () => {
+    removeToken();
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   useEffect(() => {
     const handleEscClose = (event) => {
@@ -133,18 +147,22 @@ function App() {
         );
     }
   }, []);
-  // useEffect(() => {
-  //   const overlap = randomWords.filter((word) => {
-  //     return fiveLetters.includes(word) || sixLetters.includes(word);
-  //   });
-  //   console.log(overlap);
-  // }, [genOne]);
+
+  useEffect(() => {
+    console.log("isLoggedIn: ", isLoggedIn);
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    console.log("currentUser: ", currentUser);
+  }, [currentUser]);
 
   return (
     <div className="app">
       <Header
         openRegisterModal={openRegisterModal}
         openLoginModal={openLoginModal}
+        isLoggedIn={isLoggedIn}
+        handleLogOut={handleLogOut}
       />
       <main className="app__body">
         <Routes>
@@ -152,6 +170,7 @@ function App() {
             path="/"
             element={
               <Home
+              currentUser={currentUser}
                 activeModal={activeModal}
                 genOne={genOne}
                 genTwo={genTwo}

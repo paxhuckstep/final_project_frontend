@@ -5,8 +5,10 @@ import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
 import "./Home.css";
 import { ALPHABET_ARRAY } from "../../Utils/constants";
+import { updateHighScore } from "../../Utils/api";
+import { getToken } from "../../Utils/token";
 
-function Home({ activeModal, genOne, genTwo, genThree, genFour, genFive }) {
+function Home({ currentUser, activeModal, genOne, genTwo, genThree, genFour, genFive }) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
   const [currentAttempt, setCurrentAttempt] = useState(1);
@@ -17,6 +19,7 @@ function Home({ activeModal, genOne, genTwo, genThree, genFour, genFive }) {
   const [isGrid, setIsGrid] = useState(false);
   const [remainingLetters, setRemainingLetters] = useState("");
   const [isLocked, setIsLocked] = useState(false);
+  let score = 0;
 
   const closePopup = () => {
     setIsOpen(false);
@@ -67,6 +70,8 @@ function Home({ activeModal, genOne, genTwo, genThree, genFour, genFive }) {
       setIsOpen(true);
       setIsWin(true);
       setIsLocked(true);
+      handleNewSolvedWord(correctWord);
+      score = score + 1;
     }
     setCurrentInputs([]);
   };
@@ -89,9 +94,32 @@ function Home({ activeModal, genOne, genTwo, genThree, genFour, genFive }) {
     }
   };
 
+  const handleNewSolvedWord = (newSolvedWord) => {
+    if (!currentUser.solvedWords.includes(newSolvedWord)) {
+      console.log("this is the first time solving this word!");
+      const token = getToken();
+      addSolvedWord(currentUser._id, token, newSolvedWord)
+        .then((newUserData) => {
+          setCurrentUser(newUserData)
+        }
+        )
+        .catch(console.error(error));
+    }
+  };
+
+  const handleNewHighScore = (score) => {
+    if (score > currentUser.pokemonHighScore) {
+      const token = getToken()
+      updateHighScore(currentUser._id, token, score)
+    }
+  }
+
   useEffect(() => {
     if (currentAttempt === 7) {
       setIsOpen(true);
+      if(!isWin) {
+        score = 0;
+      }
     }
   }, [currentAttempt]);
 
@@ -197,6 +225,7 @@ function Home({ activeModal, genOne, genTwo, genThree, genFour, genFive }) {
           currentAttempt={currentAttempt}
           handleNewWord={handleNewWord}
           remainingLetters={remainingLetters}
+          score={score}
         />
       </section>
       <Popup

@@ -1,10 +1,14 @@
 import "./HeaderProfile.css";
 
-function HeaderProfile({ openLoginModal, openRegisterModal }) {
-  const isLoggedIn = false;
+function HeaderProfile({ openLoginModal, openRegisterModal, isLoggedIn, handleLogOut }) {
+  // const isLoggedIn = false;
 
   if (isLoggedIn) {
-    return <>//logged in stuff</>;
+    return (
+      <div className="header-profile">
+        <button onClick={handleLogOut} className="header-profile__button">Log Out</button>
+      </div>
+    );
   }
   return (
     <>
