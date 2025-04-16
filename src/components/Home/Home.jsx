@@ -8,7 +8,15 @@ import { ALPHABET_ARRAY } from "../../Utils/constants";
 import { updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
 
-function Home({ currentUser, activeModal, genOne, genTwo, genThree, genFour, genFive }) {
+function Home({
+  currentUser,
+  activeModal,
+  genOne,
+  genTwo,
+  genThree,
+  genFour,
+  genFive,
+}) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
   const [currentAttempt, setCurrentAttempt] = useState(1);
@@ -19,7 +27,7 @@ function Home({ currentUser, activeModal, genOne, genTwo, genThree, genFour, gen
   const [isGrid, setIsGrid] = useState(false);
   const [remainingLetters, setRemainingLetters] = useState("");
   const [isLocked, setIsLocked] = useState(false);
-  let score = 0;
+  const [score, setScore] = useState(0);
 
   const closePopup = () => {
     setIsOpen(false);
@@ -70,8 +78,8 @@ function Home({ currentUser, activeModal, genOne, genTwo, genThree, genFour, gen
       setIsOpen(true);
       setIsWin(true);
       setIsLocked(true);
-      handleNewSolvedWord(correctWord);
-      score = score + 1;
+      // handleNewSolvedWord(correctWord);
+      setScore((prevScore) => prevScore + 1);
     }
     setCurrentInputs([]);
   };
@@ -100,25 +108,24 @@ function Home({ currentUser, activeModal, genOne, genTwo, genThree, genFour, gen
       const token = getToken();
       addSolvedWord(currentUser._id, token, newSolvedWord)
         .then((newUserData) => {
-          setCurrentUser(newUserData)
-        }
-        )
-        .catch(console.error(error));
+          setCurrentUser(newUserData);
+        })
+        .catch((error) => console.error(error));
     }
   };
 
   const handleNewHighScore = (score) => {
     if (score > currentUser.pokemonHighScore) {
-      const token = getToken()
-      updateHighScore(currentUser._id, token, score)
+      const token = getToken();
+      updateHighScore(currentUser._id, token, score);
     }
-  }
+  };
 
   useEffect(() => {
     if (currentAttempt === 7) {
       setIsOpen(true);
-      if(!isWin) {
-        score = 0;
+      if (!isWin) {
+        setScore(0)
       }
     }
   }, [currentAttempt]);
@@ -203,12 +210,14 @@ function Home({ currentUser, activeModal, genOne, genTwo, genThree, genFour, gen
   return (
     <>
       <section className="home">
-        <SideBar addCategory={addCategory} removeCategory={removeCategory} 
-        genOne={genOne}
-        genTwo={genTwo}
-        genThree={genThree}
-        genFour={genFour}
-        genFive={genFive}
+        <SideBar
+          addCategory={addCategory}
+          removeCategory={removeCategory}
+          genOne={genOne}
+          genTwo={genTwo}
+          genThree={genThree}
+          genFour={genFour}
+          genFive={genFive}
         />
         <Grid
           isGrid={isGrid}
