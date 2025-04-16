@@ -8,9 +8,16 @@ import { useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
-import * as auth from "../../utils/auth";
+import * as auth from "../../Utils/auth";
 
 function App() {
+  const [isLoggedIn, setIsloggedIn] = useState(false);
+  // const [currentUser, setCurrentUser] = useState({
+  //   username: "",
+  //   corectWords: [],
+  //   pokemonHighscore: null,
+  // });
+  const [currentUser, setCurrentUser] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [genOne, setGenOne] = useState([]);
   const [genTwo, setGenTwo] = useState([]);
@@ -32,11 +39,12 @@ function App() {
     { username, password, confirmPassword },
     resetValues
   ) => {
-    console.log("Register and stuff", username, password, confirmPassword);
+    console.log("Register and stuff: ", username, password, confirmPassword);
     if (password === confirmPassword) {
       auth
         .register(username, password)
         .then((signupInfo) => {
+          console.log("register .then ran: ", signupInfo)
           setCurrentUser(signupInfo.username);
           setToken(signupInfo.token);
           setIsLoggedIn(true);
@@ -48,14 +56,16 @@ function App() {
   };
 
   const handleLogin = ({ username, password }, resetValues) => {
+    console.log("handleLogin ran: ", username, password)
     if (!username || !password) {
       return;
     }
     auth
       .authorize(username, password)
       .then((data) => {
+        console.log("authorize .then ran: ", data)
         if (data.token) {
-          setToken(data.token);
+          // setToken(data.token);  
           setIsLoggedIn(true);
           auth
             .getCurrentUser(data.token)
@@ -70,11 +80,11 @@ function App() {
       .catch(console.error);
   };
 
-  const handleLogOut = () => {
-    removeToken();
-    setIsLoggedIn(false);
-    navigate("/");
-  };
+  // const handleLogOut = () => {
+  //   removeToken();
+  //   setIsLoggedIn(false);
+  //   navigate("/");
+  // };
 
   useEffect(() => {
     const handleEscClose = (event) => {
