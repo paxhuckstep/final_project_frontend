@@ -9,8 +9,8 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
-import { removeToken } from "../../Utils/token";
-import { addSolvedWord } from "../../Utils/api";
+import { removeToken, setToken } from "../../Utils/token";
+// import { addSolvedWord } from "../../Utils/api";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -47,7 +47,7 @@ function App() {
         .register(username, password)
         .then((signupInfo) => {
           console.log("register .then ran: ", signupInfo);
-          setCurrentUser(signupInfo.username);
+          setCurrentUser(signupInfo.user);
           setToken(signupInfo.token);
           setIsLoggedIn(true);
           resetValues();
@@ -67,7 +67,7 @@ function App() {
       .then((data) => {
         console.log("authorize .then ran: ", data);
         if (data.token) {
-          // setToken(data.token);
+          setToken(data.token);
           setIsLoggedIn(true);
           auth
             .getCurrentUser(data.token)
@@ -152,9 +152,9 @@ function App() {
     console.log("isLoggedIn: ", isLoggedIn);
   }, [isLoggedIn]);
 
-  useEffect(() => {
+
     console.log("currentUser: ", currentUser);
-  }, [currentUser]);
+
 
   return (
     <div className="app">

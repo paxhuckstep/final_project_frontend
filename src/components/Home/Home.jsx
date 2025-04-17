@@ -114,18 +114,28 @@ function Home({
     }
   };
 
-  const handleNewHighScore = (score) => {
-    if (score > currentUser.pokemonHighScore) {
+  const handleNewHighScore = () => {
+    if (score > currentUser?.pokemonHighScore) {
+      console.log("handleNewHighScore if: true");
       const token = getToken();
-      updateHighScore(currentUser._id, token, score);
+      updateHighScore(token, score)
+        .then((response) => {
+          console.log("backend response from handleNewHighScore .then: ", response);
+        })
+        .catch((error) => console.error(error));
     }
   };
+
+  useEffect(() => {
+    handleNewHighScore();
+    console.log("handleNewHighScore triggered");
+  }, [score]);
 
   useEffect(() => {
     if (currentAttempt === 7) {
       setIsOpen(true);
       if (!isWin) {
-        setScore(0)
+        setScore(0);
       }
     }
   }, [currentAttempt]);

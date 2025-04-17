@@ -1,8 +1,8 @@
 import { Base_Url } from "./constants";
 import { checkResponse } from "./pokeApi";
 
-function addSolvedWord(userId, token, word) {
-  return fetch(`${Base_Url}/solvedwords/${userId}/${word}`, {
+function addSolvedWord(token, word) {
+  return fetch(`${Base_Url}/solvedwords/${word}`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
@@ -10,12 +10,13 @@ function addSolvedWord(userId, token, word) {
   }).then(checkResponse);
 }
 
-function updateHighScore (userId, token, score) {
-  return fetch(`${Base_Url}/highscore/${userId}/${score}`, {
+function updateHighScore (token, score) {
+  return fetch(`${Base_Url}/highscore/${score}`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify({ score })
   }).then(checkResponse);
 }
 
