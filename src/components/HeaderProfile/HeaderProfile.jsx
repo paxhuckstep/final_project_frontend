@@ -1,11 +1,12 @@
 import "./HeaderProfile.css";
 
-function HeaderProfile({ openLoginModal, openRegisterModal, isLoggedIn, handleLogOut }) {
+function HeaderProfile({ currentUser, openLoginModal, openRegisterModal, isLoggedIn, handleLogOut }) {
   // const isLoggedIn = false;
 
   if (isLoggedIn) {
     return (
       <div className="header-profile">
+        {/* <p className="header-profile__text">{currentUser?.username}</p> */}
         <button onClick={handleLogOut} className="header-profile__button">Log Out</button>
       </div>
     );

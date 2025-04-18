@@ -9,17 +9,17 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
-import { removeToken, setToken } from "../../Utils/token";
+import { getToken, removeToken, setToken } from "../../Utils/token";
 // import { addSolvedWord } from "../../Utils/api";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [currentUser, setCurrentUser] = useState({
-  //   username: "",
-  //   corectWords: [],
-  //   pokemonHighscore: null,
-  // });
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({
+    username: "",
+    corectWords: [],
+    pokemonHighscore: 0,
+  });
+  // const [currentUser, setCurrentUser] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [genOne, setGenOne] = useState([]);
   const [genTwo, setGenTwo] = useState([]);
@@ -152,13 +152,26 @@ function App() {
     console.log("isLoggedIn: ", isLoggedIn);
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      return;
+    }
+    auth
+      .getCurrentUser(token)
+      .then((userData) => {
+        setIsLoggedIn(true);
+        setCurrentUser(userData);
+      })
+      .catch(console.error);
+  }, []);
 
-    console.log("currentUser: ", currentUser);
-
+  console.log("currentUser: ", currentUser);
 
   return (
     <div className="app">
       <Header
+        currentUser={currentUser}
         openRegisterModal={openRegisterModal}
         openLoginModal={openLoginModal}
         isLoggedIn={isLoggedIn}
@@ -170,8 +183,8 @@ function App() {
             path="/"
             element={
               <Home
-              currentUser={currentUser}
-              isLoggedIn={isLoggedIn}
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
                 activeModal={activeModal}
                 genOne={genOne}
                 genTwo={genTwo}
