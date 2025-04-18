@@ -2,7 +2,7 @@ import { Base_Url } from "./constants";
 import { checkResponse } from "./pokeApi";
 
 function addSolvedWord(token, word) {
-  return fetch(`${Base_Url}/solvedwords/${word}`, {
+  return fetch(`${Base_Url}/solvedword/${word}`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,

@@ -5,7 +5,7 @@ import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
 import "./Home.css";
 import { ALPHABET_ARRAY } from "../../Utils/constants";
-import { updateHighScore } from "../../Utils/api";
+import { addSolvedWord, updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
 
 function Home({
@@ -79,17 +79,17 @@ function Home({
       setIsOpen(true);
       setIsWin(true);
       setIsLocked(true);
-      // handleNewSolvedWord(correctWord);
+      handleNewSolvedWord(correctWord);
       setScore((prevScore) => prevScore + 1);
     }
     setCurrentInputs([]);
   };
 
   const handleNewWord = () => {
-    setCorrectWord(
-      selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    );
-    // setCorrectWord("abcdefghijklm");
+    // setCorrectWord(
+    //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    // );
+    setCorrectWord("test");
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
@@ -104,14 +104,17 @@ function Home({
   };
 
   const handleNewSolvedWord = (newSolvedWord) => {
-    if (!currentUser.solvedWords.includes(newSolvedWord)) {
-      console.log("this is the first time solving this word!");
+    if (!currentUser.solvedWords.includes(newSolvedWord) && isLoggedIn) { //  this if doesn't work quite right
+      console.log("this is the first time solving this word!", newSolvedWord);
       const token = getToken();
-      addSolvedWord(currentUser._id, token, newSolvedWord)
+      addSolvedWord(token, newSolvedWord)
         .then((newUserData) => {
-          setCurrentUser(newUserData);
+          console.log("addSolvedWord .then ran: ", newUserData)
+          // setCurrentUser(newUserData);
         })
         .catch((error) => console.error(error));
+    } else {
+      console.log("not new solve", newSolvedWord);
     }
   };
 
@@ -129,7 +132,7 @@ function Home({
 
   useEffect(() => {
     handleNewHighScore();
-    console.log("handleNewHighScore triggered");
+    // console.log("handleNewHighScore triggered");
   }, [score]);
 
   useEffect(() => {
