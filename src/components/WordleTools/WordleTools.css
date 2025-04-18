@@ -26,7 +26,7 @@
 .wordle-tools__letters-title {
   font-size: 15px;
   padding: 0;
-  margin: 0;
+  margin: 0 0 5px 0;
   font-weight: 600;
   padding: 7px 0 0 7px;
 }
