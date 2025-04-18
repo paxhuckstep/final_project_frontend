@@ -1,13 +1,18 @@
 .wordle-tools {
   margin: 20px 20px 0 0;
   color: black;
+  text-align: center;
 }
 
-.wordle-tools__attempts {
+.wordle-tools__text {
   font-size: 22px;
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0;
   font-weight: 600;
+}
+
+.wordle-tools__score {
+  color: red;
 }
 
 .wordle-tools__letters-container {
@@ -50,9 +55,9 @@
   outline: none;
 }
 @media screen and (max-width: 1100px) {
-  .wordle-tools__attempts {
+  .wordle-tools__text {
     font-size: 18px;
-    margin: 0;
+    margin: 10px 0 0 0;
     padding: 0;
     font-weight: 600;
   }

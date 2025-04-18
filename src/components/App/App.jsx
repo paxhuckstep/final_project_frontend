@@ -171,6 +171,7 @@ function App() {
             element={
               <Home
               currentUser={currentUser}
+              isLoggedIn={isLoggedIn}
                 activeModal={activeModal}
                 genOne={genOne}
                 genTwo={genTwo}

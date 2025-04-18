@@ -10,6 +10,7 @@ import { getToken } from "../../Utils/token";
 
 function Home({
   currentUser,
+  isLoggedIn,
   activeModal,
   genOne,
   genTwo,
@@ -245,6 +246,8 @@ function Home({
           handleNewWord={handleNewWord}
           remainingLetters={remainingLetters}
           score={score}
+          currentUser={currentUser}
+          isLoggedIn={isLoggedIn}
         />
       </section>
       <Popup
