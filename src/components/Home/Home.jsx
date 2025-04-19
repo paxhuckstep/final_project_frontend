@@ -11,6 +11,7 @@ import { getToken } from "../../Utils/token";
 function Home({
   currentUser,
   isLoggedIn,
+  handleNewUserData,
   activeModal,
   genOne,
   genTwo,
@@ -86,10 +87,10 @@ function Home({
   };
 
   const handleNewWord = () => {
-    // setCorrectWord(
-    //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    // );
-    setCorrectWord("test");
+    setCorrectWord(
+      selectedWords[Math.floor(Math.random() * selectedWords.length)]
+    );
+    // setCorrectWord("test");
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
@@ -103,14 +104,22 @@ function Home({
     }
   };
 
+  const handleNewWordClick = () => {
+    handleNewWord();
+    if (currentAttempt > 1) {
+      setScore(0);
+    }
+  };
+
   const handleNewSolvedWord = (newSolvedWord) => {
-    if (!currentUser.solvedWords.includes(newSolvedWord) && isLoggedIn) { //  this if doesn't work quite right
+    if (!currentUser.solvedWords.includes(newSolvedWord) && isLoggedIn) {
+      //  this if doesn't work quite right
       console.log("this is the first time solving this word!", newSolvedWord);
       const token = getToken();
       addSolvedWord(token, newSolvedWord)
         .then((newUserData) => {
-          console.log("addSolvedWord .then ran: ", newUserData)
-          // setCurrentUser(newUserData);
+          console.log("addSolvedWord .then ran: ", newUserData);
+          handleNewUserData(newUserData);
         })
         .catch((error) => console.error(error));
     } else {
@@ -123,8 +132,12 @@ function Home({
       console.log("handleNewHighScore if: true");
       const token = getToken();
       updateHighScore(token, score)
-        .then((response) => {
-          console.log("backend response from handleNewHighScore .then: ", response);
+        .then((newUserData) => {
+          console.log(
+            "backend response from handleNewHighScore .then: ",
+            newUserData
+          );
+          handleNewUserData(newUserData);
         })
         .catch((error) => console.error(error));
     }
@@ -246,7 +259,7 @@ function Home({
         </div> */}
         <WordleTools
           currentAttempt={currentAttempt}
-          handleNewWord={handleNewWord}
+          handleNewWordClick={handleNewWordClick}
           remainingLetters={remainingLetters}
           score={score}
           currentUser={currentUser}

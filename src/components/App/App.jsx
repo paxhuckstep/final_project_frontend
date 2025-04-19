@@ -94,6 +94,10 @@ function App() {
   //   }
   // };
 
+  const handleNewUserData = (userData) => {
+    setCurrentUser(userData)
+  }
+
   const handleLogOut = () => {
     removeToken();
     setIsLoggedIn(false);
@@ -185,6 +189,7 @@ function App() {
               <Home
                 currentUser={currentUser}
                 isLoggedIn={isLoggedIn}
+                handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
                 genOne={genOne}
                 genTwo={genTwo}
