@@ -16,7 +16,7 @@
   overflow: visible;
   position: relative;
   transition: all 0.3s;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .toggle-switch__checkbox {
@@ -52,6 +52,15 @@
   color: white;
 }
 
+.toggle-switch__progress {
+  margin: 0 0 25px;
+  /* margin-bottom: 25px; */
+}
+
+.toggle-switch__progress-hidden {
+ visibility: hidden;
+}
+
 .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
   left: 28px;
 }
@@ -74,11 +83,12 @@
 
   .toggle-switch__switch {
     margin-bottom: 10px;
+    padding-bottom: 9px;
     margin-top: auto;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
   .toggle-switch__title {
     margin-top: 10px;
     max-width: 118px;
@@ -87,6 +97,8 @@
   .toggle-switch__switch {
     width: 40px;
     height: 18px;
+    padding-bottom: 0;
+    margin-top: auto;
   }
   .toggle-switch__circle {
     height: 18px;
@@ -106,6 +118,9 @@
   }
   .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
     left: 22px;
+  }
+  .toggle-switch__progress {
+ font-size: 12px;
   }
 }
 @media screen and (max-width: 400px) {

@@ -25,10 +25,6 @@ function WordleTools({
         .charAt(0)
         .toUpperCase()}${currentUser?.username.slice(1)}!`
     : "";
-  const currentScoreTextContext =
-    score > currentUser.pokemonHighScore
-      ? "High Score and Counting: "
-      : "Current Score: ";
   useEffect(() => {
     console.log("highscore: ", currentUser.pokemonHighScore);
   }, [currentUser.pokemonHighScore]);

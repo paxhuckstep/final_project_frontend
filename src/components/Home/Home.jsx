@@ -245,6 +245,8 @@ function Home({
           genThree={genThree}
           genFour={genFour}
           genFive={genFive}
+          currentUser={currentUser}
+          isLoggedIn={isLoggedIn}
         />
         <Grid
           isGrid={isGrid}
