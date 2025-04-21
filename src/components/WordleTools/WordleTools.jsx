@@ -25,9 +25,9 @@ function WordleTools({
         .charAt(0)
         .toUpperCase()}${currentUser?.username.slice(1)}!`
     : "";
-  useEffect(() => {
-    console.log("highscore: ", currentUser.pokemonHighScore);
-  }, [currentUser.pokemonHighScore]);
+  // useEffect(() => {
+  //   console.log("highscore: ", currentUser.pokemonHighScore);
+  // }, [currentUser.pokemonHighScore]);
   return (
     <div className="wordle-tools">
       <p className="wordle-tools__text">{userName}</p>
@@ -48,7 +48,10 @@ function WordleTools({
         <span className="wordle-tools__score">{highScore}</span>
       </p>
 
-      <button onClick={handleNewWordClick} className="wordle-tools__reset-button">
+      <button
+        onClick={handleNewWordClick}
+        className="wordle-tools__reset-button"
+      >
         New Pokemon
       </button>
     </div>

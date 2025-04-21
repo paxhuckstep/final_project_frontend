@@ -30,9 +30,23 @@ function Home({
   const [remainingLetters, setRemainingLetters] = useState("");
   const [isLocked, setIsLocked] = useState(false);
   const [score, setScore] = useState(0);
+  const [potentialWager, setPotentialWager] = useState(0);
+  const [wager, setWager] = useState(0);
+
+  useEffect(() => {
+    console.log("potentialWager: ", potentialWager);
+  }, [potentialWager]);
 
   const closePopup = () => {
     setIsOpen(false);
+  };
+
+  const increasePotentialWager = () => {
+    setPotentialWager((prev) => prev + 1);
+  };
+
+  const decreasePotentialWager = () => {
+    setPotentialWager((prev) => prev - 1);
   };
 
   const testAnswer = () => {
@@ -81,7 +95,7 @@ function Home({
       setIsWin(true);
       setIsLocked(true);
       handleNewSolvedWord(correctWord);
-      setScore((prevScore) => prevScore + 1);
+      setScore((prevScore) => prevScore + wager);
     }
     setCurrentInputs([]);
   };
@@ -90,6 +104,7 @@ function Home({
     setCorrectWord(
       selectedWords[Math.floor(Math.random() * selectedWords.length)]
     );
+    setWager(potentialWager);
     // setCorrectWord("test");
     setSubmissions([]);
     setIsOpen(false);
@@ -247,6 +262,8 @@ function Home({
           genFive={genFive}
           currentUser={currentUser}
           isLoggedIn={isLoggedIn}
+          increasePotentialWager={increasePotentialWager}
+          decreasePotentialWager={decreasePotentialWager}
         />
         <Grid
           isGrid={isGrid}

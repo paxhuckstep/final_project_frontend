@@ -10,35 +10,40 @@ function SideBar({
   genFour,
   genFive,
   currentUser,
-  isLoggedIn
-})
-
-{
+  isLoggedIn,
+ increasePotentialWager,
+  decreasePotentialWager,
+}) {
   const genOneSolved = currentUser?.solvedWords?.filter((word) => {
-   return genOne.includes(word)
-  })
+    return genOne.includes(word);
+  });
   const genTwoSolved = currentUser?.solvedWords?.filter((word) => {
-    return genTwo.includes(word)
-   })
-   const genThreeSolved = currentUser?.solvedWords?.filter((word) => {
-    return genThree.includes(word)
-   })
-   const genFourSolved = currentUser?.solvedWords?.filter((word) => {
-    return genFour.includes(word)
-   })
-   const genFiveSolved = currentUser?.solvedWords?.filter((word) => {
-    return genFive.includes(word)
-   })
-      
-  
+    return genTwo.includes(word);
+  });
+  const genThreeSolved = currentUser?.solvedWords?.filter((word) => {
+    return genThree.includes(word);
+  });
+  const genFourSolved = currentUser?.solvedWords?.filter((word) => {
+    return genFour.includes(word);
+  });
+  const genFiveSolved = currentUser?.solvedWords?.filter((word) => {
+    return genFive.includes(word);
+  });
+
   return (
     <div className="sidebar">
       <h3 className="sidebar__title">Generations</h3>
       <div className="sidebar__container">
         <ToggleSwitch
           toggleTitle={"Gen One"}
-          handleChecking={() => addCategory(genOne)}
-          handleUnchecking={() => removeCategory(genOne)}
+          handleChecking={() => {
+           increasePotentialWager();
+            addCategory(genOne);
+          }}
+          handleUnchecking={() => {
+            decreasePotentialWager();
+            removeCategory(genOne);
+          }}
           catagorySolved={genOneSolved?.length}
           catagoryMax={genOne?.length}
           isLoggedIn={isLoggedIn}
@@ -46,32 +51,56 @@ function SideBar({
         {/* <p className="sidebar__progress">gja</p> */}
         <ToggleSwitch
           toggleTitle={"Gen Two"}
-          handleChecking={() => addCategory(genTwo)}
-          handleUnchecking={() => removeCategory(genTwo)}
+          handleChecking={() => {
+            addCategory(genTwo);
+           increasePotentialWager();
+          }}
+          handleUnchecking={() => {
+            decreasePotentialWager();
+            removeCategory(genTwo);
+          }}
           catagorySolved={genTwoSolved?.length}
           catagoryMax={genTwo?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
           toggleTitle={"Gen Three"}
-          handleChecking={() => addCategory(genThree)}
-          handleUnchecking={() => removeCategory(genThree)}
+          handleChecking={() => {
+           increasePotentialWager();
+            addCategory(genThree);
+          }}
+          handleUnchecking={() => {
+            decreasePotentialWager();
+            removeCategory(genThree);
+          }}
           catagorySolved={genThreeSolved?.length}
           catagoryMax={genThree?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
           toggleTitle={"Gen Four"}
-          handleChecking={() => addCategory(genFour)}
-          handleUnchecking={() => removeCategory(genFour)}
+          handleChecking={() => {
+           increasePotentialWager();
+            addCategory(genFour);
+          }}
+          handleUnchecking={() => {
+            decreasePotentialWager();
+            removeCategory(genFour);
+          }}
           catagorySolved={genFourSolved?.length}
           catagoryMax={genFour?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
           toggleTitle={"Gen Five"}
-          handleChecking={() => addCategory(genFive)}
-          handleUnchecking={() => removeCategory(genFive)}
+          handleChecking={() => {
+           increasePotentialWager();
+            addCategory(genFive);
+          }}
+          handleUnchecking={() => {
+            decreasePotentialWager();
+            removeCategory(genFive);
+          }}
           catagorySolved={genFiveSolved?.length}
           catagoryMax={genFive?.length}
           isLoggedIn={isLoggedIn}

@@ -152,9 +152,9 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("isLoggedIn: ", isLoggedIn);
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   console.log("isLoggedIn: ", isLoggedIn);
+  // }, [isLoggedIn]);
 
   useEffect(() => {
     const token = getToken();
@@ -170,7 +170,7 @@ function App() {
       .catch(console.error);
   }, []);
 
-  console.log("currentUser: ", currentUser);
+  // console.log("currentUser: ", currentUser);
 
   return (
     <div className="app">
