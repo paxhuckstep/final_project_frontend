@@ -129,11 +129,11 @@ function Home({
   const handleNewSolvedWord = (newSolvedWord) => {
     if (!currentUser.solvedWords.includes(newSolvedWord) && isLoggedIn) {
       //  this if doesn't work quite right
-      console.log("this is the first time solving this word!", newSolvedWord);
+      // console.log("this is the first time solving this word!", newSolvedWord);
       const token = getToken();
       addSolvedWord(token, newSolvedWord)
         .then((newUserData) => {
-          console.log("addSolvedWord .then ran: ", newUserData);
+          // console.log("addSolvedWord .then ran: ", newUserData);
           handleNewUserData(newUserData);
         })
         .catch((error) => console.error(error));
