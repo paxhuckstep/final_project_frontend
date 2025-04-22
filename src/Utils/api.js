@@ -19,7 +19,7 @@ function updateHighScore (token, score) {
     body: JSON.stringify({ score })
   }).then(checkResponse);
 }
-function getLeaderboardsData () {
+function getPokemonLeaderboardData () {
   return fetch(`${Base_Url}/leaderboards`, {
     method: "GET",
   }).then(checkResponse);
@@ -28,5 +28,5 @@ function getLeaderboardsData () {
 export {
 addSolvedWord,
 updateHighScore,
-getLeaderboardsData
+getPokemonLeaderboardData
 };

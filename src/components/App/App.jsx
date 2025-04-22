@@ -10,7 +10,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
-import { getLeaderboardsData } from "../../Utils/api";
+import { getPokemonLeaderboardData } from "../../Utils/api";
 // import { addSolvedWord } from "../../Utils/api";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   const [genThree, setGenThree] = useState([]);
   const [genFour, setGenFour] = useState([]);
   const [genFive, setGenFive] = useState([]);
-  const [leaderboardsData, setLeaderboardsData] = useState([]);
+  const [pokemonLeaderboardData, setPokemonLeaderboardData] = useState([]);
 
   const openRegisterModal = () => {
     setActiveModal("register");
@@ -159,6 +159,11 @@ function App() {
   // }, [isLoggedIn]);
 
   useEffect(() => {
+    getPokemonLeaderboardData()
+    .then((data) => {
+      setPokemonLeaderboardData(data);
+    })
+    .catch(console.error);
     const token = getToken();
     if (!token) {
       return;
@@ -171,14 +176,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-  // useEffect(() => {
-  //   getLeaderboardsData()
-  //     .then((data) => {
-  //       setLeaderboardsData(data);
-  //     })
-  //     .catch(console.error);
-  // }, []);
 
   // console.log("currentUser: ", currentUser);
 
@@ -212,7 +209,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route
             path="/leaderboards"
-            element={<Leaderboards leaderboardsData={leaderboardsData} />}
+            element={<Leaderboards pokemonLeaderboardData={pokemonLeaderboardData} />}
           />
         </Routes>
       </main>
