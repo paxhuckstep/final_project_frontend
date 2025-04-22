@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "../Header/Header";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 import Home from "../Home/Home";
 import About from "../About/About";
 import Leaderboards from "../Leaderboards/Leaderboards";
@@ -10,8 +10,6 @@ import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
-import { getPokemonLeaderboardData } from "../../Utils/api";
-// import { addSolvedWord } from "../../Utils/api";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,14 +18,14 @@ function App() {
     corectWords: [],
     pokemonHighscore: 0,
   });
-  // const [currentUser, setCurrentUser] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [genOne, setGenOne] = useState([]);
   const [genTwo, setGenTwo] = useState([]);
   const [genThree, setGenThree] = useState([]);
   const [genFour, setGenFour] = useState([]);
   const [genFive, setGenFive] = useState([]);
-  const [pokemonLeaderboardData, setPokemonLeaderboardData] = useState([]);
+
+  const navigate = useNavigate();
 
   const openRegisterModal = () => {
     setActiveModal("register");
@@ -83,18 +81,6 @@ function App() {
       })
       .catch(console.error);
   };
-
-  // const handleNewSolvedWord = (newSolvedWord) => {
-  //   if (!currentUser.solvedWords.includes(newSolvedWord)) {
-  //     console.log("this is the first time solving this word!");
-  //     addSolvedWord(currentUser._id, newSolvedWord)
-  //       .then((newUserData) => {
-  //         setCurrentUser(newUserData)
-  //       }
-  //       )
-  //       .catch(console.error(error));
-  //   }
-  // };
 
   const handleNewUserData = (userData) => {
     setCurrentUser(userData);
@@ -159,11 +145,6 @@ function App() {
   // }, [isLoggedIn]);
 
   useEffect(() => {
-    getPokemonLeaderboardData()
-    .then((data) => {
-      setPokemonLeaderboardData(data);
-    })
-    .catch(console.error);
     const token = getToken();
     if (!token) {
       return;
@@ -207,10 +188,7 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route
-            path="/leaderboards"
-            element={<Leaderboards pokemonLeaderboardData={pokemonLeaderboardData} />}
-          />
+          <Route path="/leaderboards" element={<Leaderboards />} />
         </Routes>
       </main>
       <RegisterModal
