@@ -19,9 +19,14 @@ function updateHighScore (token, score) {
     body: JSON.stringify({ score })
   }).then(checkResponse);
 }
-
+function getLeaderboardsData () {
+  return fetch(`${Base_Url}/leaderboards`, {
+    method: "GET",
+  }).then(checkResponse);
+}
 
 export {
 addSolvedWord,
-updateHighScore
+updateHighScore,
+getLeaderboardsData
 };

@@ -11,8 +11,8 @@ function Header({
 }) {
   return (
     <div className="header">
-      <h1 className="header__title">Nerdle</h1>
-      <p className="header__sub-title">Test your nerd</p>
+      <h1 className="header__title">Pax's Wordle</h1>
+      <p className="header__sub-title">pretty cool</p>
       <HeaderProfile
         currentUser={currentUser}
         openRegisterModal={openRegisterModal}

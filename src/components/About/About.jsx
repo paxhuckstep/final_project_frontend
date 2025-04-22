@@ -82,14 +82,11 @@ function About() {
       <p className="about__paragraph">
         This project is still a work in progress, I have a lot of ideas planned
         that I am currently working on. First I am going to add the ability to
-        register and log in, making the current buttons be for more than just
-        show. Once logged in, PokeWordle will keep track of every pokemon you
-        guess correctly and you will be able to see how much you have completed
-        compared to other players. Additionally, there will be a new 'Hardcore
-        Mode' where you will keep guessing pokemon until you get one wrong; this
-        will be the premier category for competition in the leaderboard. I might
-        also add other wordle games for non-Pokemon categories for players to
-        compete in.
+        register and log in. Once logged in, Pax's Wordle will keep track of
+        every word you guess correctly and you will be able to keep score based
+        on how many you get correct in a row. Your high score will be saved and
+        you can compete on the leaderboard with other players. I will be adding
+        other wordle games for non-Pokemon categories for players to compete in.
       </p>
       <h2 className="about__title">Contact the Creator</h2>
       <p className="about__paragraph">Pax Huckstep</p>
