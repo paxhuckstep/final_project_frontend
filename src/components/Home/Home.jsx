@@ -99,9 +99,13 @@ function Home({
   };
 
   const handleNewWord = () => {
-    setCorrectWord(
-      selectedWords[Math.floor(Math.random() * selectedWords.length)]
-    );
+    if (selectedWords.length > 0) {
+      setCorrectWord(
+        selectedWords[Math.floor(Math.random() * selectedWords.length)]
+      );
+    } else {
+      setCorrectWord("");
+    }
     setWager(potentialWager);
     // setCorrectWord("test");
     setSubmissions([]);
