@@ -33,10 +33,6 @@ function Home({
   const [potentialWager, setPotentialWager] = useState(0);
   const [wager, setWager] = useState(0);
 
-  useEffect(() => {
-    console.log("potentialWager: ", potentialWager);
-  }, [potentialWager]);
-
   const closePopup = () => {
     setIsOpen(false);
   };
@@ -94,8 +90,10 @@ function Home({
       setIsOpen(true);
       setIsWin(true);
       setIsLocked(true);
-      handleNewSolvedWord(correctWord);
       setScore((prevScore) => prevScore + wager);
+      if (isLoggedIn) {
+        handleNewSolvedWord(correctWord);
+      }
     }
     setCurrentInputs([]);
   };
@@ -127,7 +125,7 @@ function Home({
   };
 
   const handleNewSolvedWord = (newSolvedWord) => {
-    if (!currentUser.solvedWords.includes(newSolvedWord) && isLoggedIn) {
+    if (!currentUser.solvedWords.includes(newSolvedWord)) {
       //  this if doesn't work quite right
       // console.log("this is the first time solving this word!", newSolvedWord);
       const token = getToken();
@@ -137,21 +135,14 @@ function Home({
           handleNewUserData(newUserData);
         })
         .catch((error) => console.error(error));
-    } else {
-      console.log("not new solve", newSolvedWord);
     }
   };
 
   const handleNewHighScore = () => {
     if (score > currentUser?.pokemonHighScore) {
-      console.log("handleNewHighScore if: true");
       const token = getToken();
       updateHighScore(token, score)
         .then((newUserData) => {
-          console.log(
-            "backend response from handleNewHighScore .then: ",
-            newUserData
-          );
           handleNewUserData(newUserData);
         })
         .catch((error) => console.error(error));
@@ -244,6 +235,9 @@ function Home({
   // useEffect(() => {
   //   console.log("Selected Words: ", selectedWords);
   // }, [selectedWords]);
+  // useEffect(() => {
+  //   console.log("potentialWager: ", potentialWager);
+  // }, [potentialWager]);
 
   useEffect(() => {
     console.log("Correct Word: ", correctWord);
