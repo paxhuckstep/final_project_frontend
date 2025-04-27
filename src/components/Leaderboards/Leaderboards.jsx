@@ -16,7 +16,7 @@ function Leaderboards() {
   
   return (
     <div className="leaderboards">
-      <h2 className="leaderboards__title">Leaderboards Section</h2>
+      <h2 className="leaderboards__title">Leaderboards</h2>
       <Leaderboard
         leaderboardTitle={"Pokemon High Scores"}
         leaderboardData={pokemonLeaderboardData}

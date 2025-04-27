@@ -1,0 +1,16 @@
+.leaderboards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;  /* Space between leaderboards */
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.leaderboards__title {
+    margin: 10px 0 0 0;
+    font-size: 40px;
+}
