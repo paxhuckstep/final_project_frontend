@@ -5,7 +5,7 @@
     margin: 20px auto;
     border-collapse: collapse;
     background-color: white;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -28,6 +28,10 @@
     text-align: left;
     color: white;
     font-weight: 500;
+}
+.leaderboard__head-data_score {
+text-align: right;
+padding-right: 30px;
 }
 
 .leaderboard__body {
@@ -62,6 +66,8 @@
 .leaderboard__score {
     font-weight: bold;
     color: #27ae60;
+    text-align: right;
+    padding-right: 30px;
 }
 
 /* Responsive design */
