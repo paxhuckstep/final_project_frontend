@@ -41,7 +41,7 @@ function App() {
     { username, password, confirmPassword },
     resetValues
   ) => {
-    console.log("Register and stuff: ", username, password, confirmPassword);
+    // console.log("Register and stuff: ", username, password, confirmPassword);
     if (password === confirmPassword) {
       auth
         .register(username, password)
@@ -58,14 +58,14 @@ function App() {
   };
 
   const handleLogin = ({ username, password }, resetValues) => {
-    console.log("handleLogin ran: ", username, password);
+    // console.log("handleLogin ran: ", username, password);
     if (!username || !password) {
       return;
     }
     auth
       .authorize(username, password)
       .then((data) => {
-        console.log("authorize .then ran: ", data);
+        // console.log("authorize .then ran: ", data);
         if (data.token) {
           setToken(data.token);
           setIsLoggedIn(true);

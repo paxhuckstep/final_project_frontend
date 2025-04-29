@@ -219,8 +219,10 @@ function Home({
   }, [currentInputs, correctWord, isOpen, activeModal]);
 
   useEffect(() => {
-    handleNewWord();
-  }, []);
+    if (!isLoggedIn) {
+      setScore(0);
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const usedLetters = submissions.flatMap((submission) => {
