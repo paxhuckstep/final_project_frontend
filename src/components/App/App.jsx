@@ -10,6 +10,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
+import Wordle from "../Wordle/Wordle";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -179,11 +180,29 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                genOne={genOne}
-                genTwo={genTwo}
-                genThree={genThree}
-                genFour={genFour}
-                genFive={genFive}
+              />
+            }
+          />
+          <Route
+            path="pokemon"
+            element={
+              <Wordle
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                handleNewUserData={handleNewUserData}
+                activeModal={activeModal}
+                catagoryTitles={{
+                  one: "Gen One",
+                  two: "Gen Two",
+                  three: "Gen Three",
+                  four: "Gen Four",
+                  five: "Gen Five",
+                }}
+                catagoryArrayOne={genOne}
+                catagoryArrayTwo={genTwo}
+                catagoryArrayThree={genThree}
+                catagoryArrayFour={genFour}
+                catagoryArrayFive={genFive}
               />
             }
           />

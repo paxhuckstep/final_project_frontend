@@ -14,7 +14,18 @@ function NavBar() {
           <button
             className={`navbar__button ${
               isActive("/")
-                ? "navbar__button_active navbar__button_active-home"
+                ? "navbar__button_active"
+                : ""
+            }`}
+          >
+            Home
+          </button>
+        </Link>
+        <Link to="/pokemon">
+          <button
+            className={`navbar__button ${
+              isActive("/")
+                ? "navbar__button_active navbar__button_active-wordle"
                 : ""
             }`}
           >

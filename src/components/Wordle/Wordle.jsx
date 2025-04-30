@@ -8,11 +8,17 @@ import { ALPHABET_ARRAY } from "../../Utils/constants";
 import { addSolvedWord, updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
 
-function Home({
+function Wordle({
   currentUser,
   isLoggedIn,
   handleNewUserData,
   activeModal,
+  catagoryTitles,
+  catagoryArrayOne,
+  catagoryArrayTwo,
+  catagoryArrayThree,
+  catagoryArrayFour,
+  catagoryArrayFive,
 }) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
@@ -246,16 +252,21 @@ function Home({
 
   return (
     <>
-      <section className="home">
-        <h1 className="home__header">HOME</h1>
-        {/* <SideBar
+      <section className="wordle">
+        <SideBar
           addCategory={addCategory}
           removeCategory={removeCategory}
-          genOne={genOne}
-          genTwo={genTwo}
-          genThree={genThree}
-          genFour={genFour}
-          genFive={genFive}
+        //   titleOne={titleOne}
+        //   titleTwo={titleTwo}
+        //   titleThree={titleThree}
+        //   titleFour={titleFour}
+        //   titleFive={titleFive}
+        catagoryTitles={catagoryTitles}
+          catagoryArrayOne={catagoryArrayOne}
+          catagoryArrayTwo={catagoryArrayTwo}
+          catagoryArrayThree={catagoryArrayThree}
+          catagoryArrayFour={catagoryArrayFour}
+          catagoryArrayFive={catagoryArrayFive}
           currentUser={currentUser}
           isLoggedIn={isLoggedIn}
           increasePotentialWager={increasePotentialWager}
@@ -275,17 +286,17 @@ function Home({
           score={score}
           currentUser={currentUser}
           isLoggedIn={isLoggedIn}
-        /> */}
+        />
       </section>
-      {/* <Popup
+      <Popup
         isOpen={isOpen}
         isWin={isWin}
         correctWord={correctWord}
         onClick={handleNewWord}
         onClose={closePopup}
-      /> */}
+      />
     </>
   );
 }
 
-export default Home;
+export default Wordle;
