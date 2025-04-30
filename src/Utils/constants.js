@@ -1,3 +1,5 @@
+const LOCAL_CONNECTI0N = false;
+
 export const NUMBER_STRINGS = [
   "zero",
   "one",
@@ -16,11 +18,9 @@ export const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 export const ALPHABET_ARRAY = ALPHABET.split("");
 export const INPUT_ATTEMPTS = [1, 2, 3, 4, 5, 6];
 
-export const Base_Url =
-  // process.env.NODE_ENV === "production"
-  //   ? "https://api.wtwrpax.minecraftnoob.com"
-  //   :
-     "http://localhost:4201";
+export const Base_Url = !LOCAL_CONNECTI0N
+  ? "https://finalprojectbackend-production-b2d7.up.railway.app"
+  : "http://localhost:4201";
 
 // export const randomWords = [
 //     "spine",
