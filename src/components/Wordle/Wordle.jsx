@@ -3,7 +3,7 @@ import Grid from "../Grid/Grid";
 import WordleTools from "../WordleTools/WordleTools";
 import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
-import "./Home.css";
+import "./Wordle.css";
 import { ALPHABET_ARRAY } from "../../Utils/constants";
 import { addSolvedWord, updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
@@ -239,9 +239,9 @@ function Wordle({
     );
   }, [submissions]);
 
-  // useEffect(() => {
-  //   console.log("Selected Words: ", selectedWords);
-  // }, [selectedWords]);
+  useEffect(() => {
+    console.log("Selected Words: ", selectedWords);
+  }, [selectedWords]);
   // useEffect(() => {
   //   console.log("potentialWager: ", potentialWager);
   // }, [potentialWager]);

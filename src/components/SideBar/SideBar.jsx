@@ -14,7 +14,7 @@ function SideBar({
   catagoryArrayTwo,
   catagoryArrayThree,
   catagoryArrayFour,
-  catagoryArrrayFive,
+  catagoryArrayFive,
   currentUser,
   isLoggedIn,
   increasePotentialWager,
@@ -32,8 +32,8 @@ function SideBar({
   const catagoryArrayFourSolved = currentUser?.solvedWords?.filter((word) => {
     return catagoryArrayFour.includes(word);
   });
-  const catagoryArrrayFiveSolved = currentUser?.solvedWords?.filter((word) => {
-    return catagoryArrrayFive.includes(word);
+  const catagoryArrayFiveSolved = currentUser?.solvedWords?.filter((word) => {
+    return catagoryArrayFive.includes(word);
   });
 
   return (
@@ -101,14 +101,14 @@ function SideBar({
           toggleTitle={catagoryTitles.five}
           handleChecking={() => {
             increasePotentialWager();
-            addCategory(catagoryArrrayFive);
+            addCategory(catagoryArrayFive);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(catagoryArrrayFive);
+            removeCategory(catagoryArrayFive);
           }}
-          catagorySolved={catagoryArrrayFiveSolved?.length}
-          catagoryMax={catagoryArrrayFive?.length}
+          catagorySolved={catagoryArrayFiveSolved?.length}
+          catagoryMax={catagoryArrayFive?.length}
           isLoggedIn={isLoggedIn}
         />
         {/* <ToggleSwitch

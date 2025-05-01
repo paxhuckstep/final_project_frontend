@@ -11,6 +11,7 @@ import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
 import Wordle from "../Wordle/Wordle";
+import { GOLF_MASTERS_DATA, MLB_DATA, NBA_DATA, NFL_DATA, NHL_DATA } from "../../Utils/constants";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -203,6 +204,29 @@ function App() {
                 catagoryArrayThree={genThree}
                 catagoryArrayFour={genFour}
                 catagoryArrayFive={genFive}
+              />
+            }
+          />
+                <Route
+            path="sports"
+            element={
+              <Wordle
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                handleNewUserData={handleNewUserData}
+                activeModal={activeModal}
+                catagoryTitles={{
+                  one: "NFL",
+                  two: "NBA",
+                  three: "NHL",
+                  four: "MLB",
+                  five: "Golf",
+                }}
+                catagoryArrayOne={NFL_DATA}
+                catagoryArrayTwo={NBA_DATA}
+                catagoryArrayThree={NHL_DATA}
+                catagoryArrayFour={MLB_DATA}
+                catagoryArrayFive={GOLF_MASTERS_DATA}
               />
             }
           />
