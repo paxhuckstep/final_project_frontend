@@ -31,12 +31,12 @@ export const Base_Url = !LOCAL_CONNECTI0N
     "viking",
   
     // NFL Team Locations
-    "sanfrancisco", "chicago", "cincinnati", "buffalo", "denver", "cleveland",
-    "tampabay", "arizona", "losangeles", "kansascity", "indianapolis",
-    "washington", "dallas", "miami", "philadelphia", "atlanta", "newyork",
-    "jacksonville", "detroit", "greenbay", "carolina", "newengland", "lasvegas",
-    "baltimore", "neworleans", "seattle", "pittsburgh", "houston", "tennessee",
-    "minnesota",
+    // "sanfrancisco", "chicago", "cincinnati", "buffalo", "denver", "cleveland",
+    // "tampabay", "arizona", "losangeles", "kansascity", "indianapolis",
+    // "washington", "dallas", "miami", "philadelphia", "atlanta", "newyork",
+    // "jacksonville", "detroit", "greenbay", "carolina", "newengland", "lasvegas",
+    // "baltimore", "neworleans", "seattle", "pittsburgh", "houston", "tennessee",
+    // "minnesota",
   
     // NFL MVP / Superbowl MVP Winners' Last Names
     "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie",
@@ -57,11 +57,11 @@ export const Base_Url = !LOCAL_CONNECTI0N
     "sun", "blazer", "king", "spur", "raptor", "jazz", "wizard",
   
     // NBA Team Locations
-    "atlanta", "boston", "brooklyn", "charlotte", "chicago", "cleveland", "dallas",
-    "denver", "detroit", "goldenstate", "houston", "indiana", "losangeles",
-    "memphis", "miami", "milwaukee", "minnesota", "neworleans", "newyork",
-    "oklahomacity", "orlando", "philadelphia", "phoenix", "portland", "sacramento",
-    "sanantonio", "toronto", "utah", "washington",
+    // "atlanta", "boston", "brooklyn", "charlotte", "chicago", "cleveland", "dallas",
+    // "denver", "detroit", "goldenstate", "houston", "indiana", "losangeles",
+    // "memphis", "miami", "milwaukee", "minnesota", "neworleans", "newyork",
+    // "oklahomacity", "orlando", "philadelphia", "phoenix", "portland", "sacramento",
+    // "sanantonio", "toronto", "utah", "washington",
   
     // NBA MVP / finals mvp Winners' Last Names
     "antetokounmpo", "barry", "billups", "bird", "brown", "bryant", "chamberlain", "cowens", "curry",
@@ -79,11 +79,11 @@ export const NHL_DATA = [
     "kraken", "blue", "lightning", "mapleleaf", "canuck", "knight", "capital", "jet",
   
     // NHL Team Locations
-    "anaheim", "arizona", "boston", "buffalo", "calgary", "carolina", "chicago", "colorado",
-    "columbus", "dallas", "detroit", "edmonton", "florida", "losangeles", "minnesota",
-    "montreal", "nashville", "newjersey", "newyork", "ottawa", "philadelphia", "pittsburgh",
-    "sanjose", "seattle", "stlouis", "tampabay", "toronto", "vancouver", "vegas",
-    "washington", "winnipeg",
+    // "anaheim", "arizona", "boston", "buffalo", "calgary", "carolina", "chicago", "colorado",
+    // "columbus", "dallas", "detroit", "edmonton", "florida", "losangeles", "minnesota",
+    // "montreal", "nashville", "newjersey", "newyork", "ottawa", "philadelphia", "pittsburgh",
+    // "sanjose", "seattle", "stlouis", "tampabay", "toronto", "vancouver", "vegas",
+    // "washington", "winnipeg",
   
     // NHL Hart Memorial Trophy Winners' Last Names / NHL Conn Smythe Trophy Winners' Last Names
     "beliveau", "blake", "bossy", "burch", "conacher", "crawford", "crosby", "draisaitl", "esposito",
@@ -103,10 +103,10 @@ export const NHL_DATA = [
     "redsox", "rockie", "royal", "tiger", "twin", "white", "yankee",
   
     // MLB Team Locations
-    "anaheim", "arizona", "atlanta", "baltimore", "boston", "chicago", "cincinnati",
-    "cleveland", "colorado", "detroit", "houston", "kansas", "losangeles", "miami",
-    "milwaukee", "minnesota", "newyork", "oakland", "philadelphia", "pittsburgh",
-    "san", "seattle", "stlouis", "tampabay", "texas", "toronto", "washington",
+    // "anaheim", "arizona", "atlanta", "baltimore", "boston", "chicago", "cincinnati",
+    // "cleveland", "colorado", "detroit", "houston", "kansas", "losangeles", "miami",
+    // "milwaukee", "minnesota", "newyork", "oakland", "philadelphia", "pittsburgh",
+    // "san", "seattle", "stlouis", "tampabay", "texas", "toronto", "washington",
   
     // MLB MVP Winners' / World Series MVP Last Names
     "abreu", "altuve", "bagwell", "banks", "barry", "bench", "bentley", "berra", "betts",
