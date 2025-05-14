@@ -173,66 +173,53 @@ function Wordle({
   };
 
   // const removeCategory = (categoryArray) => {
-  //   setSelectedWords((prev) =>
-  //     prev.filter((word) => {
-  //       return !categoryArray.includes(word);
-  //     })
-  //   );
+  //   const masterArray = [...selectedWords];
+  //   let startPosition = 0;
+  //   let check = masterArray.slice(masterArray.indexOf(categoryArray[0]));
+  //   let foundMatch = false;
+  //   while (!foundMatch) {
+  //     let isMatch = true;
+  //     categoryArray.forEach((word, index) => {
+  //       if (word !== check[index]) {
+  //         isMatch = false;
+  //       }
+  //     });
+
+  //     if (isMatch) {
+  //       foundMatch = true;
+  //     } else if (check.slice(0).includes(categoryArray[0])) {
+  //       startPosition = masterArray.indexOf(
+  //         categoryArray[0],
+  //         startPosition + 1
+  //       );
+  //       check = masterArray.slice(startPosition); // Modified this line
+  //     } else {
+  //       foundMatch = true;
+  //       console.error("Couldn't find category in selected words");
+  //     }
+  //   }
+  //   const firstHalf = masterArray.slice(0, startPosition);
+  //   const secondHalf = masterArray.slice(startPosition + categoryArray.length);
+  //   setSelectedWords(firstHalf.concat(secondHalf));
   // };
 
-  const removeCategory = (categaroyArray) => {
+  const removeCategory = (categoryArray) => {
     const masterArray = [...selectedWords];
-    let startPosition = 0;
-    let check = masterArray.slice(masterArray.indexOf(categaroyArray[0]));
-    let foundMatch = false;
-    while (!foundMatch) {
-      let isMatch = true;
-      categaroyArray.forEach((word, index) => {
-        if (word !== check[index]) {
-          isMatch = false;
-        }
-      });
+    const result = [];
 
-      if (isMatch) {
-        foundMatch = true;
-      } else if (check.slice(0).includes(categaroyArray[0])) {
-        startPosition = masterArray.indexOf(
-          categoryArray[0],
-          startPosition + 1
-        );
-        check = masterArray.slice(startPosition); // Modified this line
+    for (let i = 0; i < masterArray.length; ) {
+      if (
+        masterArray.slice(i, i + categoryArray.length).join(",") ===
+        categoryArray.join(",")
+      ) {
+        i += categoryArray.length;
       } else {
-        foundMatch = true;
-        console.error("Couldn't find category in selected words");
+        result.push(masterArray[i]);
+        i++;
       }
     }
-    const firstHalf = masterArray.slice(0, startPosition);
-    const secondHalf = masterArray.slice(startPosition + categaroyArray.length);
-    setSelectedWords(firstHalf.concat(secondHalf));
+    setSelectedWords(result);
   };
-
-  // const removeCategory = (sequenceToRemove) => {
-  //   // 1. Find where our sequence starts using a loop
-  //   const mainArray = [...selectedWords];
-  //   const startIndex = mainArray.findIndex((element, index) => {
-  //     // 2. Check if the sequence matches at this position
-  //     return sequenceToRemove.every((seqElement, seqIndex) => {
-  //       return mainArray[index + seqIndex] === seqElement;
-  //     });
-  //   });
-
-  //   // 3. If sequence was found (startIndex isn't -1)
-  //   if (startIndex !== -1) {
-  //     // 4. Create new array with sequence removed
-  //     setSelectedWords([
-  //       ...mainArray.slice(0, startIndex),
-  //       ...mainArray.slice(startIndex + sequenceToRemove.length),
-  //     ]);
-  //   }
-
-  //   // 5. If no sequence found, return original array
-  //   return mainArray;
-  // };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -296,6 +283,7 @@ function Wordle({
 
   useEffect(() => {
     setSelectedWords([]);
+    setPotentialWager(0)
   }, [categoryTitles]);
 
   useEffect(() => {
@@ -316,11 +304,6 @@ function Wordle({
         <SideBar
           addCategory={addCategory}
           removeCategory={removeCategory}
-          //   titleOne={titleOne}
-          //   titleTwo={titleTwo}
-          //   titleThree={titleThree}
-          //   titleFour={titleFour}
-          //   titleFive={titleFive}
           categoryTitles={categoryTitles}
           categoryArrayOne={categoryArrayOne}
           categoryArrayTwo={categoryArrayTwo}
