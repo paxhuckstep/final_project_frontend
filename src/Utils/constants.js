@@ -22,25 +22,39 @@ export const Base_Url = !LOCAL_CONNECTI0N
   ? "https://finalprojectbackend-production-b2d7.up.railway.app"
   : "http://localhost:4201";
 
-  export const NFL_DATA = [
-    // NFL Team Mascots
+  // export const NFL_DATA = [
+  //   // NFL Team Mascots
+  //   "fortyniner", "bear", "bengal", "bill", "bronco", "brown", "buccaneer", "cardinal",
+  //   "charger", "chief", "colt", "commander", "cowboy", "dolphin", "eagle",
+  //   "falcon", "giant", "jaguar", "jet", "lion", "packer", "panther", "patriot",
+  //   "raider", "ram", "raven", "saint", "seahawk", "steeler", "texan", "titan",
+  //   "viking",
+  
+  //   // NFL Team Locations
+  //   // "sanfrancisco", "chicago", "cincinnati", "buffalo", "denver", "cleveland",
+  //   // "tampabay", "arizona", "losangeles", "kansascity", "indianapolis",
+  //   // "washington", "dallas", "miami", "philadelphia", "atlanta", "newyork",
+  //   // "jacksonville", "detroit", "greenbay", "carolina", "newengland", "lasvegas",
+  //   // "baltimore", "neworleans", "seattle", "pittsburgh", "houston", "tennessee",
+  //   // "minnesota",
+  
+  //   // NFL MVP / Superbowl MVP Winners' Last Names
+  //   "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie",
+  //   "brown", "campbell", "csonka", "davis", "dawson", "dent", "edelman", "elway", "esiason", "favre",
+  //   "foles", "gabriel", "gannon", "harris", "hornung", "howard", "howley", "hurts", "jackson", "jones",
+  //   "kupp", "lewis", "mahomes", "manning", "marino", "martin", "mcnair", "montana", "morrall",
+  //   "moseley", "namath", "newton", "page", "payton", "peterson", "plunkett", "rice", "riggins",
+  //   "rodgers", "ryan", "rypien", "sanders", "scott", "simms", "simpson", "sipe", "smith", "stabler",
+  //   "starr", "staubach", "swann", "tarkenton", "taylor", "theismann", "thomas", "tittle", "tomlinson",
+  //   "unitas", "vanbrocklin", "ward", "warner", "williams", "young"
+  // ];
+
+    export const NFL_DATA = [
     "fortyniner", "bear", "bengal", "bill", "bronco", "brown", "buccaneer", "cardinal",
     "charger", "chief", "colt", "commander", "cowboy", "dolphin", "eagle",
     "falcon", "giant", "jaguar", "jet", "lion", "packer", "panther", "patriot",
     "raider", "ram", "raven", "saint", "seahawk", "steeler", "texan", "titan",
-    "viking",
-  
-    // NFL Team Locations
-    // "sanfrancisco", "chicago", "cincinnati", "buffalo", "denver", "cleveland",
-    // "tampabay", "arizona", "losangeles", "kansascity", "indianapolis",
-    // "washington", "dallas", "miami", "philadelphia", "atlanta", "newyork",
-    // "jacksonville", "detroit", "greenbay", "carolina", "newengland", "lasvegas",
-    // "baltimore", "neworleans", "seattle", "pittsburgh", "houston", "tennessee",
-    // "minnesota",
-  
-    // NFL MVP / Superbowl MVP Winners' Last Names
-    "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie",
-    "brown", "campbell", "csonka", "davis", "dawson", "dent", "edelman", "elway", "esiason", "favre",
+    "viking", "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie", "campbell", "csonka", "davis", "dawson", "dent", "edelman", "elway", "esiason", "favre",
     "foles", "gabriel", "gannon", "harris", "hornung", "howard", "howley", "hurts", "jackson", "jones",
     "kupp", "lewis", "mahomes", "manning", "marino", "martin", "mcnair", "montana", "morrall",
     "moseley", "namath", "newton", "page", "payton", "peterson", "plunkett", "rice", "riggins",
@@ -272,3 +286,10 @@ export const NHL_DATA = [
 //   "pencil", "eraser", "marker", "crayon", "notebook", "backpack", "scissors", "glue", "ruler", "sticker",
 //   "kite", "swing", "slide", "sandbox", "seesaw", "marbles", "jumprope", "hulahoop"
 // ];
+
+// const arrayDublicates = (arrayOne, arrayTwo) => {
+//   arrayOne.filter((word) => {
+//     arrayTwo.includes(word)
+//   })}
+
+// console.log(arrayDublicates(NFL_DATA, NBA_DATA))

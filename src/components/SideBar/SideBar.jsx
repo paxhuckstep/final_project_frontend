@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./SideBar.css";
 
@@ -9,106 +10,110 @@ function SideBar({
   // titleThree,
   // titleFour,
   // titleFive,
-  catagoryTitles,
-  catagoryArrayOne,
-  catagoryArrayTwo,
-  catagoryArrayThree,
-  catagoryArrayFour,
-  catagoryArrayFive,
+  categoryTitles,
+  categoryArrayOne,
+  categoryArrayTwo,
+  categoryArrayThree,
+  categoryArrayFour,
+  categoryArrayFive,
   currentUser,
   isLoggedIn,
   increasePotentialWager,
   decreasePotentialWager,
 }) {
-  const catagoryArrayOneSolved = currentUser?.solvedWords?.filter((word) => {
-    return catagoryArrayOne.includes(word);
+  const categoryArrayOneSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayOne.includes(word);
   });
-  const catagoryArrayTwoSolved = currentUser?.solvedWords?.filter((word) => {
-    return catagoryArrayTwo.includes(word);
+  const categoryArrayTwoSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayTwo.includes(word);
   });
-  const catagoryArrayThreeSolved = currentUser?.solvedWords?.filter((word) => {
-    return catagoryArrayThree.includes(word);
+  const categoryArrayThreeSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayThree.includes(word);
   });
-  const catagoryArrayFourSolved = currentUser?.solvedWords?.filter((word) => {
-    return catagoryArrayFour.includes(word);
+  const categoryArrayFourSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayFour.includes(word);
   });
-  const catagoryArrayFiveSolved = currentUser?.solvedWords?.filter((word) => {
-    return catagoryArrayFive.includes(word);
+  const categoryArrayFiveSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayFive.includes(word);
   });
+
+  useEffect(() => {
+
+  },[])
 
   return (
     <div className="sidebar">
       <h3 className="sidebar__title">Generations</h3>
       <div className="sidebar__container">
         <ToggleSwitch
-          toggleTitle={catagoryTitles.one}
+          toggleTitle={categoryTitles.one}
           handleChecking={() => {
             increasePotentialWager();
-            addCategory(catagoryArrayOne);
+            addCategory(categoryArrayOne);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(catagoryArrayOne);
+            removeCategory(categoryArrayOne);
           }}
-          catagorySolved={catagoryArrayOneSolved?.length}
-          catagoryMax={catagoryArrayOne?.length}
+          categorySolved={categoryArrayOneSolved?.length}
+          categoryMax={categoryArrayOne?.length}
           isLoggedIn={isLoggedIn}
         />
         {/* <p className="sidebar__progress">gja</p> */}
         <ToggleSwitch
-          toggleTitle={catagoryTitles.two}
+          toggleTitle={categoryTitles.two}
           handleChecking={() => {
-            addCategory(catagoryArrayTwo);
+            addCategory(categoryArrayTwo);
             increasePotentialWager();
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(catagoryArrayTwo);
+            removeCategory(categoryArrayTwo);
           }}
-          catagorySolved={catagoryArrayTwoSolved?.length}
-          catagoryMax={catagoryArrayTwo?.length}
+          categorySolved={categoryArrayTwoSolved?.length}
+          categoryMax={categoryArrayTwo?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
-          toggleTitle={catagoryTitles.three}
+          toggleTitle={categoryTitles.three}
           handleChecking={() => {
             increasePotentialWager();
-            addCategory(catagoryArrayThree);
+            addCategory(categoryArrayThree);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(catagoryArrayThree);
+            removeCategory(categoryArrayThree);
           }}
-          catagorySolved={catagoryArrayThreeSolved?.length}
-          catagoryMax={catagoryArrayThree?.length}
+          categorySolved={categoryArrayThreeSolved?.length}
+          categoryMax={categoryArrayThree?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
-          toggleTitle={catagoryTitles.four}
+          toggleTitle={categoryTitles.four}
           handleChecking={() => {
             increasePotentialWager();
-            addCategory(catagoryArrayFour);
+            addCategory(categoryArrayFour);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(catagoryArrayFour);
+            removeCategory(categoryArrayFour);
           }}
-          catagorySolved={catagoryArrayFourSolved?.length}
-          catagoryMax={catagoryArrayFour?.length}
+          categorySolved={categoryArrayFourSolved?.length}
+          categoryMax={categoryArrayFour?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
-          toggleTitle={catagoryTitles.five}
+          toggleTitle={categoryTitles.five}
           handleChecking={() => {
             increasePotentialWager();
-            addCategory(catagoryArrayFive);
+            addCategory(categoryArrayFive);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(catagoryArrayFive);
+            removeCategory(categoryArrayFive);
           }}
-          catagorySolved={catagoryArrayFiveSolved?.length}
-          catagoryMax={catagoryArrayFive?.length}
+          categorySolved={categoryArrayFiveSolved?.length}
+          categoryMax={categoryArrayFive?.length}
           isLoggedIn={isLoggedIn}
         />
         {/* <ToggleSwitch

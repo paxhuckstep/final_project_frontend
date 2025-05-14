@@ -11,7 +11,13 @@ import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
 import Wordle from "../Wordle/Wordle";
-import { GOLF_MASTERS_DATA, MLB_DATA, NBA_DATA, NFL_DATA, NHL_DATA } from "../../Utils/constants";
+import {
+  GOLF_MASTERS_DATA,
+  MLB_DATA,
+  NBA_DATA,
+  NFL_DATA,
+  NHL_DATA,
+} from "../../Utils/constants";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -95,6 +101,7 @@ function App() {
   };
 
   useEffect(() => {
+    // console.log(arrayDublicates(NFL_DATA, NBA_DATA));
     const handleEscClose = (event) => {
       if (event.key === "Escape") {
         closeActiveModal();
@@ -105,6 +112,12 @@ function App() {
       window.removeEventListener("keydown", handleEscClose);
     };
   }, []);
+
+  // const arrayDublicates = (arrayOne, arrayTwo) => {
+  //   return arrayOne.filter((word) => {
+  //     return arrayTwo.includes(word);
+  //   });
+  // };
 
   useEffect(() => {
     for (let i = 1; i < 6; i++) {
@@ -192,22 +205,22 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                catagoryTitles={{
+                categoryTitles={{
                   one: "Gen One",
                   two: "Gen Two",
                   three: "Gen Three",
                   four: "Gen Four",
                   five: "Gen Five",
                 }}
-                catagoryArrayOne={genOne}
-                catagoryArrayTwo={genTwo}
-                catagoryArrayThree={genThree}
-                catagoryArrayFour={genFour}
-                catagoryArrayFive={genFive}
+                categoryArrayOne={genOne}
+                categoryArrayTwo={genTwo}
+                categoryArrayThree={genThree}
+                categoryArrayFour={genFour}
+                categoryArrayFive={genFive}
               />
             }
           />
-                <Route
+          <Route
             path="sports"
             element={
               <Wordle
@@ -215,18 +228,18 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                catagoryTitles={{
+                categoryTitles={{
                   one: "NFL",
                   two: "NBA",
                   three: "NHL",
                   four: "MLB",
                   five: "Golf",
                 }}
-                catagoryArrayOne={NFL_DATA}
-                catagoryArrayTwo={NBA_DATA}
-                catagoryArrayThree={NHL_DATA}
-                catagoryArrayFour={MLB_DATA}
-                catagoryArrayFive={GOLF_MASTERS_DATA}
+                categoryArrayOne={NFL_DATA}
+                categoryArrayTwo={NBA_DATA}
+                categoryArrayThree={NHL_DATA}
+                categoryArrayFour={MLB_DATA}
+                categoryArrayFive={GOLF_MASTERS_DATA}
               />
             }
           />

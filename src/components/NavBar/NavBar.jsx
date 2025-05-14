@@ -35,7 +35,7 @@ function NavBar() {
         <Link to="/sports">
           <button
             className={`navbar__button ${
-              isActive("/pokemon")
+              isActive("/sports")
                 ? "navbar__button_active navbar__button_active-wordle"
                 : ""
             }`}
