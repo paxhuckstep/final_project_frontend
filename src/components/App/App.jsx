@@ -36,6 +36,7 @@ function App() {
   const navigate = useNavigate();
 
   const openRegisterModal = () => {
+    console.log("openRegisterModal fired")
     setActiveModal("register");
   };
   const openLoginModal = () => {
@@ -190,10 +191,10 @@ function App() {
             path="/"
             element={
               <Home
-                currentUser={currentUser}
                 isLoggedIn={isLoggedIn}
-                handleNewUserData={handleNewUserData}
-                activeModal={activeModal}
+                currentUser={currentUser}
+                openRegisterModal={openRegisterModal}
+                openLoginModal={openLoginModal}
               />
             }
           />
