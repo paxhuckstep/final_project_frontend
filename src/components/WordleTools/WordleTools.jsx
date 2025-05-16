@@ -51,7 +51,7 @@ function WordleTools({
         onClick={handleNewWordClick}
         className="wordle-tools__reset-button"
       >
-        New Pokemon
+        New Word
       </button>
     </div>
   );

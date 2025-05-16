@@ -5,11 +5,6 @@ import "./SideBar.css";
 function SideBar({
   addCategory,
   removeCategory,
-  // titleOne,
-  // titleTwo,
-  // titleThree,
-  // titleFour,
-  // titleFive,
   categoryTitles,
   categoryArrayOne,
   categoryArrayTwo,
@@ -43,7 +38,7 @@ function SideBar({
 
   return (
     <div className="sidebar">
-      <h3 className="sidebar__title">Generations</h3>
+      <h3 className="sidebar__title">Categories</h3>
       <div className="sidebar__container">
         <ToggleSwitch
           toggleTitle={categoryTitles.one}

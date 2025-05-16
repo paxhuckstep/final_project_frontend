@@ -57,6 +57,23 @@ function About() {
           to 0
         </li>
       </ul>
+
+      <p className="about__paragraph">
+        Here's what words NFL, NBA, NHL, and MLB include:
+      </p>
+      <ul className="about__list">
+        <li>
+          Every Suberbowl MVP/ NBA or NHL finals MVP / World Series MVP's last
+          name
+        </li>
+        <li>Every regular season MVP winner's last name</li>
+        <li>Every team's location</li>
+        <li>Every team's mascot</li>
+      </ul>
+      <p className="about__paragraph">
+        Golf includes the last name of every master winner
+      </p>
+
       <h3 className="about__subtitle">Unique Cases</h3>
       <p className="about__paragraph">
         Some Pokemon names have special characters or unique formatting that
@@ -72,6 +89,29 @@ function About() {
         <li>Farfetch'd is "farfetchd"</li>
         <li>Ho-oh is "hooh"</li>
       </ul>
+
+      <p className="about__paragraph">
+        Sports locations are dependent on how the team describes them. All team
+        mascots are singular. (so "s" is not an ultra safe guess) Any multi-word
+        location is one word. No numbers or special charaters, just letters.
+      </p>
+      <ul className="about__list">
+        <li>
+          NFL and NBA categories has "denver" as a correct word, NHL and MLB has
+          "colorado"
+        </li>
+        <li>NFL has "newengland" NBA, MLB and NHL has "boston"</li>
+        <li>NFL and MLB and has "sanfransisco", NBA has "goldenstate"</li>
+        <li>Etc. for other location differences based on sport</li>
+        <li>Rockies are "rockie"</li>
+        <li>Orioles are "oriole"</li>
+        <li>Bills are "bill"</li>
+        <li>Etc. for all team mascots</li>
+        <li>San Antonio is "sanantonio"</li>
+        <li>49ers is "fortyniner"</li>
+        <li>76ers is "seventysixer"</li>
+      </ul>
+
       <h2 className="about__title">Inspiration</h2>
       <p className="about__paragraph">
         One night I was surfing youtube and saw a{" "}

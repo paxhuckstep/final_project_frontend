@@ -22,39 +22,25 @@ export const Base_Url = !LOCAL_CONNECTI0N
   ? "https://finalprojectbackend-production-b2d7.up.railway.app"
   : "http://localhost:4201";
 
-  // export const NFL_DATA = [
-  //   // NFL Team Mascots
-  //   "fortyniner", "bear", "bengal", "bill", "bronco", "brown", "buccaneer", "cardinal",
-  //   "charger", "chief", "colt", "commander", "cowboy", "dolphin", "eagle",
-  //   "falcon", "giant", "jaguar", "jet", "lion", "packer", "panther", "patriot",
-  //   "raider", "ram", "raven", "saint", "seahawk", "steeler", "texan", "titan",
-  //   "viking",
-  
-  //   // NFL Team Locations
-  //   // "sanfrancisco", "chicago", "cincinnati", "buffalo", "denver", "cleveland",
-  //   // "tampabay", "arizona", "losangeles", "kansascity", "indianapolis",
-  //   // "washington", "dallas", "miami", "philadelphia", "atlanta", "newyork",
-  //   // "jacksonville", "detroit", "greenbay", "carolina", "newengland", "lasvegas",
-  //   // "baltimore", "neworleans", "seattle", "pittsburgh", "houston", "tennessee",
-  //   // "minnesota",
-  
-  //   // NFL MVP / Superbowl MVP Winners' Last Names
-  //   "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie",
-  //   "brown", "campbell", "csonka", "davis", "dawson", "dent", "edelman", "elway", "esiason", "favre",
-  //   "foles", "gabriel", "gannon", "harris", "hornung", "howard", "howley", "hurts", "jackson", "jones",
-  //   "kupp", "lewis", "mahomes", "manning", "marino", "martin", "mcnair", "montana", "morrall",
-  //   "moseley", "namath", "newton", "page", "payton", "peterson", "plunkett", "rice", "riggins",
-  //   "rodgers", "ryan", "rypien", "sanders", "scott", "simms", "simpson", "sipe", "smith", "stabler",
-  //   "starr", "staubach", "swann", "tarkenton", "taylor", "theismann", "thomas", "tittle", "tomlinson",
-  //   "unitas", "vanbrocklin", "ward", "warner", "williams", "young"
-  // ];
-
-    export const NFL_DATA = [
+  export const NFL_DATA = [
+    // NFL Team Mascots
     "fortyniner", "bear", "bengal", "bill", "bronco", "brown", "buccaneer", "cardinal",
     "charger", "chief", "colt", "commander", "cowboy", "dolphin", "eagle",
     "falcon", "giant", "jaguar", "jet", "lion", "packer", "panther", "patriot",
     "raider", "ram", "raven", "saint", "seahawk", "steeler", "texan", "titan",
-    "viking", "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie", "campbell", "csonka", "davis", "dawson", "dent", "edelman", "elway", "esiason", "favre",
+    "viking",
+  
+    // NFL Team Locations
+    "sanfrancisco", "chicago", "cincinnati", "buffalo", "denver", "cleveland",
+    "tampabay", "arizona", "losangeles", "kansascity", "indianapolis",
+    "washington", "dallas", "miami", "philadelphia", "atlanta", "newyork",
+    "jacksonville", "detroit", "greenbay", "carolina", "newengland", "lasvegas",
+    "baltimore", "neworleans", "seattle", "pittsburgh", "houston", "tennessee",
+    "minnesota",
+  
+    // NFL MVP / Superbowl MVP Winners' Last Names
+    "aikman", "alexander", "allen", "anderson", "biletnikoff", "bradshaw", "brady", "branch", "brodie",
+    "brown", "campbell", "csonka", "davis", "dawson", "dent", "edelman", "elway", "esiason", "favre",
     "foles", "gabriel", "gannon", "harris", "hornung", "howard", "howley", "hurts", "jackson", "jones",
     "kupp", "lewis", "mahomes", "manning", "marino", "martin", "mcnair", "montana", "morrall",
     "moseley", "namath", "newton", "page", "payton", "peterson", "plunkett", "rice", "riggins",
@@ -63,19 +49,20 @@ export const Base_Url = !LOCAL_CONNECTI0N
     "unitas", "vanbrocklin", "ward", "warner", "williams", "young"
   ];
 
+
   export const NBA_DATA = [
     // NBA Team Mascots
     "hawk", "celtic", "net", "hornet", "bull", "cavalier", "maverick", "nugget",
     "piston", "warrior", "rocket", "pacer", "clipper", "laker", "grizzly", "heat",
-    "buck", "timberwolf", "pelican", "knick", "thunder", "magic", "sixer",
+    "buck", "timberwolf", "pelican", "knick", "thunder", "magic", "seventysixer",
     "sun", "blazer", "king", "spur", "raptor", "jazz", "wizard",
   
     // NBA Team Locations
-    // "atlanta", "boston", "brooklyn", "charlotte", "chicago", "cleveland", "dallas",
-    // "denver", "detroit", "goldenstate", "houston", "indiana", "losangeles",
-    // "memphis", "miami", "milwaukee", "minnesota", "neworleans", "newyork",
-    // "oklahomacity", "orlando", "philadelphia", "phoenix", "portland", "sacramento",
-    // "sanantonio", "toronto", "utah", "washington",
+    "atlanta", "boston", "brooklyn", "charlotte", "chicago", "cleveland", "dallas",
+    "denver", "detroit", "goldenstate", "houston", "indiana", "losangeles",
+    "memphis", "miami", "milwaukee", "minnesota", "neworleans", "newyork",
+    "oklahomacity", "orlando", "philadelphia", "phoenix", "portland", "sacramento",
+    "sanantonio", "toronto", "utah", "washington",
   
     // NBA MVP / finals mvp Winners' Last Names
     "antetokounmpo", "barry", "billups", "bird", "brown", "bryant", "chamberlain", "cowens", "curry",
@@ -93,11 +80,11 @@ export const NHL_DATA = [
     "kraken", "blue", "lightning", "mapleleaf", "canuck", "knight", "capital", "jet",
   
     // NHL Team Locations
-    // "anaheim", "arizona", "boston", "buffalo", "calgary", "carolina", "chicago", "colorado",
-    // "columbus", "dallas", "detroit", "edmonton", "florida", "losangeles", "minnesota",
-    // "montreal", "nashville", "newjersey", "newyork", "ottawa", "philadelphia", "pittsburgh",
-    // "sanjose", "seattle", "stlouis", "tampabay", "toronto", "vancouver", "vegas",
-    // "washington", "winnipeg",
+    "anaheim", "arizona", "boston", "buffalo", "calgary", "carolina", "chicago", "colorado",
+    "columbus", "dallas", "detroit", "edmonton", "florida", "losangeles", "minnesota",
+    "montreal", "nashville", "newjersey", "newyork", "ottawa", "philadelphia", "pittsburgh",
+    "sanjose", "seattle", "stlouis", "tampabay", "toronto", "vancouver", "vegas",
+    "washington", "winnipeg",
   
     // NHL Hart Memorial Trophy Winners' Last Names / NHL Conn Smythe Trophy Winners' Last Names
     "beliveau", "blake", "bossy", "burch", "conacher", "crawford", "crosby", "draisaitl", "esposito",
@@ -117,10 +104,10 @@ export const NHL_DATA = [
     "redsox", "rockie", "royal", "tiger", "twin", "white", "yankee",
   
     // MLB Team Locations
-    // "anaheim", "arizona", "atlanta", "baltimore", "boston", "chicago", "cincinnati",
-    // "cleveland", "colorado", "detroit", "houston", "kansas", "losangeles", "miami",
-    // "milwaukee", "minnesota", "newyork", "oakland", "philadelphia", "pittsburgh",
-    // "san", "seattle", "stlouis", "tampabay", "texas", "toronto", "washington",
+    "anaheim", "arizona", "atlanta", "baltimore", "boston", "chicago", "cincinnati",
+    "cleveland", "colorado", "detroit", "houston", "kansas", "losangeles", "miami",
+    "milwaukee", "minnesota", "newyork", "oakland", "philadelphia", "pittsburgh",
+    "san", "seattle", "stlouis", "tampabay", "texas", "toronto", "washington",
   
     // MLB MVP Winners' / World Series MVP Last Names
     "abreu", "altuve", "bagwell", "banks", "barry", "bench", "bentley", "berra", "betts",

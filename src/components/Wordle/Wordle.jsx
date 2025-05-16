@@ -172,49 +172,17 @@ function Wordle({
     setSelectedWords((prev) => prev.concat(categoryArray));
   };
 
-  // const removeCategory = (categoryArray) => {
-  //   const masterArray = [...selectedWords];
-  //   let startPosition = 0;
-  //   let check = masterArray.slice(masterArray.indexOf(categoryArray[0]));
-  //   let foundMatch = false;
-  //   while (!foundMatch) {
-  //     let isMatch = true;
-  //     categoryArray.forEach((word, index) => {
-  //       if (word !== check[index]) {
-  //         isMatch = false;
-  //       }
-  //     });
-
-  //     if (isMatch) {
-  //       foundMatch = true;
-  //     } else if (check.slice(0).includes(categoryArray[0])) {
-  //       startPosition = masterArray.indexOf(
-  //         categoryArray[0],
-  //         startPosition + 1
-  //       );
-  //       check = masterArray.slice(startPosition); // Modified this line
-  //     } else {
-  //       foundMatch = true;
-  //       console.error("Couldn't find category in selected words");
-  //     }
-  //   }
-  //   const firstHalf = masterArray.slice(0, startPosition);
-  //   const secondHalf = masterArray.slice(startPosition + categoryArray.length);
-  //   setSelectedWords(firstHalf.concat(secondHalf));
-  // };
-
   const removeCategory = (categoryArray) => {
-    const masterArray = [...selectedWords];
-    const result = [];
+    let result = [];
 
-    for (let i = 0; i < masterArray.length; ) {
+    for (let i = 0; i < selectedWords.length; ) {
       if (
-        masterArray.slice(i, i + categoryArray.length).join(",") ===
+        selectedWords.slice(i, i + categoryArray.length).join(",") ===
         categoryArray.join(",")
       ) {
         i += categoryArray.length;
       } else {
-        result.push(masterArray[i]);
+        result.push(selectedWords[i]);
         i++;
       }
     }
