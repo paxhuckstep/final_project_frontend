@@ -38,6 +38,25 @@ function About() {
         <li>You can play multiple times (not just once per day)</li>
         <li>Compete for a spot on the leaderboards!</li>
       </ul>
+      <p className="about__paragraph">Here's how scoring works:</p>
+      <ul className="about__list">
+        <li>When you get a word correct, your score will increase</li>
+        <li>
+          For every category selected "Y" when you get your new word, your
+          potential points earned increases by 1
+        </li>
+        <li>
+          Adding categories after selecting your word doesn't increase potential
+          points
+        </li>
+        <li>
+          When you don't guess the word in 6 tries, your score goes back to 0
+        </li>
+        <li>
+          Clicking for a new word after using a guess will cause score to reset
+          to 0
+        </li>
+      </ul>
       <h3 className="about__subtitle">Unique Cases</h3>
       <p className="about__paragraph">
         Some Pokemon names have special characters or unique formatting that
