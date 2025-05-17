@@ -252,6 +252,8 @@ function Wordle({
   useEffect(() => {
     setSelectedWords([]);
     setPotentialWager(0)
+    setScore(0)
+    setCorrectWord("")
   }, [categoryTitles]);
 
   useEffect(() => {
