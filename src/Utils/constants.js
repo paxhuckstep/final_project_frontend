@@ -19,7 +19,7 @@ export const ALPHABET_ARRAY = ALPHABET.split("");
 export const INPUT_ATTEMPTS = [1, 2, 3, 4, 5, 6];
 
 export const Base_Url = !LOCAL_CONNECTI0N
-  ? "https://finalprojectbackend-production-b2d7.up.railway.app"
+  ? "https://finalprojectbackend-https://fathomless-coast-47641-4fc432c47ba3.herokuapp.com/-b2d7.up.railway.app"
   : "http://localhost:4201";
 
 // export const randomWords = [
