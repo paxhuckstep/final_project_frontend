@@ -5,8 +5,8 @@ function ToggleSwitch({
   toggleTitle,
   handleChecking,
   handleUnchecking,
-  catagorySolved,
-  catagoryMax,
+  categorySolved,
+  categoryMax,
   isLoggedIn,
 }) {
   const [isChecked, setIsChecked] = useState(false);
@@ -45,7 +45,7 @@ function ToggleSwitch({
           <span className="toggle-switch__text toggle-switch__text_Y">Y</span>
         </label>
         <p className={progressClassName}>
-          {catagorySolved} / {catagoryMax}
+          {categorySolved} / {categoryMax}
         </p>
       </div>
     </>

@@ -218,6 +218,7 @@ function App() {
                 categoryArrayThree={genThree}
                 categoryArrayFour={genFour}
                 categoryArrayFive={genFive}
+                highScoreName={"pokemonHighScore"}
               />
             }
           />
@@ -241,6 +242,7 @@ function App() {
                 categoryArrayThree={NHL_DATA}
                 categoryArrayFour={MLB_DATA}
                 categoryArrayFive={GOLF_MASTERS_DATA}
+                highScoreName={"sportsHighScore"}
               />
             }
           />

@@ -1,4 +1,4 @@
-const LOCAL_CONNECTI0N = false;
+const LOCAL_CONNECTI0N = true;
 
 export const NUMBER_STRINGS = [
   "zero",

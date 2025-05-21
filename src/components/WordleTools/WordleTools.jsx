@@ -7,6 +7,7 @@ function WordleTools({
   score,
   currentUser,
   isLoggedIn,
+  highScoreName,
 }) {
   const attemptsLeft = 7 - currentAttempt;
   const attemptMaybeS = attemptsLeft === 1 ? "attempt" : "attempts";
@@ -18,7 +19,7 @@ function WordleTools({
   const highScoreTextContent = isLoggedIn
     ? `High Score: `
     : "Log in to record high scores!";
-  const highScore = isLoggedIn ? `${currentUser?.pokemonHighScore}` : "";
+  const highScore = isLoggedIn ? `${currentUser?.[highScoreName]}` : "";
   const userName = isLoggedIn
     ? `Good luck ${currentUser?.username
         .charAt(0)

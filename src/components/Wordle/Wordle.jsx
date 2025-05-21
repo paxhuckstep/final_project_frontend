@@ -7,6 +7,7 @@ import "./Wordle.css";
 import { ALPHABET_ARRAY } from "../../Utils/constants";
 import { addSolvedWord, updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
+import { useLocation } from "react-router";
 
 function Wordle({
   currentUser,
@@ -19,6 +20,7 @@ function Wordle({
   categoryArrayThree,
   categoryArrayFour,
   categoryArrayFive,
+  highScoreName
 }) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
@@ -33,6 +35,9 @@ function Wordle({
   const [score, setScore] = useState(0);
   const [potentialWager, setPotentialWager] = useState(0);
   const [wager, setWager] = useState(0);
+  const [oldLocation, setOldLocation] = useState("");
+
+  const location = useLocation();
 
   const closePopup = () => {
     setIsOpen(false);
@@ -144,9 +149,9 @@ function Wordle({
   };
 
   const handleNewHighScore = () => {
-    if (score > currentUser?.pokemonHighScore) {
+    if (score > currentUser?.[highScoreName]) {
       const token = getToken();
-      updateHighScore(token, score)
+      updateHighScore(token, score, highScoreName)
         .then((newUserData) => {
           handleNewUserData(newUserData);
         })
@@ -250,15 +255,18 @@ function Wordle({
   }, [submissions]);
 
   useEffect(() => {
-    setSelectedWords([]);
-    setPotentialWager(0)
-    setScore(0)
-    setCorrectWord("")
+    if (location.pathname !== oldLocation) {
+      setSelectedWords([]);
+      setPotentialWager(0);
+      setScore(0);
+      setCorrectWord("");
+    }
+    setOldLocation(location.pathname);
   }, [categoryTitles]);
 
-  useEffect(() => {
-    console.log("Selected Words: ", selectedWords);
-  }, [selectedWords]);
+  // useEffect(() => {
+  //   console.log("Selected Words: ", selectedWords);
+  // }, [selectedWords]);
 
   // useEffect(() => {
   //   console.log("potentialWager: ", potentialWager);
@@ -299,6 +307,7 @@ function Wordle({
           score={score}
           currentUser={currentUser}
           isLoggedIn={isLoggedIn}
+          highScoreName={highScoreName}
         />
       </section>
       <Popup

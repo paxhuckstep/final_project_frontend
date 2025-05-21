@@ -32,9 +32,9 @@ function SideBar({
     return categoryArrayFive.includes(word);
   });
 
-  useEffect(() => {
-
-  },[])
+//   useEffect(() => {
+// console.log("categoryArrayOneSolved: ", categoryArrayOneSolved)
+//   },[categoryArrayOneSolved])
 
   return (
     <div className="sidebar">
