@@ -55,7 +55,7 @@ function App() {
       auth
         .register(username, password)
         .then((signupInfo) => {
-          console.log("register .then ran: ", signupInfo);
+          // console.log("register .then ran: ", signupInfo);
           setCurrentUser(signupInfo.user);
           setToken(signupInfo.token);
           setIsLoggedIn(true);

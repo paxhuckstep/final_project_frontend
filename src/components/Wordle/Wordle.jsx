@@ -20,7 +20,7 @@ function Wordle({
   categoryArrayThree,
   categoryArrayFour,
   categoryArrayFive,
-  highScoreName
+  highScoreName,
 }) {
   const [correctWord, setCorrectWord] = useState("");
   const [currentInputs, setCurrentInputs] = useState([]);
@@ -129,7 +129,7 @@ function Wordle({
 
   const handleNewWordClick = () => {
     handleNewWord();
-    if (currentAttempt > 1) {
+    if (currentAttempt > 1 && !isWin) {
       setScore(0);
     }
   };
@@ -149,7 +149,7 @@ function Wordle({
   };
 
   const handleNewHighScore = () => {
-    if (score > currentUser?.[highScoreName]) {
+    if (score > currentUser?.[highScoreName] && isLoggedIn) {
       const token = getToken();
       updateHighScore(token, score, highScoreName)
         .then((newUserData) => {
