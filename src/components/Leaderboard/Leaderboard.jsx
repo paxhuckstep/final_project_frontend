@@ -19,7 +19,7 @@ function Leaderboard({ leaderboardTitle, highScoreName }) {
       <thead className="leaderboard__head">
         <tr className="leaderboard__row">
           <th className="leaderboard__head-data">Rank</th>
-          <th className="leaderboard__head-data">Username</th>
+          <th className="leaderboard__head-data">Player</th>
           <th className="leaderboard__head-data leaderboard__head-data_score">
             Score
           </th>

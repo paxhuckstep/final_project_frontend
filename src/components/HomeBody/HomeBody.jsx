@@ -6,6 +6,9 @@ function HomeBody({
   openRegisterModal,
   openLoginModal,
 }) {
+    let username = currentUser?.username
+  username = username.charAt(0).toUpperCase() + username.slice(1)
+
   if (!isLoggedIn) {
     return (
       <>
@@ -31,7 +34,7 @@ function HomeBody({
     return(
     <>
       <section className="homebody">
-        <p className="homebody__username">Hey there {currentUser?.username}</p>
+        <p className="homebody__username">Hey there {username}</p>
         <p className="homebody__scores">
           Your Pokemon high score is: {currentUser?.pokemonHighScore}
         </p>
