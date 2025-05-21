@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
+import { getLeaderboardData } from "../../Utils/api";
 import "./Leaderboard.css";
 
-function Leaderboard({ leaderboardTitle, leaderboardData, highScoreName }) {
+function Leaderboard({ leaderboardTitle, highScoreName }) {
+  const [leaderboardData, setLeaderboardData] = useState([]);
+  useEffect(() => {
+    getLeaderboardData(highScoreName)
+      .then((data) => {
+        setLeaderboardData(data);
+      })
+      .catch(console.error);
+  }, []);
+
   //   console.log(leaderboardData);
   return (
     <table className="leaderboard">
@@ -9,7 +20,9 @@ function Leaderboard({ leaderboardTitle, leaderboardData, highScoreName }) {
         <tr className="leaderboard__row">
           <th className="leaderboard__head-data">Rank</th>
           <th className="leaderboard__head-data">Username</th>
-          <th className="leaderboard__head-data leaderboard__head-data_score">Score</th>
+          <th className="leaderboard__head-data leaderboard__head-data_score">
+            Score
+          </th>
         </tr>
       </thead>
       <tbody className="leaderboard__body">
