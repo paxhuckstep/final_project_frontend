@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from "react-router";
 import Home from "../Home/Home";
 import About from "../About/About";
 import Leaderboards from "../Leaderboards/Leaderboards";
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
@@ -32,11 +32,12 @@ function App() {
   const [genThree, setGenThree] = useState([]);
   const [genFour, setGenFour] = useState([]);
   const [genFive, setGenFive] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const openRegisterModal = () => {
-    console.log("openRegisterModal fired")
+    console.log("openRegisterModal fired");
     setActiveModal("register");
   };
   const openLoginModal = () => {
@@ -62,7 +63,16 @@ function App() {
           resetValues();
           setActiveModal("");
         })
-        .catch(console.error);
+        .catch((error) => {
+          console.error(error);
+          if (error.message === "Username unavailable") {
+            setErrorMessage("This Username is taken, please try another.");
+          }
+        });
+    } else {
+      setErrorMessage(
+        "The password and confirm password don't match, please try again."
+      );
     }
   };
 
@@ -88,7 +98,13 @@ function App() {
             .catch(console.error);
         }
       })
-      .catch(console.error);
+      .catch((error) => {
+          console.error(error);
+          console.log(error.message)
+          if (error.message === "Incorrect email or password") {
+            setErrorMessage("Username or password is incorrect, please try again.");
+          }
+        });
   };
 
   const handleNewUserData = (userData) => {
@@ -114,6 +130,9 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    setErrorMessage("");
+  }, [activeModal]);
   // const arrayDublicates = (arrayOne, arrayTwo) => {
   //   return arrayOne.filter((word) => {
   //     return arrayTwo.includes(word);
@@ -255,12 +274,14 @@ function App() {
         isOpen={activeModal === "register"}
         handleRegistration={handleRegistration}
         openLoginModal={openLoginModal}
+        errorMessage={errorMessage}
       />
       <LoginModal
         onClose={closeActiveModal}
         isOpen={activeModal === "log-in"}
         handleLogIn={handleLogin}
         openRegisterModal={openRegisterModal}
+        errorMessage={errorMessage}
       />
     </div>
   );

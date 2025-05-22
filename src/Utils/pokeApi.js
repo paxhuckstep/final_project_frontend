@@ -10,7 +10,11 @@ export function checkResponse(res) {
   if (res.ok) {
     return res.json();
   }
-  return Promise.reject(`Error ${res.status}`);
+  // return Promise.reject(`Error ${res.status}`);
+    return res.json().then((err) => {
+    // Throw an error with the backend message
+    throw new Error(err.message || "Something went wrong");
+  });
 }
 
 export const filterPokemonData = (data) => {

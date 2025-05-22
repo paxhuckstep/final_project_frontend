@@ -7,6 +7,7 @@ function RegisterModal({
   onClose,
   handleRegistration,
   openLoginModal,
+  errorMessage,
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +50,7 @@ function RegisterModal({
       isSwitchSeen={true}
       onSwitch={openLoginModal}
       switchText={"or Log In"}
+      errorMessage={errorMessage}
     >
       <label htmlFor="username" className="modal__label">
         Username

@@ -8,6 +8,7 @@ function ModalWithForm({
   onSubmit,
   onSwitch,
   switchText,
+  errorMessage,
 }) {
   return (
     <div className="modal">
@@ -16,7 +17,11 @@ function ModalWithForm({
         <button onClick={onClose} type="button" className="modal__close" />
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
+          
+            <p className="modal__error">{errorMessage}</p>
           <div className="modal__buttons-container">
+
+
             <button type="submit" className="modal__submit">
               {buttonText}
             </button>
