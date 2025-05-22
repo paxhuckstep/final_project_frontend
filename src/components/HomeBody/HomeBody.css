@@ -1,0 +1,132 @@
+/* .homebody__action_button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: blue
+} */
+
+.homebody {
+  margin: auto;
+  padding: 0px;
+  max-width: 800px;
+  /* background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.homebody__action {
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.homebody__action_button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #3498db;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.homebody__action_button:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.homebody__username {
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.homebody__welcome {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.homebody__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.homebody__button {
+  padding: 12px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  min-width: 150px;
+}
+
+.homebody__button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.homebody__button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .homebody {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .homebody__welcome {
+    font-size: 24px;
+  }
+
+  .homebody__username {
+    font-size: 20px;
+  }
+
+  .homebody__action {
+    font-size: 16px;
+  }
+
+  .homebody__action_button {
+    font-size: 16px;
+  }
+
+  .homebody__button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .homebody {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .homebody__welcome {
+    font-size: 22px;
+  }
+
+  .homebody__username {
+    font-size: 18px;
+  }
+
+  .homebody__button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}

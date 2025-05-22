@@ -10,15 +10,16 @@ function addSolvedWord(token, word) {
   }).then(checkResponse);
 }
 
-function updateHighScore (token, score) {
-  return fetch(`${Base_Url}/highscore/${score}`, {
+function updateHighScore (token, score, highScoreName) {
+  return fetch(`${Base_Url}/highscore/${score}/${highScoreName}`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ score })
+    // body: JSON.stringify({ score })
   }).then(checkResponse);
 }
+
 function getLeaderboardData (highScoreName) {
   return fetch(`${Base_Url}/leaderboards/${highScoreName}`, {
     method: "GET",

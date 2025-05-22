@@ -64,7 +64,10 @@
 /* .modal__input_last {
   margin-bottom: 80px;
 } */
-
+.modal__error{
+  color: red;
+  font-size: 12px;
+}
 .modal__buttons-container {
   /* position: absolute;
   bottom: 36px;

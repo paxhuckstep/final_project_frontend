@@ -2,7 +2,13 @@ import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function LoginModal({ isOpen, onClose, handleLogIn, openRegisterModal }) {
+function LoginModal({
+  isOpen,
+  onClose,
+  handleLogIn,
+  openRegisterModal,
+  errorMessage,
+}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,6 +40,7 @@ function LoginModal({ isOpen, onClose, handleLogIn, openRegisterModal }) {
       isSwitchSeen={true}
       onSwitch={openRegisterModal}
       switchText={"or Sign Up"}
+      errorMessage={errorMessage}
     >
       <label htmlFor="login-username" className="modal__label">
         Username

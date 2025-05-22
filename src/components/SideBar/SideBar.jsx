@@ -1,108 +1,114 @@
+import { useEffect } from "react";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./SideBar.css";
 
 function SideBar({
   addCategory,
   removeCategory,
-  genOne,
-  genTwo,
-  genThree,
-  genFour,
-  genFive,
+  categoryTitles,
+  categoryArrayOne,
+  categoryArrayTwo,
+  categoryArrayThree,
+  categoryArrayFour,
+  categoryArrayFive,
   currentUser,
   isLoggedIn,
- increasePotentialWager,
+  increasePotentialWager,
   decreasePotentialWager,
 }) {
-  const genOneSolved = currentUser?.solvedWords?.filter((word) => {
-    return genOne.includes(word);
+  const categoryArrayOneSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayOne.includes(word);
   });
-  const genTwoSolved = currentUser?.solvedWords?.filter((word) => {
-    return genTwo.includes(word);
+  const categoryArrayTwoSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayTwo.includes(word);
   });
-  const genThreeSolved = currentUser?.solvedWords?.filter((word) => {
-    return genThree.includes(word);
+  const categoryArrayThreeSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayThree.includes(word);
   });
-  const genFourSolved = currentUser?.solvedWords?.filter((word) => {
-    return genFour.includes(word);
+  const categoryArrayFourSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayFour.includes(word);
   });
-  const genFiveSolved = currentUser?.solvedWords?.filter((word) => {
-    return genFive.includes(word);
+  const categoryArrayFiveSolved = currentUser?.solvedWords?.filter((word) => {
+    return categoryArrayFive.includes(word);
   });
+
+//   useEffect(() => {
+// console.log("categoryArrayOneSolved: ", categoryArrayOneSolved)
+//   },[categoryArrayOneSolved])
 
   return (
     <div className="sidebar">
-      <h3 className="sidebar__title">Generations</h3>
+      <h3 className="sidebar__title">Categories</h3>
       <div className="sidebar__container">
         <ToggleSwitch
-          toggleTitle={"Gen One"}
+          toggleTitle={categoryTitles.one}
           handleChecking={() => {
-           increasePotentialWager();
-            addCategory(genOne);
+            increasePotentialWager();
+            addCategory(categoryArrayOne);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(genOne);
+            removeCategory(categoryArrayOne);
           }}
-          catagorySolved={genOneSolved?.length}
-          catagoryMax={genOne?.length}
+          categorySolved={categoryArrayOneSolved?.length}
+          categoryMax={categoryArrayOne?.length}
           isLoggedIn={isLoggedIn}
         />
         {/* <p className="sidebar__progress">gja</p> */}
         <ToggleSwitch
-          toggleTitle={"Gen Two"}
+          toggleTitle={categoryTitles.two}
           handleChecking={() => {
-            addCategory(genTwo);
-           increasePotentialWager();
+            addCategory(categoryArrayTwo);
+            increasePotentialWager();
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(genTwo);
+            removeCategory(categoryArrayTwo);
           }}
-          catagorySolved={genTwoSolved?.length}
-          catagoryMax={genTwo?.length}
+          categorySolved={categoryArrayTwoSolved?.length}
+          categoryMax={categoryArrayTwo?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
-          toggleTitle={"Gen Three"}
+          toggleTitle={categoryTitles.three}
           handleChecking={() => {
-           increasePotentialWager();
-            addCategory(genThree);
+            increasePotentialWager();
+            addCategory(categoryArrayThree);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(genThree);
+            removeCategory(categoryArrayThree);
           }}
-          catagorySolved={genThreeSolved?.length}
-          catagoryMax={genThree?.length}
+          categorySolved={categoryArrayThreeSolved?.length}
+          categoryMax={categoryArrayThree?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
-          toggleTitle={"Gen Four"}
+          toggleTitle={categoryTitles.four}
           handleChecking={() => {
-           increasePotentialWager();
-            addCategory(genFour);
+            increasePotentialWager();
+            addCategory(categoryArrayFour);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(genFour);
+            removeCategory(categoryArrayFour);
           }}
-          catagorySolved={genFourSolved?.length}
-          catagoryMax={genFour?.length}
+          categorySolved={categoryArrayFourSolved?.length}
+          categoryMax={categoryArrayFour?.length}
           isLoggedIn={isLoggedIn}
         />
         <ToggleSwitch
-          toggleTitle={"Gen Five"}
+          toggleTitle={categoryTitles.five}
           handleChecking={() => {
-           increasePotentialWager();
-            addCategory(genFive);
+            increasePotentialWager();
+            addCategory(categoryArrayFive);
           }}
           handleUnchecking={() => {
             decreasePotentialWager();
-            removeCategory(genFive);
+            removeCategory(categoryArrayFive);
           }}
-          catagorySolved={genFiveSolved?.length}
-          catagoryMax={genFive?.length}
+          categorySolved={categoryArrayFiveSolved?.length}
+          categoryMax={categoryArrayFive?.length}
           isLoggedIn={isLoggedIn}
         />
         {/* <ToggleSwitch

@@ -4,12 +4,20 @@ import { Routes, Route, useNavigate } from "react-router";
 import Home from "../Home/Home";
 import About from "../About/About";
 import Leaderboards from "../Leaderboards/Leaderboards";
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
+import Wordle from "../Wordle/Wordle";
+import {
+  GOLF_MASTERS_DATA,
+  MLB_DATA,
+  NBA_DATA,
+  NFL_DATA,
+  NHL_DATA,
+} from "../../Utils/constants";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,10 +32,12 @@ function App() {
   const [genThree, setGenThree] = useState([]);
   const [genFour, setGenFour] = useState([]);
   const [genFive, setGenFive] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const openRegisterModal = () => {
+    console.log("openRegisterModal fired");
     setActiveModal("register");
   };
   const openLoginModal = () => {
@@ -46,14 +56,23 @@ function App() {
       auth
         .register(username, password)
         .then((signupInfo) => {
-          console.log("register .then ran: ", signupInfo);
+          // console.log("register .then ran: ", signupInfo);
           setCurrentUser(signupInfo.user);
           setToken(signupInfo.token);
           setIsLoggedIn(true);
           resetValues();
           setActiveModal("");
         })
-        .catch(console.error);
+        .catch((error) => {
+          console.error(error);
+          if (error.message === "Username unavailable") {
+            setErrorMessage("This Username is taken, please try another.");
+          }
+        });
+    } else {
+      setErrorMessage(
+        "The password and confirm password don't match, please try again."
+      );
     }
   };
 
@@ -79,7 +98,13 @@ function App() {
             .catch(console.error);
         }
       })
-      .catch(console.error);
+      .catch((error) => {
+          console.error(error);
+          console.log(error.message)
+          if (error.message === "Incorrect email or password") {
+            setErrorMessage("Username or password is incorrect, please try again.");
+          }
+        });
   };
 
   const handleNewUserData = (userData) => {
@@ -93,6 +118,7 @@ function App() {
   };
 
   useEffect(() => {
+    // console.log(arrayDublicates(NFL_DATA, NBA_DATA));
     const handleEscClose = (event) => {
       if (event.key === "Escape") {
         closeActiveModal();
@@ -103,6 +129,15 @@ function App() {
       window.removeEventListener("keydown", handleEscClose);
     };
   }, []);
+
+  useEffect(() => {
+    setErrorMessage("");
+  }, [activeModal]);
+  // const arrayDublicates = (arrayOne, arrayTwo) => {
+  //   return arrayOne.filter((word) => {
+  //     return arrayTwo.includes(word);
+  //   });
+  // };
 
   useEffect(() => {
     for (let i = 1; i < 6; i++) {
@@ -175,15 +210,58 @@ function App() {
             path="/"
             element={
               <Home
+                isLoggedIn={isLoggedIn}
+                currentUser={currentUser}
+                openRegisterModal={openRegisterModal}
+                openLoginModal={openLoginModal}
+              />
+            }
+          />
+          <Route
+            path="pokemon"
+            element={
+              <Wordle
                 currentUser={currentUser}
                 isLoggedIn={isLoggedIn}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                genOne={genOne}
-                genTwo={genTwo}
-                genThree={genThree}
-                genFour={genFour}
-                genFive={genFive}
+                categoryTitles={{
+                  one: "Gen One",
+                  two: "Gen Two",
+                  three: "Gen Three",
+                  four: "Gen Four",
+                  five: "Gen Five",
+                }}
+                categoryArrayOne={genOne}
+                categoryArrayTwo={genTwo}
+                categoryArrayThree={genThree}
+                categoryArrayFour={genFour}
+                categoryArrayFive={genFive}
+                highScoreName={"pokemonHighScore"}
+              />
+            }
+          />
+          <Route
+            path="sports"
+            element={
+              <Wordle
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                handleNewUserData={handleNewUserData}
+                activeModal={activeModal}
+                categoryTitles={{
+                  one: "NFL",
+                  two: "NBA",
+                  three: "NHL",
+                  four: "MLB",
+                  five: "Golf",
+                }}
+                categoryArrayOne={NFL_DATA}
+                categoryArrayTwo={NBA_DATA}
+                categoryArrayThree={NHL_DATA}
+                categoryArrayFour={MLB_DATA}
+                categoryArrayFive={GOLF_MASTERS_DATA}
+                highScoreName={"sportsHighScore"}
               />
             }
           />
@@ -196,12 +274,14 @@ function App() {
         isOpen={activeModal === "register"}
         handleRegistration={handleRegistration}
         openLoginModal={openLoginModal}
+        errorMessage={errorMessage}
       />
       <LoginModal
         onClose={closeActiveModal}
         isOpen={activeModal === "log-in"}
         handleLogIn={handleLogin}
         openRegisterModal={openRegisterModal}
+        errorMessage={errorMessage}
       />
     </div>
   );
