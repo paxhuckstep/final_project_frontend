@@ -4,7 +4,7 @@ function Popup({ isOpen, isWin, correctWord, onClick, onClose }) {
   const titleText = isWin ? "Congratulations!" : "Oh no! Out of tries :/";
   const bodyText = isWin
     ? `You succeeded! The answer was "${correctWord}".`
-    : `Maybe next time!`;
+    : `Maybe next time! The word was "${correctWord}".`;
   const buttonText = isWin
     ? "Click here for a new word!"
     : "Click here to try another one.";
