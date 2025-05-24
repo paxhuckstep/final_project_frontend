@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from "react-router";
 import Home from "../Home/Home";
 import About from "../About/About";
 import Leaderboards from "../Leaderboards/Leaderboards";
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
@@ -37,7 +37,7 @@ function App() {
   const navigate = useNavigate();
 
   const openRegisterModal = () => {
-    console.log("openRegisterModal fired");
+    // console.log("openRegisterModal fired");
     setActiveModal("register");
   };
   const openLoginModal = () => {

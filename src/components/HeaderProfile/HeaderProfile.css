@@ -65,10 +65,8 @@
     right: unset;
   }
   .header-profile__button {
-
-  height: 30%;
-
-}
+    height: 30%;
+  }
 }
 
 @media screen and (max-width: 400px) {

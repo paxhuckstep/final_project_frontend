@@ -272,9 +272,9 @@ function Wordle({
   //   console.log("potentialWager: ", potentialWager);
   // }, [potentialWager]);
 
-  useEffect(() => {
-    console.log("Correct Word: ", correctWord);
-  }, [correctWord]);
+  // useEffect(() => {
+  //   console.log("Correct Word: ", correctWord);
+  // }, [correctWord]);
 
   return (
     <>

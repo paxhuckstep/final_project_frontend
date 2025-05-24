@@ -1,6 +1,6 @@
 import { checkResponse } from "./pokeApi";
 import { Base_Url } from "./constants";
-console.log(Base_Url);
+// console.log(Base_Url);
 export const register = (username, password) => {
   return fetch(`${Base_Url}/signup`, {
     method: "POST",
