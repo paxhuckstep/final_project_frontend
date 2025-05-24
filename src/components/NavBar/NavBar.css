@@ -47,3 +47,10 @@
     padding: 10px 10px;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .navbar__button {
+    font-size: 9px;
+    padding: 8px 8px;
+  }
+}

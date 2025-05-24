@@ -43,19 +43,19 @@
   }
 }
 
-@media screen and (max-width: 985px) {
+@media screen and (max-width: 1025px) {
   .header-profile {
     right: 60px;
     flex-direction: column;
     gap: 10px;
-    top: 30px;
+    top: 20px;
   }
   .header-profile__button {
     font-size: 13px;
   }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 840px) {
   .header-profile {
     flex-direction: row;
     gap: 5px;
@@ -64,6 +64,11 @@
     transform: translateX(-50%);
     right: unset;
   }
+  .header-profile__button {
+
+  height: 30%;
+
+}
 }
 
 @media screen and (max-width: 400px) {
