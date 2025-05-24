@@ -1,4 +1,4 @@
-const LOCAL_CONNECTI0N = true;
+// const LOCAL_CONNECTI0N = false;
 
 export const NUMBER_STRINGS = [
   "zero",
@@ -18,15 +18,15 @@ export const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 export const ALPHABET_ARRAY = ALPHABET.split("");
 export const INPUT_ATTEMPTS = [1, 2, 3, 4, 5, 6];
 
-// export const Base_Url =  process.env.NODE_ENV === "production"
-//   ? "https://fathomless-coast-47641-4fc432c47ba3.herokuapp.com"
-//   : "http://localhost:4201";
+export const Base_Url =  process.env.NODE_ENV === "production"
+  ? import.meta.env.API_URL
+  : "http://localhost:4201";
 
 // EvKVNYsUAFSURrLx
 
-export const Base_Url =  !LOCAL_CONNECTI0N
-  ? "https://fathomless-coast-47641-4fc432c47ba3.herokuapp.com"
-  : "http://localhost:4201";
+// export const Base_Url =  !LOCAL_CONNECTI0N
+//   ? "https://fathomless-coast-47641-4fc432c47ba3.herokuapp.com"
+//   : "http://localhost:4201";
 
   export const NFL_DATA = [
     // NFL Team Mascots
