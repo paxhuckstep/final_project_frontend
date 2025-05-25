@@ -6,11 +6,11 @@ function Leaderboards() {
     <div className="leaderboards">
       <h2 className="leaderboards__title">Leaderboards</h2>
       <Leaderboard
-        leaderboardTitle={"Pokemon High Scores"}
+        leaderboardTitle={"Pokemon"}
         highScoreName={"pokemonHighScore"}
       />
       <Leaderboard
-        leaderboardTitle={"Sports High Scores"}
+        leaderboardTitle={"Sports"}
         highScoreName={"sportsHighScore"}
       />
     </div>

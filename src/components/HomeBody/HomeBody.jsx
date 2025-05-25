@@ -25,7 +25,7 @@ function HomeBody({
             <button onClick={() => openLoginModal()} className="homebody__action_button">
           {" "}    Login{" "}
             </button>
-            to and cary on where you left off
+            to and cary on where you left off.
           </p>
         </section>
       </>
