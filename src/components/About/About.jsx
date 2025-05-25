@@ -139,13 +139,10 @@ function About() {
       </p>
       <h2 className="about__title">Future Plans and Ideas</h2>
       <p className="about__paragraph">
-        This project is still a work in progress, I have a lot of ideas planned
-        that I am currently working on. First I am going to add the ability to
-        register and log in. Once logged in, Pax's Wordle will keep track of
-        every word you guess correctly and you will be able to keep score based
-        on how many you get correct in a row. Your high score will be saved and
-        you can compete on the leaderboard with other players. I will be adding
-        other wordle games for non-Pokemon categories for players to compete in.
+        Now that I have implemented scores and leaderboards. I am thinking of
+        what other improvements can be made. Functionality moving forward should
+        stay pretty much the same. Possibly some beautifications additional
+        themes for players to compete in.
       </p>
       <h2 className="about__title">Contact the Creator</h2>
       <p className="about__paragraph">Pax Huckstep</p>
