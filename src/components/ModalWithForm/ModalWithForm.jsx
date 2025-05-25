@@ -17,10 +17,9 @@
 //         <button onClick={onClose} type="button" className="modal__close" />
 //         <form className="modal__form" onSubmit={onSubmit}>
 //           {children}
-          
+
 //             <p className="modal__error">{errorMessage}</p>
 //           <div className="modal__buttons-container">
-
 
 //             <button type="submit" className="modal__submit">
 //               {buttonText}
@@ -53,6 +52,11 @@ function ModalWithForm({
   const [isLoading, setIsLoading] = useState(false);
   const submitText = isLoading ? "Loading..." : buttonText;
 
+  const submit = () => {
+    onSubmit();
+    setIsLoading(true);
+  };
+
   useEffect(() => {
     setIsLoading(false);
   }, [errorMessage, children]);
@@ -62,13 +66,7 @@ function ModalWithForm({
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button onClick={onClose} type="button" className="modal__close" />
-        <form
-          className="modal__form"
-          onSubmit={() => {
-            onSubmit();
-            setIsLoading(true);
-          }}
-        >
+        <form className="modal__form" onSubmit={submit}>
           {children}
 
           <p className="modal__error">{errorMessage}</p>
