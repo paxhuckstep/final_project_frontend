@@ -1,6 +1,7 @@
 import "./WordleTools.css";
 
 function WordleTools({
+  openLoginModal,
   currentAttempt,
   handleNewWordClick,
   remainingLetters,
@@ -11,23 +12,12 @@ function WordleTools({
 }) {
   const attemptsLeft = 7 - currentAttempt;
   const attemptMaybeS = attemptsLeft === 1 ? "attempt" : "attempts";
-  // const highScoreTextContent = isLoggedIn
-  //   ? score > currentUser?.pokemonHighScore ? "Old High Score: " :
-  //   `High Score: `
-  //   : "Log in to record high scores!";
-
-  const highScoreTextContent = isLoggedIn
-    ? `High Score: `
-    : "Log in to record high scores!";
-  const highScore = isLoggedIn ? `${currentUser?.[highScoreName]}` : "";
   const userName = isLoggedIn
     ? `Good luck ${currentUser?.username
         .charAt(0)
         .toUpperCase()}${currentUser?.username.slice(1)}!`
     : "";
-  // useEffect(() => {
-  //   console.log("highscore: ", currentUser.pokemonHighScore);
-  // }, [currentUser.pokemonHighScore]);
+
   return (
     <div className="wordle-tools">
       <p className="wordle-tools__text">{userName}</p>
@@ -43,10 +33,26 @@ function WordleTools({
       <p className="wordle-tools__text">
         Current Score: <span className="wordle-tools__score">{score}</span>
       </p>
-      <p className="wordle-tools__text">
-        {highScoreTextContent}
-        <span className="wordle-tools__score">{highScore}</span>
-      </p>
+      {isLoggedIn && (
+        <p className="wordle-tools__text">
+          High Score:
+          <span className="wordle-tools__score">
+            {currentUser?.[highScoreName]}
+          </span>
+        </p>
+      )}
+
+      {!isLoggedIn && (
+        <p className="wordle-tools__text">
+          <button
+            onClick={openLoginModal}
+            className="wordle-tools__text-button"
+          >
+            Log in
+          </button>{" "}
+          to record high scores.
+        </p>
+      )}
 
       <button
         onClick={handleNewWordClick}

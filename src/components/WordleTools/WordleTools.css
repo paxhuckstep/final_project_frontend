@@ -11,6 +11,22 @@
   font-weight: 600;
 }
 
+.wordle-tools__text-button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #3498db;
+  cursor: pointer;
+}
+
+.wordle-tools__text-button:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
 .wordle-tools__score {
   color: red;
 }
@@ -44,6 +60,7 @@
   border: solid 2px;
   border-radius: 100px;
   padding: 0.6em 1.2em;
+  cursor: pointer;
 }
 
 .wordle-tools__reset-button:hover {

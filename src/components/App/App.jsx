@@ -247,6 +247,7 @@ function App() {
               <Wordle
                 currentUser={currentUser}
                 isLoggedIn={isLoggedIn}
+                openLoginModal={openLoginModal}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
                 sideBarData={POKEMON_DATA}
@@ -260,6 +261,7 @@ function App() {
               <Wordle
                 currentUser={currentUser}
                 isLoggedIn={isLoggedIn}
+                openLoginModal={openLoginModal}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
                 sideBarData={SPORTS_DATA}

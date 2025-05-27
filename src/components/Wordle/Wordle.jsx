@@ -12,6 +12,7 @@ import { useLocation } from "react-router";
 function Wordle({
   currentUser,
   isLoggedIn,
+  openLoginModal,
   handleNewUserData,
   activeModal,
   sideBarData,
@@ -288,6 +289,7 @@ function Wordle({
           submissions={submissions}
         />
         <WordleTools
+          openLoginModal={openLoginModal}
           currentAttempt={currentAttempt}
           handleNewWordClick={handleNewWordClick}
           remainingLetters={remainingLetters}
