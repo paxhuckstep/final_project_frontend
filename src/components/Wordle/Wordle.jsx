@@ -14,12 +14,7 @@ function Wordle({
   isLoggedIn,
   handleNewUserData,
   activeModal,
-  categoryTitles,
-  categoryArrayOne,
-  categoryArrayTwo,
-  categoryArrayThree,
-  categoryArrayFour,
-  categoryArrayFive,
+  sideBarData,
   highScoreName,
 }) {
   const [correctWord, setCorrectWord] = useState("");
@@ -135,13 +130,10 @@ function Wordle({
   };
 
   const handleNewSolvedWord = (newSolvedWord) => {
-    if (!currentUser.solvedWords.includes(newSolvedWord)) {
-      //  this if doesn't work quite right
-      // console.log("this is the first time solving this word!", newSolvedWord);
+    if (!currentUser.solvedWords.includes(newSolvedWord) && isLoggedIn) {
       const token = getToken();
       addSolvedWord(token, newSolvedWord)
         .then((newUserData) => {
-          // console.log("addSolvedWord .then ran: ", newUserData);
           handleNewUserData(newUserData);
         })
         .catch((error) => console.error(error));
@@ -262,7 +254,7 @@ function Wordle({
       setCorrectWord("");
     }
     setOldLocation(location.pathname);
-  }, [categoryTitles]);
+  }, [sideBarData]);
 
   // useEffect(() => {
   //   console.log("Selected Words: ", selectedWords);
@@ -282,12 +274,7 @@ function Wordle({
         <SideBar
           addCategory={addCategory}
           removeCategory={removeCategory}
-          categoryTitles={categoryTitles}
-          categoryArrayOne={categoryArrayOne}
-          categoryArrayTwo={categoryArrayTwo}
-          categoryArrayThree={categoryArrayThree}
-          categoryArrayFour={categoryArrayFour}
-          categoryArrayFive={categoryArrayFive}
+          sideBarData={sideBarData}
           currentUser={currentUser}
           isLoggedIn={isLoggedIn}
           increasePotentialWager={increasePotentialWager}

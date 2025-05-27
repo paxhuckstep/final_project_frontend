@@ -11,13 +11,7 @@ import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
 import Wordle from "../Wordle/Wordle";
-import {
-  GOLF_MASTERS_DATA,
-  MLB_DATA,
-  NBA_DATA,
-  NFL_DATA,
-  NHL_DATA,
-} from "../../Utils/constants";
+import { SPORTS_DATA } from "../../Utils/constants";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,7 +26,23 @@ function App() {
   const [genThree, setGenThree] = useState([]);
   const [genFour, setGenFour] = useState([]);
   const [genFive, setGenFive] = useState([]);
+  const [genSix, setGenSix] = useState([]);
+  const [genSeven, setGenSeven] = useState([]);
+  const [genEight, setGenEight] = useState([]);
+  const [genNine, setGenNine] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const POKEMON_DATA = [
+    { title: "Gen One", words: genOne },
+    { title: "Gen Two", words: genTwo },
+    { title: "Gen Three", words: genThree },
+    { title: "Gen Four", words: genFour },
+    { title: "Gen Five", words: genFive },
+    { title: "Gen Six", words: genSix },
+    { title: "Gen Seven", words: genSeven },
+    { title: "Gen Eight", words: genEight },
+    { title: "Gen Nine", words: genNine },
+  ];
 
   const navigate = useNavigate();
 
@@ -99,12 +109,14 @@ function App() {
         }
       })
       .catch((error) => {
-          console.error(error);
-          console.log(error.message)
-          if (error.message === "Incorrect email or password") {
-            setErrorMessage("Username or password is incorrect, please try again.");
-          }
-        });
+        console.error(error);
+        console.log(error.message);
+        if (error.message === "Incorrect email or password") {
+          setErrorMessage(
+            "Username or password is incorrect, please try again."
+          );
+        }
+      });
   };
 
   const handleNewUserData = (userData) => {
@@ -133,19 +145,15 @@ function App() {
   useEffect(() => {
     setErrorMessage("");
   }, [activeModal]);
-  // const arrayDublicates = (arrayOne, arrayTwo) => {
-  //   return arrayOne.filter((word) => {
-  //     return arrayTwo.includes(word);
-  //   });
-  // };
 
   useEffect(() => {
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 10; i++) {
       getPokemon(i.toString())
         .then((data) => {
           const filteredPokemonData = filterPokemonData(data);
           switch (i) {
             case 1: {
+              // console.log("GEN ONE: ", filteredPokemonData);
               setGenOne(filteredPokemonData);
               break;
             }
@@ -163,6 +171,22 @@ function App() {
             }
             case 5: {
               setGenFive(filteredPokemonData);
+              break;
+            }
+            case 6: {
+              setGenSix(filteredPokemonData);
+              break;
+            }
+            case 7: {
+              setGenSeven(filteredPokemonData);
+              break;
+            }
+            case 8: {
+              setGenEight(filteredPokemonData);
+              break;
+            }
+            case 9: {
+              setGenNine(filteredPokemonData);
               break;
             }
           }
@@ -225,18 +249,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                categoryTitles={{
-                  one: "Gen One",
-                  two: "Gen Two",
-                  three: "Gen Three",
-                  four: "Gen Four",
-                  five: "Gen Five",
-                }}
-                categoryArrayOne={genOne}
-                categoryArrayTwo={genTwo}
-                categoryArrayThree={genThree}
-                categoryArrayFour={genFour}
-                categoryArrayFive={genFive}
+                sideBarData={POKEMON_DATA}
                 highScoreName={"pokemonHighScore"}
               />
             }
@@ -249,18 +262,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                categoryTitles={{
-                  one: "NFL",
-                  two: "NBA",
-                  three: "NHL",
-                  four: "MLB",
-                  five: "Golf",
-                }}
-                categoryArrayOne={NFL_DATA}
-                categoryArrayTwo={NBA_DATA}
-                categoryArrayThree={NHL_DATA}
-                categoryArrayFour={MLB_DATA}
-                categoryArrayFive={GOLF_MASTERS_DATA}
+                sideBarData={SPORTS_DATA}
                 highScoreName={"sportsHighScore"}
               />
             }

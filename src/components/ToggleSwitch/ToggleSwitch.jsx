@@ -30,25 +30,23 @@ function ToggleSwitch({
   }, [toggleTitle]);
 
   return (
-    <>
-      <div className="toggle-switch">
-        <p className="toggle-switch__title">{toggleTitle}</p>
-        <label className="toggle-switch__switch">
-          <input
-            onChange={onChange}
-            checked={isChecked}
-            type="checkbox"
-            className="toggle-switch__checkbox"
-          />
-          <span className="toggle-switch__circle"></span>
-          <span className="toggle-switch__text toggle-switch__text_N">N</span>
-          <span className="toggle-switch__text toggle-switch__text_Y">Y</span>
-        </label>
-        <p className={progressClassName}>
-          {categorySolved} / {categoryMax}
-        </p>
-      </div>
-    </>
+    <div className="toggle-switch">
+      <p className="toggle-switch__title">{toggleTitle}</p>
+      <label className="toggle-switch__switch">
+        <input
+          onChange={onChange}
+          checked={isChecked}
+          type="checkbox"
+          className="toggle-switch__checkbox"
+        />
+        <span className="toggle-switch__circle"></span>
+        <span className="toggle-switch__text toggle-switch__text_N">N</span>
+        <span className="toggle-switch__text toggle-switch__text_Y">Y</span>
+      </label>
+      <p className={progressClassName}>
+        {categorySolved} / {categoryMax}
+      </p>
+    </div>
   );
 }
 

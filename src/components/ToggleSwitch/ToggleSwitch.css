@@ -1,3 +1,10 @@
+.toggle-switch {
+  margin: 0;
+  padding: 0;
+  height: 75px;
+  flex-basis: 20%;
+}
+
 .toggle-switch__title {
   margin: 0 0 5px;
   color: rgb(0, 0, 0);
@@ -54,11 +61,10 @@
 
 .toggle-switch__progress {
   margin: 0 0 25px;
-  /* margin-bottom: 25px; */
 }
 
 .toggle-switch__progress-hidden {
- visibility: hidden;
+  visibility: hidden;
 }
 
 .toggle-switch__checkbox:checked ~ .toggle-switch__circle {
@@ -72,11 +78,13 @@
   .toggle-switch__title {
     margin: 3px 0 0 0;
     max-width: 100px;
-    margin-bottom: auto;
+
+    padding-bottom: 8px;
   }
   .toggle-switch {
     width: 100px;
     height: 90px;
+    flex-basis: 20%;
     display: flex;
     flex-direction: column;
   }
@@ -84,7 +92,6 @@
   .toggle-switch__switch {
     margin-bottom: 10px;
     padding-bottom: 9px;
-    margin-top: auto;
   }
 }
 
@@ -93,6 +100,7 @@
     margin-top: 10px;
     max-width: 118px;
     font-size: 14px;
+    height: 36px;
   }
   .toggle-switch__switch {
     width: 40px;
@@ -120,7 +128,7 @@
     left: 22px;
   }
   .toggle-switch__progress {
- font-size: 12px;
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 400px) {

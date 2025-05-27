@@ -6,13 +6,12 @@
   font-family: "Cabinet Grotesk", sans-serif;
   padding: 0 0 0 50px;
   margin: 0px;
-
 }
 
 .sidebar__title {
   font-size: 27px;
   margin: 20px 0;
-  padding: 0;
+  padding: 4px;
   color: white;
 }
 .sidebar__progress {
@@ -33,16 +32,16 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0;
-    height: 140px;
   }
   .sidebar__container {
     margin: 0 20px -10px;
     max-width: 100%;
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     box-sizing: border-box;
     padding-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   .sidebar__title {
@@ -63,8 +62,5 @@
 @media screen and (max-width: 400px) {
   .sidebar__title {
     font-size: 18px;
-  }
-  .sidebar__container {
-    margin: 0 10px -10px;
   }
 }
