@@ -42,6 +42,17 @@ function NavBar() {
           >
             Sports
           </button>
+        </Link>       
+         <Link to="/miscellaneous">
+          <button
+            className={`navbar__button ${
+              isActive("/miscellaneous")
+                ? "navbar__button_active navbar__button_active-wordle"
+                : ""
+            }`}
+          >
+            Misc.
+          </button>
         </Link>
         <Link to="/about">
           <button

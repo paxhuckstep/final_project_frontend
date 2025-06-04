@@ -269,6 +269,20 @@ function App() {
               />
             }
           />
+            <Route
+            path="miscellaneous"
+            element={
+              <Wordle
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                openLoginModal={openLoginModal}
+                handleNewUserData={handleNewUserData}
+                activeModal={activeModal}
+                sideBarData={SPORTS_DATA}
+                highScoreName={"miscellaneousHighScore"}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
         </Routes>

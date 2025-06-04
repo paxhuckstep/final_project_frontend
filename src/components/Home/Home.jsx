@@ -26,6 +26,9 @@ function Home({ isLoggedIn, currentUser, openRegisterModal, openLoginModal }) {
             <Link to="/sports">
               <button className="home__play-button">Play Sports</button>
             </Link>
+                <Link to="/miscellaneous">
+              <button className="home__play-button">Play Misc.</button>
+            </Link>
             <Link to="/about">
               <button className="home__play-button">Rules</button>
             </Link>
