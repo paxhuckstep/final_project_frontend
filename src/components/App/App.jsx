@@ -11,7 +11,7 @@ import { filterPokemonData, getPokemon } from "../../Utils/pokeApi";
 import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
 import Wordle from "../Wordle/Wordle";
-import { SPORTS_DATA } from "../../Utils/constants";
+import { MISC_DATA, SPORTS_DATA } from "../../Utils/constants";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -269,7 +269,7 @@ function App() {
               />
             }
           />
-            <Route
+          <Route
             path="miscellaneous"
             element={
               <Wordle
@@ -278,7 +278,7 @@ function App() {
                 openLoginModal={openLoginModal}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
-                sideBarData={SPORTS_DATA}
+                sideBarData={MISC_DATA}
                 highScoreName={"miscellaneousHighScore"}
               />
             }

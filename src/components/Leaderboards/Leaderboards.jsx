@@ -13,6 +13,10 @@ function Leaderboards() {
         leaderboardTitle={"Sports"}
         highScoreName={"sportsHighScore"}
       />
+         <Leaderboard
+        leaderboardTitle={"Miscellaneous"}
+        highScoreName={"miscellaneousHighScore"}
+      />
     </div>
   );
 }
