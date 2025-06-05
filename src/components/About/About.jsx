@@ -71,7 +71,16 @@ function About() {
         <li>Every team's mascot</li>
       </ul>
       <p className="about__paragraph">
-        Golf includes the last name of every master winner
+        Golf includes the last name of every Masters winner
+      </p>
+      <p className="about__paragraph">
+        Tennis includes the last name of every Wimbledon winner
+      </p>
+        <p className="about__paragraph">
+        D.O.S.W. stands for Dictionairy of Obscure Sorrow Words
+      </p>
+        <p className="about__paragraph">
+       Random is random, no theme
       </p>
 
       <h3 className="about__subtitle">Unique Cases</h3>
