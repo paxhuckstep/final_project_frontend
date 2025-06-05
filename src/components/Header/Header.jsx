@@ -12,7 +12,7 @@ function Header({
   return (
     <div className="header">
       <h1 className="header__title">Pax's Wordle</h1>
-      <p className="header__sub-title">Pretty Cool</p>
+      <p className="header__sub-title">Wordle by Pax</p>
       <HeaderProfile
         currentUser={currentUser}
         openRegisterModal={openRegisterModal}
