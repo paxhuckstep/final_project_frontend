@@ -15,6 +15,10 @@
   padding: 20px;
 }
 
+.popup__body {
+  text-align: center;
+}
+
 .popup__button {
   margin-top: 20px;
   font-weight: 700;
