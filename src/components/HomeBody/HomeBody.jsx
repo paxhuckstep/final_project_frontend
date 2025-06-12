@@ -48,6 +48,10 @@ function HomeBody({
           </p>
           <p className="homebody__scores">
             Your sports high score is: {currentUser?.sportsHighScore}
+          </p>{" "}
+          <p className="homebody__scores">
+            Your miscellaneous high score is:{" "}
+            {currentUser?.miscellaneousHighScore}
           </p>
         </section>
       </>
