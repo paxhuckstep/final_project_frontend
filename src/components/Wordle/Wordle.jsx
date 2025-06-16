@@ -55,10 +55,12 @@ function Wordle({
       });
     // console.log("correct word greenless: ", correctWordGreenless);
 
-    let possibleYellowCount = Array(26).fill(0);
-
+    let possibleYellowCount = {};
     correctWordGreenless.forEach((letter) => {
-      possibleYellowCount[ALPHABET_ARRAY.indexOf(letter)]++;
+      possibleYellowCount[letter] = 0;
+    });
+    correctWordGreenless.forEach((letter) => {
+      possibleYellowCount[letter]++;
     });
     // console.log("possible yellow count: ", possibleYellowCount);
 
@@ -67,10 +69,10 @@ function Wordle({
       if (
         letter !== correctWord.charAt(index) &&
         correctWordGreenless.join("").includes(letter) &&
-        possibleYellowCount[ALPHABET_ARRAY.indexOf(letter)] > 0
+        possibleYellowCount[letter] > 0
       ) {
         isYellow = true;
-        possibleYellowCount[ALPHABET_ARRAY.indexOf(letter)]--;
+        possibleYellowCount[letter]--;
       }
 
       return {
@@ -109,7 +111,7 @@ function Wordle({
       setCorrectWord("");
     }
     setWager(potentialWager);
-    // setCorrectWord("test");
+    // setCorrectWord("tests");
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
