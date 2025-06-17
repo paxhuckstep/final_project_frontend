@@ -209,9 +209,9 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("activeModal: ", activeModal);
-  }, [activeModal]);
+  // useEffect(() => {
+  //   console.log("activeModal: ", activeModal);
+  // }, [activeModal]);
 
   // useEffect(() => {
   //   console.log("isLoggedIn: ", isLoggedIn);
