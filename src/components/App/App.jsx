@@ -12,6 +12,7 @@ import * as auth from "../../Utils/auth";
 import { getToken, removeToken, setToken } from "../../Utils/token";
 import Wordle from "../Wordle/Wordle";
 import { MISC_DATA, SPORTS_DATA } from "../../Utils/constants";
+import ErrorPopup from "../ErrorPopup/ErrorPopup";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,6 +32,7 @@ function App() {
   const [genEight, setGenEight] = useState([]);
   const [genNine, setGenNine] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  // const [isError, setIsError] = useState(false);
 
   const POKEMON_DATA = [
     { title: "Gen One", words: genOne },
@@ -55,6 +57,12 @@ function App() {
   };
   const closeActiveModal = () => {
     setActiveModal("");
+    setErrorMessage("");
+  };
+
+  const handleErrorMessage = (message) => {
+    setErrorMessage(message);
+    setActiveModal("error-popup");
   };
 
   const handleRegistration = (
@@ -142,9 +150,9 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    setErrorMessage("");
-  }, [activeModal]);
+  // useEffect(() => {
+  //   setErrorMessage("");
+  // }, [activeModal]);
 
   useEffect(() => {
     for (let i = 1; i < 10; i++) {
@@ -191,13 +199,19 @@ function App() {
             }
           }
         })
-        .catch(
-          console.error(
-            "Sorry, unable to connect to PokeApi, please refresh and try again."
-          )
-        );
+        .catch(() => {
+          console.error("PokeApi problem, refresh to fix");
+          setErrorMessage(
+            "Unable to connect to PokeApi. Please refresh the page to try again, or play a different theme."
+          );
+          setActiveModal("error-popup");
+        });
     }
   }, []);
+
+  useEffect(() => {
+    console.log("activeModal: ", activeModal);
+  }, [activeModal]);
 
   // useEffect(() => {
   //   console.log("isLoggedIn: ", isLoggedIn);
@@ -250,6 +264,7 @@ function App() {
                 openLoginModal={openLoginModal}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
+                handleErrorMessage={handleErrorMessage}
                 sideBarData={POKEMON_DATA}
                 highScoreName={"pokemonHighScore"}
               />
@@ -264,6 +279,7 @@ function App() {
                 openLoginModal={openLoginModal}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
+                handleErrorMessage={handleErrorMessage}
                 sideBarData={SPORTS_DATA}
                 highScoreName={"sportsHighScore"}
               />
@@ -278,6 +294,7 @@ function App() {
                 openLoginModal={openLoginModal}
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
+                handleErrorMessage={handleErrorMessage}
                 sideBarData={MISC_DATA}
                 highScoreName={"miscellaneousHighScore"}
               />
@@ -300,6 +317,11 @@ function App() {
         handleLogIn={handleLogin}
         openRegisterModal={openRegisterModal}
         errorMessage={errorMessage}
+      />
+      <ErrorPopup
+        isOpen={activeModal === "error-popup"}
+        errorMessage={errorMessage}
+        onClose={closeActiveModal}
       />
     </div>
   );

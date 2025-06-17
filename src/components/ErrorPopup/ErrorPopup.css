@@ -1,0 +1,54 @@
+.error-popup {
+  background: white;
+  width: 300px;
+  height: 200px;
+  border: 2px solid #4267b2;
+  position: absolute;
+  z-index: 99;
+  top: 620px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.error-popup__body {
+  text-align: center;
+}
+
+.error-popup__button {
+  margin-top: 20px;
+  font-weight: 700;
+  /* color: rgba(47, 113, 229, 1); */
+  color: #4267b2;
+  background-color: rgb(252, 252, 252);
+  border: rgb(175, 118, 177) solid 2px;
+  border-radius: 100px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+}
+
+.error-popup__button:hover {
+  color: rgb(175, 118, 177);
+}
+
+.error-popup__close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  right: 28px;
+  background-color: transparent;
+  border: none;
+  background-image: url("../../assets/closeFormButton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.error-popup__close:hover {
+  cursor: pointer;
+}

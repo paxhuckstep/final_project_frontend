@@ -15,6 +15,7 @@ function Wordle({
   openLoginModal,
   handleNewUserData,
   activeModal,
+  handleErrorMessage,
   sideBarData,
   highScoreName,
 }) {
@@ -109,6 +110,9 @@ function Wordle({
       );
     } else {
       setCorrectWord("");
+      handleErrorMessage(
+        "No category selected, please select at least one category and try again"
+      );
     }
     setWager(potentialWager);
     // setCorrectWord("tests");

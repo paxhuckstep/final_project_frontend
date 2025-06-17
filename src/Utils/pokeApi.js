@@ -11,7 +11,7 @@ export function checkResponse(res) {
     return res.json();
   }
   // return Promise.reject(`Error ${res.status}`);
-    return res.json().then((err) => {
+  return res.json().then((err) => {
     // Throw an error with the backend message
     throw new Error(err.message || "Something went wrong");
   });
