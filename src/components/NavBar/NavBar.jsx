@@ -32,6 +32,16 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
         </button>
         <button
           onClick={() => {
+            onRoute("/about");
+          }}
+          className={`navbar__button ${
+            isActive("/about") ? "navbar__button_active" : ""
+          }`}
+        >
+          About
+        </button>
+        <button
+          onClick={() => {
             onRoute("/pokemon");
           }}
           className={`navbar__button ${
@@ -65,16 +75,6 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
           }`}
         >
           Misc.
-        </button>
-        <button
-          onClick={() => {
-            onRoute("/about");
-          }}
-          className={`navbar__button ${
-            isActive("/about") ? "navbar__button_active" : ""
-          }`}
-        >
-          About
         </button>
         <button
           onClick={() => {
