@@ -33,7 +33,7 @@ function App() {
   const [genEight, setGenEight] = useState([]);
   const [genNine, setGenNine] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [isScoreZero, setIsScoreZero] = useState(false);
+  const [isScoreZero, setIsScoreZero] = useState(true);
   const [potentialLocation, setPotentialLocation] = useState("");
   // const [isError, setIsError] = useState(false);
 
