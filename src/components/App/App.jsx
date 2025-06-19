@@ -50,9 +50,11 @@ function App() {
 
   const openRegisterModal = () => {
     // console.log("openRegisterModal fired");
+    setErrorMessage("");
     setActiveModal("register");
   };
   const openLoginModal = () => {
+    setErrorMessage("");
     setActiveModal("log-in");
   };
   const closeActiveModal = () => {
