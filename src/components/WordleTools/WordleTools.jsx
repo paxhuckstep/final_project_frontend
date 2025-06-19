@@ -35,7 +35,7 @@ function WordleTools({
       </p>
       {isLoggedIn && (
         <p className="wordle-tools__text">
-          High Score:
+          High Score:{" "}
           <span className="wordle-tools__score">
             {currentUser?.[highScoreName]}
           </span>
