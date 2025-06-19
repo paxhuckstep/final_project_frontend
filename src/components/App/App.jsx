@@ -13,6 +13,7 @@ import { getToken, removeToken, setToken } from "../../Utils/token";
 import Wordle from "../Wordle/Wordle";
 import { MISC_DATA, SPORTS_DATA } from "../../Utils/constants";
 import ErrorPopup from "../ErrorPopup/ErrorPopup";
+import ConfirmRouteChangePopup from "../ConfirmRouteChangePopup/ConfirmRouteChangePopup";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +33,8 @@ function App() {
   const [genEight, setGenEight] = useState([]);
   const [genNine, setGenNine] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isScoreZero, setIsScoreZero] = useState(false);
+  const [potentialLocation, setPotentialLocation] = useState("");
   // const [isError, setIsError] = useState(false);
 
   const POKEMON_DATA = [
@@ -48,11 +51,25 @@ function App() {
 
   const navigate = useNavigate();
 
+  const handleIsScoreZeroChange = (score) => {
+    if (score === 0) {
+      setIsScoreZero(true);
+    } else {
+      setIsScoreZero(false);
+    }
+  };
+
   const openRegisterModal = () => {
     // console.log("openRegisterModal fired");
     setErrorMessage("");
     setActiveModal("register");
   };
+
+  const openRouteChangeModal = (location) => {
+    setActiveModal("route-change");
+    setPotentialLocation(location);
+  };
+
   const openLoginModal = () => {
     setErrorMessage("");
     setActiveModal("log-in");
@@ -219,6 +236,10 @@ function App() {
   //   console.log("isLoggedIn: ", isLoggedIn);
   // }, [isLoggedIn]);
 
+  // useEffect(() => {
+  //   console.log("isScoreZero: ", isScoreZero);
+  // }, [isScoreZero]);
+
   useEffect(() => {
     const token = getToken();
     if (!token) {
@@ -243,6 +264,8 @@ function App() {
         openLoginModal={openLoginModal}
         isLoggedIn={isLoggedIn}
         handleLogOut={handleLogOut}
+        isScoreZero={isScoreZero}
+        openRouteChangeModal={openRouteChangeModal}
       />
       <main className="app__body">
         <Routes>
@@ -267,6 +290,7 @@ function App() {
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
                 handleErrorMessage={handleErrorMessage}
+                handleIsScoreZeroChange={handleIsScoreZeroChange}
                 sideBarData={POKEMON_DATA}
                 highScoreName={"pokemonHighScore"}
               />
@@ -282,6 +306,7 @@ function App() {
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
                 handleErrorMessage={handleErrorMessage}
+                handleIsScoreZeroChange={handleIsScoreZeroChange}
                 sideBarData={SPORTS_DATA}
                 highScoreName={"sportsHighScore"}
               />
@@ -297,6 +322,7 @@ function App() {
                 handleNewUserData={handleNewUserData}
                 activeModal={activeModal}
                 handleErrorMessage={handleErrorMessage}
+                handleIsScoreZeroChange={handleIsScoreZeroChange}
                 sideBarData={MISC_DATA}
                 highScoreName={"miscellaneousHighScore"}
               />
@@ -323,6 +349,11 @@ function App() {
       <ErrorPopup
         isOpen={activeModal === "error-popup"}
         errorMessage={errorMessage}
+        onClose={closeActiveModal}
+      />
+      <ConfirmRouteChangePopup
+        isOpen={activeModal === "route-change"}
+        location={potentialLocation}
         onClose={closeActiveModal}
       />
     </div>

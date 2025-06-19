@@ -16,6 +16,7 @@ function Wordle({
   handleNewUserData,
   activeModal,
   handleErrorMessage,
+  handleIsScoreZeroChange,
   sideBarData,
   highScoreName,
 }) {
@@ -114,8 +115,8 @@ function Wordle({
         "No category selected, please select at least one category and try again"
       );
     }
-    setWager(potentialWager);
     // setCorrectWord("tests");
+    setWager(potentialWager);
     setSubmissions([]);
     setIsOpen(false);
     setIsWin(false);
@@ -161,6 +162,7 @@ function Wordle({
   useEffect(() => {
     handleNewHighScore();
     // console.log("handleNewHighScore triggered");
+    handleIsScoreZeroChange(score);
   }, [score]);
 
   useEffect(() => {

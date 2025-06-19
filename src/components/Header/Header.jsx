@@ -8,6 +8,8 @@ function Header({
   openLoginModal,
   isLoggedIn,
   handleLogOut,
+  isScoreZero,
+  openRouteChangeModal,
 }) {
   return (
     <div className="header">
@@ -20,7 +22,10 @@ function Header({
         isLoggedIn={isLoggedIn}
         handleLogOut={handleLogOut}
       />
-      <NavBar />
+      <NavBar
+        isScoreZero={isScoreZero}
+        openRouteChangeModal={openRouteChangeModal}
+      />
     </div>
   );
 }
