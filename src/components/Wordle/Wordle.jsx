@@ -57,24 +57,24 @@ function Wordle({
       });
     // console.log("correct word greenless: ", correctWordGreenless);
 
-    let possibleYellowCount = {};
+    let possibleYellowCounts = {};
     correctWordGreenless.forEach((letter) => {
-      possibleYellowCount[letter] = 0;
+      possibleYellowCounts[letter] = 0;
     });
     correctWordGreenless.forEach((letter) => {
-      possibleYellowCount[letter]++;
+      possibleYellowCounts[letter]++;
     });
-    // console.log("possible yellow count: ", possibleYellowCount);
+    // console.log("possible yellow count: ", possibleYellowCounts);
 
     const newSubmission = currentInputs.map((letter, index) => {
       let isYellow = false;
       if (
         letter !== correctWord.charAt(index) &&
         correctWordGreenless.join("").includes(letter) &&
-        possibleYellowCount[letter] > 0
+        possibleYellowCounts[letter] > 0
       ) {
         isYellow = true;
-        possibleYellowCount[letter]--;
+        possibleYellowCounts[letter]--;
       }
 
       return {
