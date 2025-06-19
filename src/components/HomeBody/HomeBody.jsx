@@ -47,10 +47,10 @@ function HomeBody({
             Your Pokemon high score is: {currentUser?.pokemonHighScore}
           </p>
           <p className="homebody__scores">
-            Your sports high score is: {currentUser?.sportsHighScore}
+            Your Sports high score is: {currentUser?.sportsHighScore}
           </p>{" "}
           <p className="homebody__scores">
-            Your miscellaneous high score is:{" "}
+            Your Miscellaneous high score is:{" "}
             {currentUser?.miscellaneousHighScore}
           </p>
         </section>
