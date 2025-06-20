@@ -35,7 +35,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isScoreZero, setIsScoreZero] = useState(true);
   const [potentialLocation, setPotentialLocation] = useState("");
-  // const [isError, setIsError] = useState(false);
+  const [isWaitingResponse, setIsWaitingResponse] = useState(false);
 
   const POKEMON_DATA = [
     { title: "Gen One", words: genOne },
@@ -90,6 +90,8 @@ function App() {
   ) => {
     // console.log("Register and stuff: ", username, password, confirmPassword);
     if (password === confirmPassword) {
+      setErrorMessage("");
+      setIsWaitingResponse(true);
       auth
         .register(username, password)
         .then((signupInfo) => {
@@ -99,11 +101,19 @@ function App() {
           setIsLoggedIn(true);
           resetValues();
           setActiveModal("");
+          setIsWaitingResponse(false);
         })
         .catch((error) => {
+          setIsWaitingResponse(false);
           console.error(error);
+          console.log(error.message);
           if (error.message === "Username unavailable") {
             setErrorMessage("This Username is taken, please try another.");
+          }
+          if (error.message === "Failed to fetch") {
+            setErrorMessage(
+              "Unable to connect at this time. Please try again or contact Pax."
+            );
           }
         });
     } else {
@@ -118,9 +128,11 @@ function App() {
     if (!username || !password) {
       return;
     }
+    setIsWaitingResponse(true);
     auth
       .authorize(username, password)
       .then((data) => {
+        setIsWaitingResponse(false);
         // console.log("authorize .then ran: ", data);
         if (data.token) {
           setToken(data.token);
@@ -132,15 +144,23 @@ function App() {
               resetValues();
               setActiveModal("");
             })
-            .catch(console.error);
+            .catch((error) => {
+              console.error(error);
+            });
         }
       })
       .catch((error) => {
+        setIsWaitingResponse(false);
         console.error(error);
         console.log(error.message);
         if (error.message === "Incorrect email or password") {
           setErrorMessage(
             "Username or password is incorrect, please try again."
+          );
+        }
+        if (error.message === "Failed to fetch") {
+          setErrorMessage(
+            "Unable to connect at this time. Please try again or contact Pax."
           );
         }
       });
@@ -221,7 +241,7 @@ function App() {
         .catch(() => {
           console.error("PokeApi problem, refresh to fix");
           setErrorMessage(
-            "Unable to connect to PokeApi. Please refresh the page to try again, or play a different theme."
+            "Unable to connect to the Pokemon database. Please refresh the page to try again, or play a different theme."
           );
           setActiveModal("error-popup");
         });
@@ -338,6 +358,7 @@ function App() {
         handleRegistration={handleRegistration}
         openLoginModal={openLoginModal}
         errorMessage={errorMessage}
+        isWaitingResponse={isWaitingResponse}
       />
       <LoginModal
         onClose={closeActiveModal}
@@ -345,6 +366,7 @@ function App() {
         handleLogIn={handleLogin}
         openRegisterModal={openRegisterModal}
         errorMessage={errorMessage}
+        isWaitingResponse={isWaitingResponse}
       />
       <ErrorPopup
         isOpen={activeModal === "error-popup"}

@@ -8,6 +8,7 @@ function LoginModal({
   handleLogIn,
   openRegisterModal,
   errorMessage,
+  isWaitingResponse,
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +35,7 @@ function LoginModal({
   return (
     <ModalWithForm
       title="Log In"
-      buttonText="Log In"
+      buttonText= {isWaitingResponse ? "Loading..." : "Log In"}
       onClose={onClose}
       onSubmit={handleSubmit}
       isSwitchSeen={true}

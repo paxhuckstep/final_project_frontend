@@ -8,6 +8,7 @@ function RegisterModal({
   handleRegistration,
   openLoginModal,
   errorMessage,
+  isWaitingResponse,
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -43,9 +44,8 @@ function RegisterModal({
   return (
     <ModalWithForm
       title="Sign Up"
-      buttonText="Sign Up"
+      buttonText={isWaitingResponse ? "Loading..." : "Sign Up"}
       onClose={onClose}
-      //   isOpen={isOpen}
       onSubmit={handleSubmit}
       isSwitchSeen={true}
       onSwitch={openLoginModal}
