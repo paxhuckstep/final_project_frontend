@@ -261,6 +261,7 @@ function Wordle({
       setPotentialWager(0);
       setScore(0);
       setCorrectWord("");
+      setIsGrid(false);
     }
     setOldLocation(location.pathname);
   }, [sideBarData]);
