@@ -1,7 +1,9 @@
 .wordle-tools {
-  margin: 20px 20px 0 0;
-  color: black;
+  margin: 0;
+  padding: 20px;
+  color: white;
   text-align: center;
+  background-color: #4267b2;
 }
 
 .wordle-tools__text {
@@ -18,12 +20,12 @@
   padding: 0;
   font-size: 22px;
   font-weight: 600;
-  color: #3498db;
+  color: rgb(247, 247, 247);
   cursor: pointer;
 }
 
 .wordle-tools__text-button:hover {
-  color: #2980b9;
+  color: #12a0ff;
   text-decoration: underline;
 }
 
@@ -32,7 +34,7 @@
 }
 
 .wordle-tools__letters-container {
-  border: solid black 2px;
+  border: solid #fff 2px;
   width: 175px;
   margin: 10px auto 0;
   padding: 0;
@@ -89,7 +91,7 @@
     margin: 20px 0 0 35px;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 985px) {
   .wordle-tools {
     padding: 0;
     background-color: white;
@@ -97,13 +99,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: black;
   }
   .wordle-tools__letters-container {
     margin: 10px auto;
+    border-color: black;
   }
 
   .wordle-tools__reset-button {
     margin: 20px auto;
+  }
+
+  .wordle-tools__text-button {
+    color: black;
+    font-size: 18px;
   }
 }
 

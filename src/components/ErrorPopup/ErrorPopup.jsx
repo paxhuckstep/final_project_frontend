@@ -7,7 +7,7 @@ function ErrorPopup({ isOpen, errorMessage, onClose }) {
 
   return (
     <div className="error-popup">
-      <h2 className="error-popup__title">There's a Problem</h2>
+      <h2 className="error-popup__title">There's a Problem!</h2>
       <button onClick={onClose} type="button" className="error-popup__close" />
       <p className="error-popup__body">{errorMessage}</p>
       <button onClick={onClose} className="error-popup__button">

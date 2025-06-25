@@ -31,7 +31,7 @@ function HeaderProfile({
           Register
         </button>
         <button onClick={openLoginModal} className="header-profile__button">
-          Login
+          Log In
         </button>
       </div>
     </>

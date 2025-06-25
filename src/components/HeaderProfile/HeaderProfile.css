@@ -17,6 +17,7 @@
   padding: 0px 20px;
   height: 50%;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .header-profile__button_username {
