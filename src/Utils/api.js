@@ -1,4 +1,4 @@
-import { Base_Url } from "./constants";
+import { Base_Url, Dictionary_Url } from "./constants";
 import { checkResponse } from "./pokeApi";
 
 function addSolvedWord(token, word) {
@@ -26,8 +26,41 @@ function getLeaderboardData (highScoreName) {
   }).then(checkResponse);
 }
 
+function isWordReal(word) {
+  return fetch(`${Dictionary_Url}/${word}`, {
+    method: "GET",
+  }).then((res) => {
+    console.log(res);
+
+    if(res.status == 404) {
+      return false
+    }
+
+    if(res.ok) {
+      return true;
+    }
+  return res.json().then((err) => {
+    // Throw an error with the backend message
+    throw new Error(err.message || "Something went wrong");
+  });
+
+  });
+}
+
+export function checkResponseD(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  // return Promise.reject(`Error ${res.status}`);
+  return res.json().then((err) => {
+    // Throw an error with the backend message
+    throw new Error(err.message || "Something went wrong");
+  });
+}
+
 export {
 addSolvedWord,
 updateHighScore,
-getLeaderboardData
+getLeaderboardData,
+isWordReal
 };

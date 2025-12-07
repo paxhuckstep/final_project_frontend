@@ -1,0 +1,13 @@
+.spelling_bee {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  color: red;
+  justify-content: center;
+}
+.spelling_bee__input {
+  font-size: larger; 
+
+}

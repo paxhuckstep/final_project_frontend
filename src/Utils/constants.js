@@ -23,6 +23,8 @@ export const Base_Url =
     ? import.meta.env.VITE_API_URL
     : "http://localhost:4201";
 
+export const Dictionary_Url = "https://api.dictionaryapi.dev/api/v2/entries/en";
+
 const NFL_DATA = [
   // NFL Team Mascots
   "fortyniner",

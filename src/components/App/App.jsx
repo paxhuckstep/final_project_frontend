@@ -14,6 +14,7 @@ import Wordle from "../Wordle/Wordle";
 import { MISC_DATA, SPORTS_DATA } from "../../Utils/constants";
 import ErrorPopup from "../ErrorPopup/ErrorPopup";
 import ConfirmRouteChangePopup from "../ConfirmRouteChangePopup/ConfirmRouteChangePopup";
+import SpellingBee from "../SpellingBee/SpellingBee";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -316,6 +317,22 @@ function App() {
               />
             }
           />
+           {/* <Route
+            path="spelling-bee"
+            element={
+              <SpellingBee
+                currentUser={currentUser}
+                isLoggedIn={isLoggedIn}
+                // openLoginModal={openLoginModal}
+                handleNewUserData={handleNewUserData}
+                activeModal={activeModal}
+                // handleErrorMessage={handleErrorMessage}
+                handleIsScoreZeroChange={handleIsScoreZeroChange}
+                // sideBarData={POKEMON_DATA}
+                highScoreName={"pokemonHighScore"}
+              />
+            }
+          /> */}
           <Route
             path="sports"
             element={
@@ -350,6 +367,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
+            <Route path="/spelling-bee" element={<SpellingBee />} />
         </Routes>
       </main>
       <RegisterModal
