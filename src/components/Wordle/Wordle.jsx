@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Grid from "../Grid/Grid";
 import WordleTools from "../WordleTools/WordleTools";
 import Popup from "../Popup/Popup";
@@ -70,7 +70,7 @@ function Wordle({
       let isYellow = false;
       if (
         letter !== correctWord.charAt(index) &&
-        correctWordGreenless.join("").includes(letter) &&
+        // correctWordGreenless.join("").includes(letter) &&
         possibleYellowCounts[letter] > 0
       ) {
         isYellow = true;
@@ -106,16 +106,16 @@ function Wordle({
 
   const handleNewWord = () => {
     if (selectedWords.length > 0) {
-      setCorrectWord(
-        selectedWords[Math.floor(Math.random() * selectedWords.length)]
-      );
+      // setCorrectWord(
+      //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
+      // );
+      setCorrectWord("tests");
     } else {
       setCorrectWord("");
       handleErrorMessage(
         "No category selected, please select at least one category and try again"
       );
     }
-    // setCorrectWord("tests");
     setWager(potentialWager);
     setSubmissions([]);
     setIsOpen(false);
@@ -290,6 +290,7 @@ function Wordle({
           increasePotentialWager={increasePotentialWager}
           decreasePotentialWager={decreasePotentialWager}
         />
+
         <Grid
           isGrid={isGrid}
           correctWord={correctWord}
@@ -297,6 +298,7 @@ function Wordle({
           currentAttempt={currentAttempt}
           submissions={submissions}
         />
+
         <WordleTools
           openLoginModal={openLoginModal}
           currentAttempt={currentAttempt}
