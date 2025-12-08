@@ -3,8 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import Popup from "../Popup/Popup";
 import SideBar from "../SideBar/SideBar";
 import "./SpellingBee.css";
-import { ALPHABET_ARRAY } from "../../Utils/constants";
-import { addSolvedWord, isWordReal, updateHighScore } from "../../Utils/api";
+import { ALPHABET_ARRAY, VOWEL_ARRAY } from "../../Utils/constants";
+import { addSolvedWord, isWordRealApi, updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
 import { useLocation } from "react-router";
 
@@ -43,18 +43,37 @@ function SpellingBee(
   };
 
   const setPossibleLetters = () => {
-    let localAlphabet = ALPHABET_ARRAY.concat();
-    setPossibleLetterRequired()
-    for (let i = 0; i < 6; i++) {
-        const element = array[i];
-        
+    const requiredLetter = ALPHABET_ARRAY[Math.floor(Math.random() * 26)];
+
+    setPossibleLetterRequired(requiredLetter);
+    let localAlphabet = ALPHABET_ARRAY.concat().filter(
+      (letter) => letter !== requiredLetter
+    );
+
+    let optionalLetters = Array(6);
+    for (let i = 0; i < 5; i++) {
+      optionalLetters[i] =
+        localAlphabet[Math.floor(Math.random() * localAlphabet.length)];
+      localAlphabet.filter((letter) => letter !== optionalLetters[i]);
     }
-  }
+    if (!optionalLetters.some((letter) => VOWEL_ARRAY.includes(letter))) {
+      console.log("no vowels! yet :)")
+      optionalLetters[5] = VOWEL_ARRAY[Math.floor(Math.random * 5)];
+    } else {
+      optionalLetters[5] =
+        localAlphabet[Math.floor(Math.random() * localAlphabet.length)];
+    }
+
+    setPossibleLettersOptional(optionalLetters);
+
+    console.log("Required Letter: ", requiredLetter);
+    console.log("Optional Letters: ", optionalLetters);
+  };
 
   const testAnswer = () => {
     console.log("test answer ran");
 
-    isWordReal(currentInput.join(""))
+    isWordRealApi(currentInput.join(""))
       .then((isWord) => {
         if (isWord && !foundWords.includes(currentInput.join())) {
           console.log("is a word");

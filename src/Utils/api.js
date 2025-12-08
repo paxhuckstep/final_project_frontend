@@ -26,7 +26,7 @@ function getLeaderboardData(highScoreName) {
   }).then(checkResponse);
 }
 
-function isWordReal(word) {
+function isWordRealApi(word) {
   return fetch(`${Dictionary_Url}/${word}`, {
     method: "GET",
   }).then((res) => {
@@ -51,4 +51,4 @@ export function checkResponseD(res) {
   });
 }
 
-export { addSolvedWord, updateHighScore, getLeaderboardData, isWordReal };
+export { addSolvedWord, updateHighScore, getLeaderboardData, isWordRealApi };
