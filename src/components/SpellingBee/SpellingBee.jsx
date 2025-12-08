@@ -45,23 +45,18 @@ function SpellingBee(
   const testAnswer = () => {
     console.log("test answer ran");
 
-    let isWord = false;
-    isWord = isWordReal(currentInput.join(""))
-      .then((res) => {
-        return res;
+    isWordReal(currentInput.join(""))
+      .then((isWord) => {
+        if (isWord && !foundWords.includes(currentInput.join())) {
+          console.log("is a word");
+          setScore((prev) => (prev += getScoreValue(currentInput)));
+          setFoundWords((prev) => [...prev, currentInput]);
+          setCurrentInput([]);
+        } else {
+          console.log("answer not accepted");
+        }
       })
       .catch(() => console.error());
-
-    console.log("IsWordReal: ", isWordReal(currentInput.join("")));
-
-    // if (isWordReal(currentInput.join("")) && !foundWords.includes(currentInput.join())) {
-    //     console.log("is a word")
-    //   setScore((prev) => prev += getScoreValue(currentInput));
-    //   setFoundWords((prev) => prev.append(currentInput));
-    //   setCurrentInput([]);
-    // } else {
-    //     console.log("answer not accepted")
-    // }
   };
 
   const getScoreValue = (word) => {
@@ -70,9 +65,10 @@ function SpellingBee(
     }
 
     let isPangram = true;
-    allLetters = possibleLettersOptional.append(possibleLetterRequired);
+    let allLetters = []
+    allLetters = [...possibleLettersOptional, possibleLetterRequired];
     allLetters.forEach((letter) => {
-      if (!word.contains(letter)) {
+      if (!word.includes(letter)) {
         isPangram = false;
       }
       return word.length + isPangram ? 7 : 0;
