@@ -42,6 +42,15 @@ function SpellingBee(
     setIsOpen(false);
   };
 
+  const setPossibleLetters = () => {
+    let localAlphabet = ALPHABET_ARRAY.concat();
+    setPossibleLetterRequired()
+    for (let i = 0; i < 6; i++) {
+        const element = array[i];
+        
+    }
+  }
+
   const testAnswer = () => {
     console.log("test answer ran");
 
@@ -65,7 +74,7 @@ function SpellingBee(
     }
 
     let isPangram = true;
-    let allLetters = []
+    let allLetters = [];
     allLetters = [...possibleLettersOptional, possibleLetterRequired];
     allLetters.forEach((letter) => {
       if (!word.includes(letter)) {
@@ -115,6 +124,10 @@ function SpellingBee(
   //       setScore(0);
   //     }
   //   }, [isLoggedIn]);
+
+  useEffect(() => {
+    setPossibleLetters();
+  }, []);
 
   return (
     <>
