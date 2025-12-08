@@ -106,10 +106,10 @@ function Wordle({
 
   const handleNewWord = () => {
     if (selectedWords.length > 0) {
-      // setCorrectWord(
-      //   selectedWords[Math.floor(Math.random() * selectedWords.length)]
-      // );
-      setCorrectWord("tests");
+      setCorrectWord(
+        selectedWords[Math.floor(Math.random() * selectedWords.length)]
+      );
+      // setCorrectWord("tests");
     } else {
       setCorrectWord("");
       handleErrorMessage(
