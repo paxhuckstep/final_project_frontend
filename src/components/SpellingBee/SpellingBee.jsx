@@ -82,19 +82,22 @@ function SpellingBee(
 
   const testAnswer = () => {
     console.log("test answer ran");
-
-    isWordRealApi(currentInput.join(""))
-      .then((isWord) => {
-        if (isWord && !foundWords.includes(currentInput.join())) {
-          console.log("is a word");
-          setScore((prev) => (prev += getScoreValue(currentInput)));
-          setFoundWords((prev) => [...prev, currentInput]);
-          setCurrentInput([]);
-        } else {
-          console.log("answer not accepted");
-        }
-      })
-      .catch(() => console.error());
+    if (currentInput.length > 3) {
+      isWordRealApi(currentInput.join(""))
+        .then((isWord) => {
+          if (isWord && !foundWords.includes(currentInput.join())) {
+            console.log("is a word");
+            setScore((prev) => (prev += getScoreValue(currentInput)));
+            setFoundWords((prev) => [...prev, currentInput]);
+            // setCurrentInput([]);
+          } else {
+            console.log("answer not accepted");
+          }
+        })
+        .catch(() => console.error());
+    } else {
+      console.log("not long enough");
+    }
   };
 
   const getScoreValue = (word) => {
