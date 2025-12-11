@@ -44,21 +44,30 @@ function SpellingBee(
 
   const setPossibleLetters = () => {
     const requiredLetter = ALPHABET_ARRAY[Math.floor(Math.random() * 26)];
-
+    // console.log("requiredLetter: ", requiredLetter);
     setPossibleLetterRequired(requiredLetter);
+
     let localAlphabet = ALPHABET_ARRAY.concat().filter(
       (letter) => letter !== requiredLetter
     );
+    // console.log("localAlphabet (required letter removed): ", localAlphabet);
 
     let optionalLetters = Array(6);
     for (let i = 0; i < 5; i++) {
       optionalLetters[i] =
         localAlphabet[Math.floor(Math.random() * localAlphabet.length)];
-      localAlphabet.filter((letter) => letter !== optionalLetters[i]);
+      localAlphabet = localAlphabet.filter(
+        (letter) => letter !== optionalLetters[i]
+      );
     }
-    if (!optionalLetters.some((letter) => VOWEL_ARRAY.includes(letter))) {
-      console.log("no vowels! yet :)")
-      optionalLetters[5] = VOWEL_ARRAY[Math.floor(Math.random * 5)];
+    if (
+      !optionalLetters.some(
+        (letter) =>
+          VOWEL_ARRAY.includes(letter) && !VOWEL_ARRAY.includes(requiredLetter)
+      )
+    ) {
+      console.log("no vowels! yet :)");
+      optionalLetters[5] = VOWEL_ARRAY[Math.floor(Math.random() * 5)];
     } else {
       optionalLetters[5] =
         localAlphabet[Math.floor(Math.random() * localAlphabet.length)];
@@ -66,6 +75,7 @@ function SpellingBee(
 
     setPossibleLettersOptional(optionalLetters);
 
+    // console.log("localAlphabet post apocolypse: ", localAlphabet);
     console.log("Required Letter: ", requiredLetter);
     console.log("Optional Letters: ", optionalLetters);
   };
