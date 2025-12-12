@@ -1,13 +1,18 @@
-.spelling_bee {
-  display: flex;
-  justify-content: space-between;
+.spelling-bee {
+  /* display: flex; */
+  margin: 0 auto;
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
-  color: red;
+  color: black;
   justify-content: center;
+  text-align: center;
 }
-.spelling_bee__input {
-  font-size: larger; 
-
+.spelling-bee__input {
+  font-size: larger;
+  color: red;
+  height: 30px;
 }
