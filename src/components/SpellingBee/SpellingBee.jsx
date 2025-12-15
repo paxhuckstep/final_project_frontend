@@ -7,16 +7,19 @@ import { ALPHABET_ARRAY, VOWEL_ARRAY } from "../../Utils/constants";
 import { addSolvedWord, isWordRealApi, updateHighScore } from "../../Utils/api";
 import { getToken } from "../../Utils/token";
 import { useLocation } from "react-router";
+import LettersModal from "../LettersModal/LettersModal";
 
 function SpellingBee() {
   const [possibleLettersOptional, setPossibleLettersOptional] = useState([]);
   const [possibleLetterRequired, setPossibleLetterRequired] = useState("");
   const [currentInput, setCurrentInput] = useState("");
   const [foundWords, setFoundWords] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isLocked, setIsLocked] = useState(false);
   const [score, setScore] = useState(0);
   const [oldLocation, setOldLocation] = useState("");
+  const [fullDelete, setFullDelete] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const location = useLocation();
 
@@ -24,7 +27,17 @@ function SpellingBee() {
     setIsOpen(false);
   };
 
-  const setPossibleLetters = () => {
+  const setLettersManual = (letters, resetValues) => {
+    const {optionalLetters, requiredLetter} = letters;
+    // const dublicateFound = letters.some((letterSearch, index) => {
+    //   const lettersCopy = letters.concat().filter((letter) => )
+    // })
+
+      const allLetters = [...optionalLetters.split(""), requiredLetter]
+      console.log(allLetters);
+  } 
+
+  const setLettersRandom = () => {
     const requiredLetter = ALPHABET_ARRAY[Math.floor(Math.random() * 26)];
     // console.log("requiredLetter: ", requiredLetter);
     setPossibleLetterRequired(requiredLetter);
@@ -57,8 +70,8 @@ function SpellingBee() {
 
     setPossibleLettersOptional(optionalLetters);
 
-    // setPossibleLetterRequired("a");
-    // setPossibleLettersOptional(["g", "r", "i", "s", "o", "n"]);
+    // setPossibleLetterRequired("i");
+    // setPossibleLettersOptional(["g", "r", "a", "s", "o", "n"]);
 
     // console.log("localAlphabet post apocolypse: ", localAlphabet);
     console.log("Required Letter: ", requiredLetter);
@@ -74,13 +87,14 @@ function SpellingBee() {
     ) {
       isWordRealApi(word)
         .then((isWord) => {
-          console.log("foundWords: ", foundWords)
+          console.log("foundWords: ", foundWords);
           if (isWord && !foundWords.includes(word)) {
             const scoreValue = getScoreValue(currentInput);
             console.log("Score Value: ", scoreValue);
             setScore((prev) => (prev += getScoreValue(currentInput)));
             setFoundWords((prev) => [...prev, word]);
             // setCurrentInput([]);
+            setFullDelete(true);
           } else {
             console.log("answer not accepted");
           }
@@ -114,6 +128,14 @@ function SpellingBee() {
 
   const handleNewLetters = () => {};
 
+  const openEnterLetters = () => {
+    setIsOpen(true);
+  }
+
+  const closeActiveModal = () => {
+    setIsOpen(false);
+  }
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       // console.log(event.key);
@@ -121,13 +143,20 @@ function SpellingBee() {
       //   if (activeModal) {
       //     return;
       //   }
+      if(isOpen) { return}
       if (event.key == "Backspace") {
-        setCurrentInput((prev) => prev.slice(0, -1));
-        return;
+        if (fullDelete) {
+          setCurrentInput([]);
+          // return;
+        } else {
+          setCurrentInput((prev) => prev.slice(0, -1));
+          return;
+        }
       }
       if (event.key == "Escape") {
         setIsOpen(false);
       }
+
       if (event.key == "Enter") {
         event.preventDefault();
         testAnswer();
@@ -144,12 +173,20 @@ function SpellingBee() {
       ) {
         setCurrentInput((prev) => [...prev, event.key.toLowerCase()]);
       }
+      setFullDelete(false);
     };
+
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentInput, isOpen, possibleLetterRequired, possibleLettersOptional, foundWords]);
+  }, [
+    currentInput,
+    isOpen,
+    possibleLetterRequired,
+    possibleLettersOptional,
+    foundWords,
+  ]);
 
   //   useEffect(() => {
   //     if (!isLoggedIn) {
@@ -158,7 +195,7 @@ function SpellingBee() {
   //   }, [isLoggedIn]);
 
   useEffect(() => {
-    setPossibleLetters();
+    setLettersRandom();
   }, []);
 
   return (
@@ -177,7 +214,20 @@ function SpellingBee() {
           <p className="spelling-bee__words">
             Found Words: {foundWords.join(", ")}
           </p>
+          <div className="spelling-bee__buttons">
+            <button className="spelling-bee__manual">Choose Letters</button>
+            <button className="spelling-bee__random">New Random Letters</button>
+          </div>
         </div>
+
+        <LettersModal
+          onClose={closeActiveModal}
+          isOpen={isOpen}
+          setLettersRandom={setLettersRandom}
+          // handleSubmit={submitLetters}
+          errorMessage={errorMessage}
+          // isWaitingResponse={isWaitingResponse}
+        />
       </div>
     </>
   );

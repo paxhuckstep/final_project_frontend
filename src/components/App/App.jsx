@@ -15,6 +15,7 @@ import { MISC_DATA, SPORTS_DATA } from "../../Utils/constants";
 import ErrorPopup from "../ErrorPopup/ErrorPopup";
 import ConfirmRouteChangePopup from "../ConfirmRouteChangePopup/ConfirmRouteChangePopup";
 import SpellingBee from "../SpellingBee/SpellingBee";
+import LettersModal from "../LettersModal/LettersModal";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -317,7 +318,7 @@ function App() {
               />
             }
           />
-           {/* <Route
+          {/* <Route
             path="spelling-bee"
             element={
               <SpellingBee
@@ -367,7 +368,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
-            <Route path="/spelling-bee" element={<SpellingBee />} />
+          <Route path="/spelling-bee" element={<SpellingBee />} />
         </Routes>
       </main>
       <RegisterModal
@@ -386,6 +387,13 @@ function App() {
         errorMessage={errorMessage}
         isWaitingResponse={isWaitingResponse}
       />
+      {/* <LettersModal onClose={closeActiveModal}
+      isOpen={activeModal === "choose-letters"}
+      // handleSubmit={submitLetters}
+      errorMessage={errorMessage}
+      isWaitingResponse={isWaitingResponse}
+
+      /> */}
       <ErrorPopup
         isOpen={activeModal === "error-popup"}
         errorMessage={errorMessage}
