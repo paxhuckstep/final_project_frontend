@@ -1,4 +1,4 @@
-import { Base_Url } from "./constants";
+import { Base_Url, Dictionary_Url } from "./constants";
 import { checkResponse } from "./pokeApi";
 
 function addSolvedWord(token, word) {
@@ -10,7 +10,7 @@ function addSolvedWord(token, word) {
   }).then(checkResponse);
 }
 
-function updateHighScore (token, score, highScoreName) {
+function updateHighScore(token, score, highScoreName) {
   return fetch(`${Base_Url}/highscore/${score}/${highScoreName}`, {
     method: "PUT",
     headers: {
@@ -20,14 +20,35 @@ function updateHighScore (token, score, highScoreName) {
   }).then(checkResponse);
 }
 
-function getLeaderboardData (highScoreName) {
+function getLeaderboardData(highScoreName) {
   return fetch(`${Base_Url}/leaderboards/${highScoreName}`, {
     method: "GET",
   }).then(checkResponse);
 }
 
-export {
-addSolvedWord,
-updateHighScore,
-getLeaderboardData
-};
+function isWordRealApi(word) {
+  return fetch(`${Dictionary_Url}/${word}`, {
+    method: "GET",
+  }).then((res) => {
+    if (res.status === 404) {
+      return false;
+    }
+    if (res.ok) {
+      return true;
+    }
+    return Promise.reject(`Error ${res.status}`);
+  });
+}
+
+export function checkResponseD(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  // return Promise.reject(`Error ${res.status}`);
+  return res.json().then((err) => {
+    // Throw an error with the backend message
+    throw new Error(err.message || "Something went wrong");
+  });
+}
+
+export { addSolvedWord, updateHighScore, getLeaderboardData, isWordRealApi };

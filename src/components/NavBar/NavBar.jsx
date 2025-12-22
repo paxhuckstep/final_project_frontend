@@ -20,6 +20,7 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
   return (
     <>
       <div className="navbar">
+      
         <button
           onClick={() => {
             onRoute("/");
@@ -40,6 +41,18 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
         >
           About
         </button>
+
+           <button
+          onClick={() => {
+            onRoute("/spelling-bee");
+          }}
+          className={`navbar__button ${
+            isActive("/spelling-bee") ? "navbar__button_active" : ""
+          }`}
+        >
+          Spelling Bee
+        </button>
+
         <button
           onClick={() => {
             onRoute("/pokemon");
@@ -52,6 +65,7 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
         >
           Pokemon
         </button>
+
         <button
           onClick={() => {
             onRoute("/sports");
@@ -64,6 +78,7 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
         >
           Sports
         </button>
+
         <button
           onClick={() => {
             onRoute("/miscellaneous");
@@ -76,6 +91,7 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
         >
           Misc.
         </button>
+
         <button
           onClick={() => {
             onRoute("/leaderboards");
@@ -86,6 +102,7 @@ function NavBar({ isScoreZero, openRouteChangeModal }) {
         >
           Leaderboards
         </button>
+
       </div>
     </>
   );

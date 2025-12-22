@@ -1,0 +1,25 @@
+.spelling-bee {
+  /* display: flex; */
+  margin: 0 auto;
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  color: black;
+  justify-content: center;
+  text-align: center;
+}
+
+.spelling-bee__buttons{
+  margin: 250px auto;
+}
+.spelling-bee__buttons{
+  padding: 10px;
+}
+.spelling-bee__input {
+  font-size: larger;
+  color: red;
+  height: 30px;
+}
