@@ -29,15 +29,38 @@ function SpellingBee() {
 
   const setLettersManual = (letters, resetValues) => {
     const { optionalLetters, requiredLetter } = letters;
-    // const dublicateFound = letters.some((letterSearch, index) => {
-
     const allLetters = [...optionalLetters.split(""), requiredLetter];
     console.log(allLetters);
     const lettersCopy = allLetters.concat();
     const duplicateLetters = lettersCopy.filter((letter, index) => {
       lettersCopy.indexOf(letter) !== index;
     });
-    console.log(duplicateLetters);
+
+    let hasVowel = false;
+    allLetters.forEach((letter, index) => {
+      if (VOWEL_ARRAY.includes(letter) || letter === "y") {
+        hasVowel = true;
+      }
+    });
+
+    console.log(duplicateLetters); //not wroking ???\ but works, consoling dont console but functioanlity functions
+
+    if (duplicateLetters.length === 0) {
+      if (hasVowel) {
+        setPossibleLettersOptional(optionalLetters.split(""));
+        setPossibleLetterRequired(requiredLetter);
+        resetValues();
+        setIsOpen(false);
+      } else {
+        setErrorMessage("Must have at least one vowel");
+      }
+    } else {
+      setErrorMessage(
+        `Each letter must be unique, current duplicates: ${duplicateLetters.join(
+          " "
+        )}`
+      );
+    }
 
     //check values work
     //resetValues()
