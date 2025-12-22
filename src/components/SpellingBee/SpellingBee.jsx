@@ -28,14 +28,20 @@ function SpellingBee() {
   };
 
   const setLettersManual = (letters, resetValues) => {
-    const {optionalLetters, requiredLetter} = letters;
+    const { optionalLetters, requiredLetter } = letters;
     // const dublicateFound = letters.some((letterSearch, index) => {
-    //   const lettersCopy = letters.concat().filter((letter) => )
-    // })
 
-      const allLetters = [...optionalLetters.split(""), requiredLetter]
-      console.log(allLetters);
-  } 
+    const allLetters = [...optionalLetters.split(""), requiredLetter];
+    console.log(allLetters);
+    const lettersCopy = allLetters.concat();
+    const duplicateLetters = lettersCopy.filter((letter, index) => {
+      lettersCopy.indexOf(letter) !== index;
+    });
+    console.log(duplicateLetters);
+
+    //check values work
+    //resetValues()
+  };
 
   const setLettersRandom = () => {
     const requiredLetter = ALPHABET_ARRAY[Math.floor(Math.random() * 26)];
@@ -130,11 +136,11 @@ function SpellingBee() {
 
   const openEnterLetters = () => {
     setIsOpen(true);
-  }
+  };
 
   const closeActiveModal = () => {
     setIsOpen(false);
-  }
+  };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -143,7 +149,9 @@ function SpellingBee() {
       //   if (activeModal) {
       //     return;
       //   }
-      if(isOpen) { return}
+      if (isOpen) {
+        return;
+      }
       if (event.key == "Backspace") {
         if (fullDelete) {
           setCurrentInput([]);
@@ -224,7 +232,7 @@ function SpellingBee() {
           onClose={closeActiveModal}
           isOpen={isOpen}
           setLettersRandom={setLettersRandom}
-          // handleSubmit={submitLetters}
+          setLettersManual={setLettersManual}
           errorMessage={errorMessage}
           // isWaitingResponse={isWaitingResponse}
         />

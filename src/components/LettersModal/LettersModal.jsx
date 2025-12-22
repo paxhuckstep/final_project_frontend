@@ -6,7 +6,7 @@ function LettersModal({
   isOpen,
   onClose,
   setLettersRandom,
-
+  setLettersManual,
   errorMessage,
 
 }) {
@@ -15,7 +15,8 @@ function LettersModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSubmit({ optionalLetters, requiredLetter }, resetValues);
+    console.log(optionalLetters, requiredLetter)
+    setLettersManual({ optionalLetters, requiredLetter }, resetValues);
   };
   const handleOptionalLettersChange = (e) => {
     setOptionalLetters(e.target.value);
