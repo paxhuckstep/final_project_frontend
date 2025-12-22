@@ -14,7 +14,7 @@ function SpellingBee() {
   const [possibleLetterRequired, setPossibleLetterRequired] = useState("");
   const [currentInput, setCurrentInput] = useState("");
   const [foundWords, setFoundWords] = useState([]);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
   const [score, setScore] = useState(0);
   const [oldLocation, setOldLocation] = useState("");
@@ -28,6 +28,8 @@ function SpellingBee() {
   };
 
   const setLettersManual = (letters, resetValues) => {
+    setFoundWords([]);
+    setScore(0);
     const { optionalLetters, requiredLetter } = letters;
     const allLetters = [...optionalLetters.split(""), requiredLetter];
     console.log(allLetters);
@@ -52,7 +54,7 @@ function SpellingBee() {
         resetValues();
         setIsOpen(false);
       } else {
-        setErrorMessage("Must have at least one vowel");
+        setErrorMessage("Must Have At Least One Vowel");
       }
     } else {
       setErrorMessage(
@@ -98,13 +100,17 @@ function SpellingBee() {
     }
 
     setPossibleLettersOptional(optionalLetters);
+    setIsOpen(false);
 
     // setPossibleLetterRequired("i");
     // setPossibleLettersOptional(["g", "r", "a", "s", "o", "n"]);
 
     // console.log("localAlphabet post apocolypse: ", localAlphabet);
-    console.log("Required Letter: ", requiredLetter);
-    console.log("Optional Letters: ", optionalLetters);
+    setScore(0);
+    setFoundWords([]);
+
+    // console.log("Required Letter: ", requiredLetter);
+    // console.log("Optional Letters: ", optionalLetters);
   };
 
   const testAnswer = () => {
@@ -246,8 +252,15 @@ function SpellingBee() {
             Found Words: {foundWords.join(", ")}
           </p>
           <div className="spelling-bee__buttons">
-            <button className="spelling-bee__manual">Choose Letters</button>
-            <button className="spelling-bee__random">New Random Letters</button>
+            <button
+              onClick={() => {
+                setIsOpen(true);
+              }}
+              className="spelling-bee__button"
+            >
+              Choose Letters
+            </button>
+            <button className="spelling-bee__button">New Random Letters</button>
           </div>
         </div>
 
