@@ -161,11 +161,11 @@ function SpellingBee() {
     return word.length;
   };
 
-  const handleNewLetters = () => {};
+  // const handleNewLetters = () => {};
 
-  const openEnterLetters = () => {
-    setIsOpen(true);
-  };
+  // const openEnterLetters = () => {
+  //   setIsOpen(true);
+  // };
 
   const closeActiveModal = () => {
     setIsOpen(false);
@@ -235,6 +235,8 @@ function SpellingBee() {
     setLettersRandom();
   }, []);
 
+  useEffect(() => {}, [possibleLettersOptional]);
+
   return (
     <>
       <div className="spelling-bee">
@@ -260,7 +262,14 @@ function SpellingBee() {
             >
               Choose Letters
             </button>
-            <button className="spelling-bee__button">New Random Letters</button>
+            <button
+              onClick={() => {
+                setLettersRandom();
+              }}
+              className="spelling-bee__button"
+            >
+              New Random Letters
+            </button>
           </div>
         </div>
 
