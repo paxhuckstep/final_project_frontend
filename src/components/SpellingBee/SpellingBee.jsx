@@ -45,7 +45,7 @@ function SpellingBee() {
       }
     });
 
-    console.log(duplicateLetters); //not wroking ???\ but works, consoling dont console but functioanlity functions
+    // console.log(duplicateLetters); //not wroking ???\ but works, consoling dont console but functioanlity functions
 
     if (duplicateLetters.length === 0) {
       if (hasVowel) {
